@@ -21,7 +21,7 @@ $(function() {
         // Find all YouTube videos
         var $allVideos = $("iframe[src^='//www.youtube.com'], object, embed"),
         // The element that is fluid width
-        $fluidEl = $("figure");
+        $fluidEl = $("body");
         // Figure out and save aspect ratio for each video
         $allVideos.each(function() {
           $(this)
