@@ -1,6 +1,16 @@
 .logo{
     height: 32px;
 }
+.iconosportada{
+	height: 120px;
+	margin-top: 5px;
+	object-fit: scale-down;
+}
+.iconos{
+	height: 100px;
+	margin-bottom: 5px;
+	object-fit: scale-down;
+}
 .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
