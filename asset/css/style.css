@@ -1,10 +1,5 @@
 .logo{
-    height: 32px;
-}
-.iconosindex{
-	height: 120px;
-	margin-top: 5px;
-	object-fit: scale-down;
+    height: 28px;
 }
 .portada{
 	background: linear-gradient(rgba(0,0,0,0),rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.6)),
@@ -17,10 +12,51 @@
 	padding: 10vw 2em;
 	text-align: center;
 }
-.iconos{
+.iconp{
+	height: 120px;
+	margin-top: 5px;
+	object-fit: scale-down;
+}
+.icont{
 	height: 100px;
 	margin-bottom: 5px;
 	object-fit: scale-down;
+}
+.fbc{
+	color:white;
+	border-color:white;
+	background-color:rgb(59,89,152);
+}
+.twc{
+	color:white;
+	border-color:white;
+	background-color:rgb(0,172,237);
+}
+.wac{
+	color:white;
+	border-color:white;
+	background-color:rgb(37,211,102);
+}
+.igc{
+	color:white;
+	border-color:white;
+	background: linear-gradient(to bottom right,
+	rgb(76,104,215),rgb(138,58,185),rgb(188,42,141),rgb(233,89,80),rgb(252,204,99));
+}
+.lic{
+	color:white;
+	border-color:white;
+	background-color:rgb(0,119,181);
+}
+.ghc{
+	color:black;
+	border-color:black;
+	background-color:rgb(255, 255, 255);
+}
+.ytc{
+	color:white;
+	border-color:rgb(255, 255, 255);
+	background-color:rgb(255, 0, 0);
 }
 .videoWrapper {
 	position: relative;
