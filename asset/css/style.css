@@ -1,6 +1,10 @@
 .logo{
     height: 28px;
 }
+.logoportada{
+	height: 130px;
+	border-radius: 80px;
+}
 .portada{
 	background: linear-gradient(rgba(0,0,0,0),rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.6)),
     url("../img/navbar/nature.jpg");
