@@ -40,6 +40,11 @@
 	margin-bottom: 5px;
 	object-fit: scale-down;
 }
+.iconp{
+	height: 90px;
+	object-fit: scale-down;
+	text-align: center;
+}
 .fbc{
 	color:white;
 	border-color:white;
