@@ -45,13 +45,13 @@
 
         <div class="hero-body">
             <div class="container">
-                <form name="contacto" method="POST" action="enviarcorreo2.php">
-                    <h1 class="title is-2 has-text-centered">Contacto</h1>
-                    <hr>
+                <h1 class="title is-2 has-text-centered">Contacto</h1>
+                <hr>
+                <form action="https://formspree.io/pmz94@hotmail.com" method="POST">
                     <!--Nombre-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="nombre" placeholder="Nombre">
+                            <input class="input is-medium" type="text" name="name" placeholder="Nombre" required data-validation-required-message="Cual es su nombre?">
                             <span class="icon is-left">
                                 <i class="fa fa-user"></i>
                             </span>
@@ -60,7 +60,7 @@
                     <!--Correo-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="email" name="correo" placeholder="Correo">
+                            <input class="input is-medium" type="email" name="email" placeholder="Correo" required data-validation-required-message="Le falto su correo!">
                             <span class="icon is-left">
                                 <i class="fa fa-envelope"></i>
                             </span>
@@ -72,7 +72,7 @@
                     <!--Asunto-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="asunto" placeholder="Asunto">
+                            <input class="input is-medium" type="text" name="subject" placeholder="Asunto" required data-validation-required-message="Que quiere?">
                             <span class="icon is-left">
                                 <i class="fa fa-comment"></i>
                             </span>
@@ -81,7 +81,7 @@
                     <!--Mensaje-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <textarea class="textarea is-medium" name="mensaje" placeholder="Mensaje"></textarea>
+                            <textarea class="textarea is-medium" name="message" placeholder="Mensaje" required data-validation-required-message="Escriba un mensaje!"></textarea>
                         </div>
                     </div>
                     <!--Boton para enviar-->

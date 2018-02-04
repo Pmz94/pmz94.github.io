@@ -8,7 +8,7 @@
     $mensaje = $_POST["mensaje"]; //requerido
     $mensaje_error = "Error: ";
 
-    if(isset($correo_de)) {
+    if(isset($_POST["submit"])) {
         function died($error) {
             // si hay algún error, el formulario puede desplegar su mensaje de aviso
             echo "Error en sus datos. El formulario no puede ser enviado . <br><br>";
