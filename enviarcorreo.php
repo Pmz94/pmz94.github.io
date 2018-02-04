@@ -58,11 +58,6 @@
         //Se crean los encabezados del correo
         $encabezados = "De: " . $nombre . "\r\n" . "Responder a: " . $correo_de . "\r\n" . "X-Mailer: PHP/" . phpversion();
         mail($correo_a, $asunto, $correo_mensaje, $encabezados);
-?>
-
-<!--incluye aqui tu propio mensaje de Éxito-->
-Gracias por comunicarte conmigo, te respondere al correo que me hayas puesto.
-
-<?php
+        header("Location:enviado.html");
     }
 ?>
