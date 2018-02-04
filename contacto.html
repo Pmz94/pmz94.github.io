@@ -51,7 +51,7 @@
                     <!--Nombre-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="name" placeholder="Nombre" required data-validation-required-message="Cual es su nombre?">
+                            <input class="input is-medium" type="text" name="nombre" placeholder="Nombre" required data-validation-required-message="Cual es su nombre?">
                             <span class="icon is-left">
                                 <i class="fa fa-user"></i>
                             </span>
@@ -60,7 +60,7 @@
                     <!--Correo-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="email" name="email" placeholder="Correo" required data-validation-required-message="Le falto su correo!">
+                            <input class="input is-medium" type="email" name="_replyto" placeholder="Correo" required data-validation-required-message="Le falto su correo!">
                             <span class="icon is-left">
                                 <i class="fa fa-envelope"></i>
                             </span>
@@ -72,7 +72,7 @@
                     <!--Asunto-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="subject" placeholder="Asunto" required data-validation-required-message="Que quiere?">
+                            <input class="input is-medium" type="text" name="asunto" placeholder="Asunto" required data-validation-required-message="Que quiere?">
                             <span class="icon is-left">
                                 <i class="fa fa-comment"></i>
                             </span>
@@ -81,7 +81,7 @@
                     <!--Mensaje-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <textarea class="textarea is-medium" name="message" placeholder="Mensaje" required data-validation-required-message="Escriba un mensaje!"></textarea>
+                            <textarea class="textarea is-medium" name="mensaje" placeholder="Mensaje" required data-validation-required-message="Escriba un mensaje!"></textarea>
                         </div>
                     </div>
                     <!--Boton para enviar-->
@@ -96,8 +96,10 @@
                         </div>
                     </div>
                     <input type="hidden" name="_next" value="enviado.html">
+                    <input type="hidden" name="_subject" value="Correo de pagina web">
                     <input type="hidden" name="_format" value="plain">
                     <input type="hidden" name="_language" value="es">
+                    <input type="text" name="_gotcha" style="display:none">
                 </form>
             </div>
         </div>
