@@ -1,6 +1,69 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php
+if(isset($_POST['email'])) {
+    //Edita las dos líneas siguientes con tu dirección de correo y asunto personalizados
+    $email_to = "pmz94@hotmail.com";
+    $email_subject = "Correo de pagina web";
+    function died($error) {
+        // si hay algún error, el formulario puede desplegar su mensaje de aviso
+        echo "Error en sus datos. El formulario no puede ser enviado . <br><br>";
+        echo "Detalle de los errores . <br><br>";
+        echo $error . "<br><br>";
+        echo "Corriga estos errores e inténtelo de nuevo  . <br><br>";
+        die();
+    }
+    
+    //Se valida que los campos del formulairo estén llenos
+    if(!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['subject']) || !isset($_POST['message'])) {
+        died('LLene todos los campos.');
+    }
+    
+    //En esta parte el valor "nombre" nos sirve para crear las variables que recolectaran la información de cada campo
+    $name = $_POST['name']; //requerido
+    $email_from = $_POST['email']; //requerido
+    $subject = $_POST['subject']; //requerido 
+    $message = $_POST['message']; //requerido
+    $error_message = "Error";
+    
+    //En esta parte se verifica que la dirección de correo sea válida 
+    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+    if(!preg_match($email_exp, $email_from)) {
+        $error_message .= 'Correo invalido.<br>';
+    }
+    
+    //En esta parte se validan las cadenas de texto
+    $string_exp = "/^[A-Za-z .'-]+$/";
+    if(!preg_match($string_exp, $name)) {
+        $error_message .= 'El formato del nombre no es válido.<br>';
+    }
+    if(strlen($subject) <= 0) {
+        $error_message .= 'El formato del asunto no es válido.<br>';
+    }
+    if(strlen($message) <= 0) {
+        $error_message .= 'El formato del texto no es válido.<br>';
+    }
+    if(strlen($error_message) > 0) {
+        died($error_message);
+    }
 
+    //A partir de aqui se contruye el cuerpo del mensaje tal y como llegará al correo
+    $email_message = "Contenido del Mensaje.\n\n";
+    function clean_string($string) {
+        $bad = array(
+            "content-type","bcc:","to:","cc:","href"
+        );
+        return str_replace($bad, "", $string);
+    }
+    $email_message .= "Nombre: ".clean_string($name)."\n";
+    $email_message .= "Correo: ".clean_string($email_from)."\n";
+    $email_message .= "Asunto: ".clean_string($subject)."\n";
+    $email_message .= "Mensaje: ".clean_string($message)."\n";
+    
+    //Se crean los encabezados del correo
+    $headers = 'De: '.$email_from."\r\n".'Responder a: '.$email_from."\r\n".'X-Mailer: PHP/'.phpversion();
+    @mail($email_to, $email_subject, $email_message, $headers);
+?>
+
+<!--incluye aqui tu propio mensaje de Éxito-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,58 +107,19 @@
         </div>
 
         <div class="hero-body">
-            <div class="container">
-                <h1 class="title is-2 has-text-centered">Contacto</h1>
-                <hr>
-                <form name="contacto" method="POST" action="enviarcorreo.php">
-                    <!--Nombre-->
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="name" placeholder="Nombre">
-                            <span class="icon is-left">
-                                <i class="fa fa-user"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <!--Correo-->
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="email" name="email" placeholder="Correo">
-                            <span class="icon is-left">
-                                <i class="fa fa-envelope"></i>
-                            </span>
-                            <span class="icon is-right">
+            <div class="container has-text-centered">
+                <h1 class="title is-2">Gracias por comunicarte conmigo, te respondere al correo que me hayas puesto.</h1>
+                <br>
+                <div class="field">
+                    <div class="control">
+                        <a href="index.html" class="button is-medium is-dark">
+                            <span class="icon">
                                 <i class="fa fa-check"></i>
                             </span>
-                        </div>
+                            <span>OK</span>
+                        </a>
                     </div>
-                    <!--Asunto-->
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="subject" placeholder="Asunto">
-                            <span class="icon is-left">
-                                <i class="fa fa-comment"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <!--Mensaje-->
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <textarea class="textarea is-medium" name="message" placeholder="Mensaje"></textarea>
-                        </div>
-                    </div>
-                    <!--Boton para enviar-->
-                    <div class="field">
-                        <div class="control">
-                            <a href="enviarcorreo.php" class="button is-medium is-dark">
-                                <span class="icon">
-                                    <i class="fa fa-paper-plane"></i>
-                                </span>
-                                <span>Enviar</span>
-                            </a>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
 
@@ -138,4 +162,6 @@
     </section>
 </body>
 
-</html>
+<?php
+}
+?>
