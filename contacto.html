@@ -45,13 +45,13 @@
 
         <div class="hero-body">
             <div class="container">
-                <h1 class="title is-2 has-text-centered">Contacto</h1>
-                <hr>
                 <form name="contacto" method="POST" action="enviarcorreo.php">
+                    <h1 class="title is-2 has-text-centered">Contacto</h1>
+                    <hr>
                     <!--Nombre-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="name" placeholder="Nombre">
+                            <input class="input is-medium" type="text" name="nombre" placeholder="Nombre">
                             <span class="icon is-left">
                                 <i class="fa fa-user"></i>
                             </span>
@@ -60,7 +60,7 @@
                     <!--Correo-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="email" name="email" placeholder="Correo">
+                            <input class="input is-medium" type="email" name="correo" placeholder="Correo">
                             <span class="icon is-left">
                                 <i class="fa fa-envelope"></i>
                             </span>
@@ -72,7 +72,7 @@
                     <!--Asunto-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="subject" placeholder="Asunto">
+                            <input class="input is-medium" type="text" name="asunto" placeholder="Asunto">
                             <span class="icon is-left">
                                 <i class="fa fa-comment"></i>
                             </span>
@@ -81,18 +81,28 @@
                     <!--Mensaje-->
                     <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                            <textarea class="textarea is-medium" name="message" placeholder="Mensaje"></textarea>
+                            <textarea class="textarea is-medium" name="mensaje" placeholder="Mensaje"></textarea>
                         </div>
                     </div>
                     <!--Boton para enviar-->
                     <div class="field">
-                        <div class="control">
-                            <a href="enviarcorreo.php" class="button is-medium is-dark">
+                        <div class="control" style="text-align:center;">
+                            <!--<div class="button is-medium is-dark">
+                                <span class="icon">
+                                    <i class="fa fa-paper-plane"></i>
+                                </span>
+                                <input class="button is-medium is-dark" type="submit">
+                            </div>-->
+                            <!--<div class="button is-medium is-dark">
+                                <i class="fa fa-paper-plane"></i>
+                                <input class="button is-medium is-dark"type="submit" value="Enviar">
+                            </div>-->
+                            <button type="submit" class="button is-medium is-dark">
                                 <span class="icon">
                                     <i class="fa fa-paper-plane"></i>
                                 </span>
                                 <span>Enviar</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </form>
