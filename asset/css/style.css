@@ -1,10 +1,17 @@
+/*navbar*/
+/* Clase para icono en la esquina de la barra de navegacion */
 .logo{
     height: 28px;
 }
+
+/*index*/
+/* Clase para logo de la portada */
 .logoportada{
 	height: 130px;
 	border-radius: 80px;
 }
+
+/* Clase para el fondo de la portada */
 .portada{
 	background: linear-gradient(rgba(0,0,0,0),rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.6)),
     url("../img/navbar/nature.jpg");
@@ -16,7 +23,9 @@
 	padding: 10vw 2em;
 	text-align: center;
 }
-.linkcv{
+
+/* Clases para algun posible boton en la portada */
+.botonp{
 	border: 1px solid white;
 	border-radius: 70px;
 	color: white;
@@ -26,25 +35,19 @@
 	transition: none 200ms ease-out;
 	transition-property: color, background;
 }
-.linkcv:hover{
+.botonp:hover{
 	background:  white;
 	color: black;
 }
-/*.iconp{
+
+/* Clase para iconos de la portada */
+.iconr{
 	height: 100px;
 	margin-top: 5px;
 	object-fit: scale-down;
-}*/
-.icont{
-	height: 100px;
-	margin-bottom: 5px;
-	object-fit: scale-down;
 }
-.iconp{
-	height: 90px;
-	object-fit: scale-down;
-	text-align: center;
-}
+
+/* Clases para los botones de redes sociales */
 .fbc{
 	color:white;
 	border-color:white;
@@ -81,9 +84,8 @@
 	border-color:rgb(255, 255, 255);
 	background-color:rgb(255, 0, 0);
 }
-.icona{
-	height: 100px;
-}
+
+/* Clases para el video */
 .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
@@ -99,5 +101,27 @@
 	height: 100%;
 }
 .embed-video {
-    max-width: 560px;
+	max-width: 560px;
+}
+
+/*aptitudes*/
+/* Clase para iconos de Intereses Personales */
+.icona{
+	height: 100px;
+}
+
+/*habilidades*/
+/* Clase para iconos de habilidades */
+.iconp{
+	height: 90px;
+	object-fit: scale-down;
+	text-align: center;
+}
+
+/*trabajos*/
+/* Clase para iconos de cada trabajo */
+.icont{
+	height: 100px;
+	margin-bottom: 5px;
+	object-fit: scale-down;
 }

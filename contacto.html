@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contactar a Pedro Muñoz</title>
-    <link rel="apple-touch-icon" href="asset/img/navbar/logo.png">
-    <link rel="icon" type="image/png" href="asset/img/navbar/logo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="asset/img/navbar/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/img/navbar/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/img/navbar/logo.png">
+    <link rel="shortcut icon" href="asset/img/navbar/logo.png">
     <script type="text/javascript" src="asset/js/script.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 
 <body>
@@ -24,7 +26,7 @@
                             <img src="asset/img/navbar/logo.png" alt="Benny" title="Benny" class="logo">
                         </a>
                         <a href="index.html" class="navbar-item">Pedro Muñoz Zubía</a>
-                        <span class="navbar-burger burger" data-target="navRight">
+                        <span class="navbar-burger" data-target="navRight">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -47,55 +49,62 @@
             <div class="container">
                 <h1 class="title is-2 has-text-centered">Contacto</h1>
                 <hr>
-                <form action="https://formspree.io/pmz94@hotmail.com" method="POST">
-                    <!--Nombre-->
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="nombre" placeholder="Nombre" required data-validation-required-message="Cual es su nombre?">
-                            <span class="icon is-left">
-                                <i class="fa fa-user"></i>
-                            </span>
-                        </div>
+                <div class="columns">
+                    <div class="column"></div>
+                    <div class="column is-10">
+                        <form action="https://formspree.io/pmz94@hotmail.com" method="POST">
+                            <!--Nombre-->
+                            <div class="field">
+                                <div class="control has-icons-left has-icons-right">
+                                    <input id="nombre" class="input is-medium" type="text" name="nombre" placeholder="Nombre" autocomplete="off" required>
+                                    <span class="icon is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <!--Correo-->
+                            <div class="field">
+                                <div class="control has-icons-left has-icons-right">
+                                    <input id="email" class="input is-medium" type="email" name="email" placeholder="Correo" autocomplete="off" required>
+                                    <span class="icon is-left">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <!--Asunto-->
+                            <div class="field">
+                                <div class="control has-icons-left has-icons-right">
+                                    <input id="asunto" class="input is-medium" type="text" name="asunto" placeholder="Asunto" autocomplete="off" required>
+                                    <span class="icon is-left">
+                                        <i class="fas fa-comment"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <!--Mensaje-->
+                            <div class="field">
+                                <div class="control has-icons-left has-icons-right">
+                                    <textarea id="mensaje" class="textarea is-medium" name="mensaje" placeholder="Mensaje" required></textarea>
+                                </div>
+                            </div>
+                            <!--Boton para enviar-->
+                            <div class="field">
+                                <div class="control" style="text-align:center;">
+                                    <button type="submit" class="button is-medium is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </span>
+                                        <span>Enviar</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="_subject" value="Mensaje de Pagina Web">
+                            <input type="hidden" name="_next" value="enviado.html">
+                            <input type="hidden" name="_format" value="plain">
+                            <input type="hidden" name="_language" value="es">
+                        </form>
                     </div>
-                    <!--Correo-->
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="email" name="email" placeholder="Correo" required data-validation-required-message="Le falto su correo!">
-                            <span class="icon is-left">
-                                <i class="fa fa-envelope"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <!--Asunto-->
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-medium" type="text" name="_subject" placeholder="Asunto" required data-validation-required-message="Que quiere?">
-                            <span class="icon is-left">
-                                <i class="fa fa-comment"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <!--Mensaje-->
-                    <div class="field">
-                        <div class="control has-icons-left has-icons-right">
-                            <textarea class="textarea is-medium" name="mensaje" placeholder="Mensaje" required data-validation-required-message="Escriba un mensaje!"></textarea>
-                        </div>
-                    </div>
-                    <!--Boton para enviar-->
-                    <div class="field">
-                        <div class="control" style="text-align:center;">
-                            <button type="submit" class="button is-medium is-dark">
-                                <span class="icon">
-                                    <i class="fa fa-paper-plane"></i>
-                                </span>
-                                <span>Enviar</span>
-                            </button>
-                        </div>
-                    </div>
-                    <input type="hidden" name="_next" value="enviado.html">
-                    <input type="hidden" name="_format" value="plain">
-                    <input type="hidden" name="_language" value="es">
-                </form>
+                    <div class="column"></div>
+                </div>
             </div>
         </div>
 
@@ -106,28 +115,28 @@
                         <li>
                             <a href="http://www.facebook.com/pmz94" alt="Facebook" title="Facebook" target="_blank" class="nav-item">
                                 <span class="icon is-medium">
-                                    <i class="fa fa-lg fa-facebook"></i>
+                                    <i class="fab fa-lg fa-facebook-f"></i>
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="http://www.twitter.com/pmz94" alt="Twitter" title="Twitter" target="_blank" class="nav-item">
                                 <span class="icon is-medium">
-                                    <i class="fa fa-lg fa-twitter"></i>
+                                    <i class="fab fa-lg fa-twitter"></i>
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="http://www.instagram.com/pmz94" alt="Instagram" title="Instagram" target="_blank" class="nav-item">
                                 <span class="icon is-medium">
-                                    <i class="fa fa-lg fa-instagram"></i>
+                                    <i class="fab fa-lg fa-instagram"></i>
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="http://www.linkedin.com/in/pmz94" alt="LinkedIn" title="LinkedIn" target="_blank" class="nav-item">
                                 <span class="icon is-medium">
-                                    <i class="fa fa-lg fa-linkedin"></i>
+                                    <i class="fab fa-lg fa-linkedin-in"></i>
                                 </span>
                             </a>
                         </li>
