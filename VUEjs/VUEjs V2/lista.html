@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <h2 class="title is-2 has-text-centered">Lista con VUE.js</h2>
+    <hr>
+</head>
+
+<body>
+    <div id="main" class="container">
+        <div class="columns">
+            <div class="column">
+                <h1 class="title">Escribe algo para agregar a la lista</h1>
+                <input class="input is-medium" type="text" v-model="name" v-on:keyup.enter="addName">
+                <hr>
+                <div class="content">
+                    <h2 class="subtitle is-3">Lista:</h2>
+                    <ul>
+                        <li class="subtitle is-4" v-for="item in people" v-text="item"></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="column">
+                <h1 class="title">Creditos</h1>
+                <div class="notification is-primary" style="color:rgb(40,40,40);">
+                    <h4 class="subtitle is-4">Lista de Tareas</h4>
+                    <p>
+                        Creada usando
+                        <a href="https://vuejs.org/" target="_blank">VUE.js</a>.
+                    </p>
+                    <p>
+                        Escribe algo y luego presiona 'Intro'.
+                    </p>
+                    <br>
+                    <p>
+                        Producido Por:
+                        <br>
+                        <a href="https://pmz94.github.io" target="_blank">
+                            <strong>Pedro Muñoz Zubía</strong>
+                        </a>
+                    </p>
+                    <br>
+                    <p>
+                        <a href="https://www.facebook.com/pmz94" target="_blank">
+                            <i class="fab fa-facebook-square fa-2x"></i>
+                        </a>
+                        <a href="https://www.twitter.com/pmz94" target="_blank">
+                            <i class="fab fa-twitter-square fa-2x"></i>
+                        </a>
+                        <a href="https://www.github.com/pmz94" target="_blank">
+                            <i class="fab fa-github-square fa-2x"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: "#main",
+            data: {
+                people: []
+            },
+            name: "",
+            methods: {
+                addName: function () {
+                    this.people.push(this.name);
+                    this.name = "";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

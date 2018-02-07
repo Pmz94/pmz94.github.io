@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>VUE js 2 V-BIND</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUEjs 2 V-BIND</title>
 </head>
 
 <body>
@@ -12,12 +14,12 @@
         <p v-bind:title="info">Texto de Relleno... {{ info }}</p>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
     <script type="text/javascript">
         new Vue({
-            el: '#main',
+            el: "#main",
             data: {
-                info: '',
+                info: "",
             }
         });
     </script>

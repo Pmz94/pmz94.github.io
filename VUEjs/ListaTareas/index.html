@@ -3,78 +3,83 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>VUE js Prueba</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <h1 class="text-center">
-        <strong>Lista de Tareas con VUE js</strong>
-    </h1>
+    <h1 class="text-center">Lista de Tareas con VUE.js</h1>
+    <hr>
 </head>
-<hr>
 
 <body>
     <div id="appVue">
         <div class="container">
             <!--Con Bootstrap-->
-            <div class="row col-sm-7">
-                <div>
-                    <h1 v-if="lists.length > 0">Agregar Tarea</h1>
-                    <h1 v-else="lists">Crear Tarea</h1>
-                    <input type="text" class="form-control" v-model="newKeep" v-on:keyup.enter="addKeep">
-                </div>
-                <hr>
-                <div>
-                    <h1 v-if="lists.length > 0">Lista de Tareas</h1>
-                    <h1 v-else="lists">No hay Tareas</h1>
-                    <ul class="list-group">
-                        <li class="list-group-item" v-for="item in lists" v-bind:class="item.completed == true ? 'disabled' : ''" @click="item.completed = ! item.completed">
-                            {{ item.keep }}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-5">
-                <h1>Creditos</h1>
-                <div class="alert alert-info">
-                    <h4>
-                        <strong>Lista de Tareas</strong>
-                    </h4>
-                    <p>
-                        Creada usando
-                        <a href="https://vuejs.org/" target="_blank">VUE js</a>.
-                    </p>
-                    <p>
-                        Escribe alguna tarea y luego presiona 'Intro'.
-                        <br>Haz click sobre cada tarea para marcarla.
-                    </p>
-                    <br>
-                    <p>
-                        Producido Por:
-                        <br>
-                        <a href="https://pmz94.github.io" target="_blank">
-                            <strong>Pedro Muñoz Zubía</strong>
-                        </a>
-                    </p>
-                    <p>
-                        <a href="https://www.facebook.com/pmz94" target="_blank">
-                            <i class="fab fa-facebook-square fa-2x"></i>
-                        </a>
-                        <a href="https://www.twitter.com/pmz94" target="_blank">
-                            <i class="fab fa-twitter-square fa-2x"></i>
-                        </a>
-                        <a href="https://www.github.com/pmz94" target="_blank">
-                            <i class="fab fa-github-square fa-2x"></i>
-                        </a>
-                    </p>
-                </div>
-                <div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div>
+                        <h2 class="text-center" v-if="lists.length > 0">Agregar Tarea</h2>
+                        <h2 class="text-center" v-else="lists">Crear Tarea</h2>
+                        <input type="text" class="form-control" v-model="newKeep" v-on:keyup.enter="addKeep">
+                    </div>
                     <hr>
-                    <pre>
+                    <div>
+                        <h2 class="text-center" v-if="lists.length > 0">Lista de Tareas</h2>
+                        <h2 class="text-center" v-else="lists">No hay Tareas</h2>
+                        <ul class="list-group">
+                            <li class="list-group-item" v-for="item in lists" v-bind:class="item.completed == true ? 'disabled' : ''" @click="item.completed = ! item.completed">
+                                {{ item.keep }}
+                            </li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-sm-6">
+                    <h2 class="text-center">Creditos</h2>
+                    <div class="alert alert-primary">
+                        <h4>
+                            <strong>Lista de Tareas</strong>
+                        </h4>
+                        <p>
+                            Creada usando
+                            <a href="https://vuejs.org/" target="_blank">VUE.js</a>.
+                        </p>
+                        <p>
+                            Escribe alguna tarea y luego presiona 'Intro'.
+                            <br>Haz click sobre cada tarea para marcarla.
+                        </p>
+                        <br>
+                        <p>
+                            Producido Por:
+                            <br>
+                            <a href="https://pmz94.github.io" target="_blank">
+                                <strong>Pedro Muñoz Zubía</strong>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://www.facebook.com/pmz94" target="_blank">
+                                <i class="fab fa-facebook-square fa-2x"></i>
+                            </a>
+                            <a href="https://www.twitter.com/pmz94" target="_blank">
+                                <i class="fab fa-twitter-square fa-2x"></i>
+                            </a>
+                            <a href="https://www.github.com/pmz94" target="_blank">
+                                <i class="fab fa-github-square fa-2x"></i>
+                            </a>
+                        </p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h2 class="text-center">Archivo JSON</h2>
+                        <pre>
                         {{ $data | json }}
                     </pre>
+                    </div>
                 </div>
             </div>
+
             <!--Con Bulma-->
             <!--<div class="columns">
                 <div class="column is-7">
