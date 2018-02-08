@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Contactar a Pedro Muñoz</title>
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1>Contacto</h1>
+		</header>
+		<nav>
+			<ul class="navbar">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="aptitudes.html">Aptitudes</a></li>
+				<li><a href="grados.html">Grados Académicos</a></li>
+				<li><a href="habilidades.html">Habilidades</a></li>
+				<li><a href="trabajos.html">Trabajos Realizados</a></li>
+				<li><a href="contacto.html">Contacto</a></li>
+			</ul>
+		</nav>
+		<section>
+			<form action="https://formspree.io/pmz94@hotmail.com" method="POST">
+				<table border="1px">
+					<tr>
+						<td><label><strong>Nombre</strong></label></td>
+						<td><input type="text" name="nombre" required></td>
+					</tr>
+					<tr>
+						<td><label><strong>Correo</strong></label></td>
+						<td><input type="email" name="email" required></td>
+					</tr>
+					<tr>
+						<td><label><strong>Asunto</strong></label></td>
+						<td><input type="text" name="asunto" required></td>
+					</tr>
+					<tr>
+						<td><label><strong>Mensaje</strong></label></td>
+						<td><textarea name="mensaje" cols="22" rows="5" style="resize:none;" required></textarea></td>
+					</tr>
+					<tr><td colspan="2"><input type="submit" value="Enviar"></td></tr>
+				</table>
+			</form>
+		</section>
+		<footer><small>© Pedro Muñoz</small></footer>
+	</div>
+</body>
+
+</html>
