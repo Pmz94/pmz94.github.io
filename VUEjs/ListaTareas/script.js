@@ -5,9 +5,9 @@ new Vue({
         lists: []
     },
     methods: {
-        addKeep: function() {
-            this.lists.push({keep: this.newKeep, completed: false});
-            this.newKeep='';
+        addKeep: function () {
+            this.lists.push({ keep: this.newKeep, completed: false });
+            this.newKeep = '';
         }
     }
 });
