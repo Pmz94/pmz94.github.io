@@ -5,30 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ajax</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-    <link rel="stylesheet" href="vuestyle.css">
+    <title>ajaxbootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.4/vue-resource.min.js"></script>
     <!---->
-    <h1 class="title is-2 has-text-centered">Tabla VUE.js con AJAX</h1>
+    <h1 class="text-center">Tabla VUE.js con AJAX</h1>
     <hr>
 </head>
 
 <body>
     <div id="main" class="container">
-        <div class="columns">
-            <div class="column">
-                <h2 class="title">Tabla</h2>
-                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">Tabla</h2>
+                <table class="table table-bordered table-hover table-sm text-center">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Genero</th>
-                            <th>Ubicacion</th>
-                            <th>Fecha de Nacimiento</th>
+                            <th class="text-center" scope="col">Nombre</th>
+                            <th class="text-center" scope="col">Apellido</th>
+                            <th class="text-center" scope="col">Genero</th>
+                            <th class="text-center" scope="col">Ubicacion</th>
+                            <th class="text-center" scope="col">Fecha de Nac.</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,34 +43,28 @@
             </div>
         </div>
         <hr>
-        <div class="columns">
-            <div class="column is-7">
-                <h2 class="title">Archivo JSON</h2>
-                <pre style="max-height: 400px;">
-                    {{ $data | json }}
-                </pre>
-            </div>
-            <hr>
-            <div class="column is-5">
-                <h2 class="title">Creditos</h2>
-                <div class="content notification is-vue">
-                    <h4 class="subtitle is-4">Lista con AJAX</h4>
-                    <p>
-                        Uso de API para desarrollar paginas interactivas o accesar a un servidor web.
-                        <br> Lee un archivo JSON de datos aleatorios y los pega en la tabla de arriba.
-                    </p>
+        <div class="row">
+            <div class="col-sm-4">
+                <h2 class="text-center">Lista</h2>
+                <ul class="list-group">
+                    <li v-for="item in lists" class="list-group-item">
+                        {{item.name.first}} {{item.name.last}}
+                    </li>
+                </ul>
+                <hr>
+                <h2 class="text-center">Creditos</h2>
+                <div class="alert alert-primary">
+                    <h4>
+                        <strong>Lista con AJAX</strong>
+                    </h4>
                     <p>
                         Creada usando
-                        <a href="https://vuejs.org/" target="_blank">VUE.js</a> con el API
-                        <a href="https://www.w3schools.com/xml/ajax_intro.asp" target="_blank">AJAX</a>.
-                        <br> Datos obtenidos del API
-                        <a href="https://randomuser.me" target="_blank">Random User Generator</a>.
+                        <a href="https://vuejs.org/" target="_blank">VUE.js</a>.
                     </p>
                     <p>
-                        <a href="https://bulma.io" target="_blank" class="btnbulma">
-                            <img src="https://bulma.io/images/made-with-bulma--black.png" alt="Hecho con Bulma" width="128" height="24">
-                        </a>
+                        Lee un archivo de datos aleatorios JSON y pega nombres en la lista de arriba.
                     </p>
+                    <br>
                     <p>
                         Producido Por:
                         <br>
@@ -91,14 +84,26 @@
                         </a>
                     </p>
                 </div>
+                <hr>
+            </div>
+            <div class="col-sm-8">
+                <h2 class="text-center">Datos JSON</h2>
+                <pre class="pre-scrollable" style="max-height: 900px;">
+                    {{ $data | json }}
+                </pre>
             </div>
         </div>
     </div>
+
     <script type="text/javascript">
         //10 personas aleatorias con todos los atributos
         //var urlUsers = "https://randomuser.me/api/?results=10";
+
         //10 personas españolas y americanas aleatorias con los atributos: nombre,genero,correo,cel,ubicacion,fecha de nac. nacionalidad y fotografia
         var urlUsers = "https://randomuser.me/api/?nat=es,us&inc=name,gender,email,cell,location,dob,nat,picture&results=10";
+
+        //
+        //var urlUsers = "https://jsonplaceholder.typicode.com/users";
         new Vue({
             el: "#main",
             created: function () {
