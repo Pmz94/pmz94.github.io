@@ -6,7 +6,29 @@
 	height: 28px;
 }
 
-/*index*/
+.hero.is-dark {
+	background-color: rgb(40, 40, 40);
+	color: white;
+}
+
+.button.is-dark {
+	background-color: rgb(40, 40, 40);
+	color: white;
+}
+
+.title, .subtitle {
+	color: rgb(40, 40, 40);
+}
+
+.input, .textarea {
+	color: rgb(40, 40, 40);
+}
+
+body {
+	color: rgb(40, 40, 40);
+}
+
+/*index.html*/
 
 /* Clase para logo de la portada */
 
@@ -30,7 +52,7 @@
 
 /* Clases para algun posible boton en la portada */
 
-.botonp {
+.btnp {
 	border: 1px solid white;
 	border-radius: 70px;
 	color: white;
@@ -41,7 +63,7 @@
 	transition-property: color, background;
 }
 
-.botonp:hover {
+.btnp:hover {
 	background: white;
 	color: black;
 }
@@ -98,18 +120,34 @@
 	background-color: rgb(255, 0, 0);
 }
 
+.fbc:hover, .twc:hover, .wac:hover, .igc:hover, .lic:hover, .ytc:hover {
+	color: rgb(30, 30, 30);
+	border-color: white;
+}
+
+.ghc:hover {
+	color: white;
+	border-color: white;
+	background-color: rgb(40, 40, 40);
+}
+
 /* Clases para el video */
+
+.embed-video {
+	max-width: 800px;
+}
 
 .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%;
-	/* 16:9 */
-	padding-top: 30px;
+	/* 56.25% para que tenga 16:9 */
+	padding-top: 0px;
 	height: 0;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
-.videoWrapper iframe {
+.videoWrapper iframe, .videoWrapper object, .videoWrapper embed {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -117,11 +155,7 @@
 	height: 100%;
 }
 
-.embed-video {
-	max-width: 560px;
-}
-
-/*aptitudes*/
+/*aptitudes.html*/
 
 /* Clase para iconos de Intereses Personales */
 
@@ -129,7 +163,7 @@
 	height: 100px;
 }
 
-/*habilidades*/
+/*habilidades.html*/
 
 /* Clase para iconos de habilidades */
 
@@ -139,7 +173,7 @@
 	text-align: center;
 }
 
-/*trabajos*/
+/*trabajos.html*/
 
 /* Clase para iconos de cada trabajo */
 
