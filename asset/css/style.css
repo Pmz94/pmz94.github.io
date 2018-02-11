@@ -76,59 +76,92 @@ body {
 	object-fit: scale-down;
 }
 
-/* Clases para los botones de redes sociales */
+/* Clases para el color de los botones de redes sociales */
 
 .fbc {
-	color: white;
-	border-color: white;
 	background-color: rgb(59, 89, 152);
+	border-color: transparent;
+	color: white;
 }
 
 .twc {
-	color: white;
-	border-color: white;
 	background-color: rgb(0, 172, 237);
+	border-color: transparent;
+	color: white;
 }
 
 .wac {
-	color: white;
-	border-color: white;
 	background-color: rgb(37, 211, 102);
+	border-color: transparent;
+	color: white;
 }
 
 .igc {
-	color: white;
-	border-color: white;
 	background: linear-gradient(to bottom right, rgb(76, 104, 215), rgb(138, 58, 185), rgb(188, 42, 141), rgb(233, 89, 80), rgb(252, 204, 99));
+	border-color: rgb(225, 225, 225);
+	color: white;
 }
 
 .lic {
-	color: white;
-	border-color: white;
 	background-color: rgb(0, 119, 181);
+	border-color: transparent;
+	color: white;
 }
 
 .ghc {
-	color: black;
-	border-color: black;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(36, 41, 46);
+	border-color: transparent;
+	color: white;
 }
 
 .ytc {
+	background-color: red;
+	border-color: transparent;
 	color: white;
-	border-color: rgb(255, 255, 255);
-	background-color: rgb(255, 0, 0);
 }
 
-.fbc:hover, .twc:hover, .wac:hover, .igc:hover, .lic:hover, .ytc:hover {
-	color: rgb(30, 30, 30);
-	border-color: white;
+/* hovers para los botones */
+
+.fbc:hover {
+	background-color: rgb(49, 75, 127);
+	border-color: transparent;
+	color: white;
+}
+
+.twc:hover {
+	background-color: rgb(0, 153, 211);
+	border-color: transparent;
+	color: white;
+}
+
+.wac:hover {
+	background-color: rgb(33, 185, 90);
+	border-color: transparent;
+	color: white;
+}
+
+.igc:hover {
+	background: linear-gradient(to bottom right, rgb(67, 92, 189), rgb(119, 50, 159), rgb(162, 36, 122), rgb(207, 79, 71), rgb(226, 183, 89));
+	border-color: rgb(225, 225, 225);
+	color: white;
+}
+
+.lic:hover {
+	background-color: rgb(0, 102, 155);
+	border-color: transparent;
+	color: white;
 }
 
 .ghc:hover {
+	background-color: rgb(31, 35, 39);
+	border-color: transparent;
 	color: white;
-	border-color: white;
-	background-color: rgb(40, 40, 40);
+}
+
+.ytc:hover {
+	background-color: rgb(229, 0, 0);
+	border-color: transparent;
+	color: white;
 }
 
 /* Clases para el video */
