@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" href="vuestyle.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+</head>
+
+<body>
+    <header class="hero is-vue has-text-centered">
+        <h2 class="title is-2">Lista con VUE.js</h2>
+    </header>
+    <nav class="navbar is-vue">
+        <div class="container has-text-centered">
+            <div class="navbar-brand">
+
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div id="main" class="container">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="title">Escribe algo para agregar a la lista</h2>
+                    <div class="columns">
+                        <div class="column">
+                            <input id="algo" class="input is-medium" type="text" v-model="name" v-on:keyup.enter="addName">
+                        </div>
+                        <div class="column is-3">
+                            <button class="button is-medium is-vue" v-on:click="addName">Agregar</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="content">
+                        <h3 class="subtitle is-3">Lista:</h3>
+                        <ul>
+                            <li class="subtitle is-4" v-for="item in lista" v-text="item"></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="column is-5">
+                    <h2 class="title">Creditos</h2>
+                    <div class="content notification is-vue">
+                        <h4 class="subtitle is-4">Lista de Tareas</h4>
+                        <p>
+                            Escribe algo, luego presiona el botón o 'Intro'
+                            <br> y se agregara eso que escribiste a una lista.
+                        </p>
+                        <p>
+                            Creada usando
+                            <a href="https://vuejs.org/" target="_blank">VUE.js</a>.
+                        </p>
+                        <p>
+                            <a href="https://bulma.io" target="_blank" class="btnbulma">
+                                <img src="https://bulma.io/images/made-with-bulma--black.png" alt="Hecho con Bulma" width="128" height="24">
+                            </a>
+                        </p>
+                        <p>
+                            Producido Por:
+                            <br>
+                            <a href="https://pmz94.github.io" target="_blank">
+                                <strong>Pedro Muñoz Zubía</strong>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://www.facebook.com/pmz94" target="_blank">
+                                <i class="fab fa-facebook-square fa-2x"></i>
+                            </a>
+                            <a href="https://www.twitter.com/pmz94" target="_blank">
+                                <i class="fab fa-twitter-square fa-2x"></i>
+                            </a>
+                            <a href="https://www.github.com/pmz94" target="_blank">
+                                <i class="fab fa-github-square fa-2x"></i>
+                            </a>
+                        </p>
+                    </div>
+                    <hr>
+                    <div>
+                        <h2 class="title">Archivo JSON</h2>
+                        <pre>
+                        {{ $data | json }}
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        new Vue({
+            el: "#main",
+            data: {
+                lista: []
+            },
+            name: "",
+            methods: {
+                addName: function () {
+                    if (this.name == "") {
+                        alert("Escribe algo ahí!");
+                    } else {
+                        this.lista.push(this.name);
+                        this.name = "";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
