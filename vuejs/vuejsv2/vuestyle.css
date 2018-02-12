@@ -27,6 +27,14 @@ body, .title, .subtitle, .input, .textarea, .content h1, .content h2, .content h
     border-radius: 5px;
 }
 
+.table {
+    color: black;
+}
+
+.table.is-hoverable tbody tr:not(.is-selected):hover {
+    background-color: rgb(236, 236, 236);
+}
+
 .table tbody td {
     text-align: center!important;
 }
