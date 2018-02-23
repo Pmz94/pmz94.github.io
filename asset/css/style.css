@@ -15,6 +15,10 @@ body, .title, .subtitle, .input, .textarea {
 	color: rgb(40, 40, 40);
 }
 
+.button {
+	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
+}
+
 /*index.html*/
 
 /* Clase para logo de la portada */
@@ -22,6 +26,14 @@ body, .title, .subtitle, .input, .textarea {
 .logoportada {
 	height: 130px;
 	border-radius: 80px;
+}
+
+/* Clase para el menu de la hamburguesita */
+
+@media screen and (max-width: 1023px) {
+	.hero.is-dark .navbar-menu {
+		background-color: rgb(40, 40, 40);
+	}
 }
 
 /* Clase para el fondo de la portada */
@@ -201,4 +213,14 @@ body, .title, .subtitle, .input, .textarea {
 	height: 100px;
 	margin-bottom: 5px;
 	object-fit: scale-down;
+}
+
+/*contacto.html*/
+
+/* Clases para colorear el contorno de los texfields cuando tengan focus */
+
+.input.is-active, .input.is-focused, .input:active, .input:focus, .textarea.is-active, .textarea.is-focused, .textarea:active, .textarea:focus {
+	border-color: #545454;
+	-webkit-box-shadow: 0 0 0 0.125em rgba(80, 80, 80, 0.25);
+	box-shadow: 0 0 0 0.125em rgba(80, 80, 80, 0.25);
 }
