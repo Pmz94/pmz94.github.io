@@ -19,13 +19,35 @@ body, .title, .subtitle, .input, .textarea {
 	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
-/*index.html*/
+.button.is-focused, .button:focus {
+	border-color: #b7b7b7;
+}
 
-/* Clase para logo de la portada */
+.button.is-focused:not(:active), .button:focus:not(:active) {
+	-webkit-box-shadow: 0 0 0 0.125em rgba(70, 70, 70, 0.40);
+	box-shadow: 0 0 0 0.125em rgba(70, 70, 70, 0.40);
+}
 
-.logoportada {
-	height: 130px;
-	border-radius: 80px;
+/* Clases para que se hagan mas negros los botones de la izq de la barra de navegacion */
+
+.navbar.is-dark .navbar-brand .navbar-link.is-active, .navbar.is-dark .navbar-brand .navbar-link:hover, .navbar.is-dark .navbar-brand>a.navbar-item.is-active, .navbar.is-dark .navbar-brand>a.navbar-item:hover {
+	background-color: #202020;
+	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
+}
+
+/* Clase para que se hagan mas negros los botones de la derecha de la bara de navegacion */
+
+@media screen and (min-width: 1024px) {
+	.navbar.is-dark .navbar-end .navbar-link.is-active, .navbar.is-dark .navbar-end .navbar-link:hover, .navbar.is-dark .navbar-end>a.navbar-item.is-active, .navbar.is-dark .navbar-end>a.navbar-item:hover, .navbar.is-dark .navbar-start .navbar-link.is-active, .navbar.is-dark .navbar-start .navbar-link:hover, .navbar.is-dark .navbar-start>a.navbar-item.is-active, .navbar.is-dark .navbar-start>a.navbar-item:hover {
+		background-color: #202020;
+	}
+}
+
+/* Clase para que se haga mas negro los botones del footer cuando se haga hover */
+
+.hero.is-dark a.navbar-item:hover {
+	background-color: #202020;
+	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
 /* Clase para el menu de la hamburguesita */
@@ -34,6 +56,15 @@ body, .title, .subtitle, .input, .textarea {
 	.hero.is-dark .navbar-menu {
 		background-color: rgb(40, 40, 40);
 	}
+}
+
+/*index.html*/
+
+/* Clase para logo de la portada */
+
+.logoportada {
+	height: 130px;
+	border-radius: 80px;
 }
 
 /* Clase para el fondo de la portada */
