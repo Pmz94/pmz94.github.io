@@ -20,7 +20,8 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 .button.is-focused, .button:focus {
-	border-color: #b7b7b7;
+	border-color: #adadad;
+	color: #ffffff;
 }
 
 .button.is-focused:not(:active), .button:focus:not(:active) {
@@ -194,6 +195,50 @@ body, .title, .subtitle, .input, .textarea {
 	color: white;
 }
 
+/* focus para los botones */
+
+.fbc:focus {
+	background-color: rgb(49, 75, 127);
+	border-color: #adadad;
+	color: white;
+}
+
+.twc:focus {
+	background-color: rgb(0, 153, 211);
+	border-color: #adadad;
+	color: white;
+}
+
+.wac:focus {
+	background-color: rgb(33, 185, 90);
+	border-color: #adadad;
+	color: white;
+}
+
+.igc:focus {
+	background: linear-gradient(to bottom right, rgb(67, 92, 189), rgb(119, 50, 159), rgb(162, 36, 122), rgb(207, 79, 71), rgb(226, 183, 89));
+	border-color: #adadad;
+	color: white;
+}
+
+.lic:focus {
+	background-color: rgb(0, 102, 155);
+	border-color: #adadad;
+	color: white;
+}
+
+.ghc:focus {
+	background-color: rgb(46, 52, 59);
+	border-color: #adadad;
+	color: white;
+}
+
+.ytc:focus {
+	background-color: rgb(229, 0, 0);
+	border-color: #adadad;
+	color: white;
+}
+
 /* Clases para el video */
 
 .embed-video {
@@ -251,7 +296,7 @@ body, .title, .subtitle, .input, .textarea {
 /* Clases para colorear el contorno de los texfields cuando tengan focus */
 
 .input.is-active, .input.is-focused, .input:active, .input:focus, .textarea.is-active, .textarea.is-focused, .textarea:active, .textarea:focus {
-	border-color: #545454;
-	-webkit-box-shadow: 0 0 0 0.125em rgba(80, 80, 80, 0.25);
-	box-shadow: 0 0 0 0.125em rgba(80, 80, 80, 0.25);
+	border-color: #adadad;
+	-webkit-box-shadow: 0 0 0 0.125em rgba(130, 130, 130, 0.45);
+	box-shadow: 0 0 0 0.125em rgba(130, 130, 130, 0.45);
 }
