@@ -300,3 +300,10 @@ body, .title, .subtitle, .input, .textarea {
 	-webkit-box-shadow: 0 0 0 0.125em rgba(130, 130, 130, 0.45);
 	box-shadow: 0 0 0 0.125em rgba(130, 130, 130, 0.45);
 }
+
+.is-paypal, .is-paypal:hover, .is-paypal:focus {
+	background-color: rgb(255, 196, 57);
+	border-color: transparent;
+	color: black;
+	font-weight: bold;
+}
