@@ -33,19 +33,21 @@
                         <thead>
                             <tr>
                                 <th class="text-center" scope="col">Nombre</th>
-                                <th class="text-center" scope="col">Apellido</th>
                                 <th class="text-center" scope="col">Genero</th>
                                 <th class="text-center" scope="col">Ubicacion</th>
-                                <th class="text-center" scope="col">Fecha de Nac.</th>
+                                <th class="text-center" scope="col">Fecha de Nacimiento</th>
+                                <th class="text-center" scope="col">Correo</th>
+                                <th class="text-center" scope="col">Telefono</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="item in lists">
-                                <td>{{item.name.first}}</td>
-                                <td>{{item.name.last}}</td>
+                            <tr v-for="item in gente">
+                                <td>{{item.name.first}} {{item.name.last}}</td>
                                 <td>{{item.gender}}</td>
                                 <td>{{item.location.city}}, {{item.location.state}}, {{item.nat}}</td>
                                 <td>{{item.dob}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.cell}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -62,7 +64,7 @@
                 <div class="col-sm-5">
                     <h2>Lista</h2>
                     <ul class="list-group">
-                        <li v-for="item in lists" class="list-group-item">
+                        <li v-for="item in gente" class="list-group-item">
                             {{item.name.first}} {{item.name.last}}
                         </li>
                     </ul>
@@ -114,12 +116,11 @@
     </section>
     <script type="text/javascript">
         //10 personas aleatorias con todos los atributos
-        //var urlUsers = "https://randomuser.me/api/?results=10";
+        //var urlUsers = "https://randomuser.me/api/?results=20";
 
-        //10 personas españolas y americanas aleatorias con los atributos: nombre,genero,correo,cel,ubicacion,fecha de nac. nacionalidad y fotografia
-        var urlUsers = "https://randomuser.me/api/?nat=es,us&inc=name,gender,email,cell,location,dob,nat,picture&results=10";
+        //10 personas españolas y americanas aleatorias con todos los atributos
+        var urlUsers = "https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=10";
 
-        //
         //var urlUsers = "https://jsonplaceholder.typicode.com/users";
         new Vue({
             el: "#main",
@@ -127,12 +128,12 @@
                 this.getUsers();
             },
             data: {
-                lists: []
+                gente: []
             },
             methods: {
                 getUsers: function () {
                     this.$http.get(urlUsers).then(function (response) {
-                        this.lists = response.data.results;
+                        this.gente = response.data.results;
                     });
                 }
             }

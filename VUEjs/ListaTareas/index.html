@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lista de Tareas</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
     <h1 class="text-center">Lista de Tareas con VUE.js</h1>
     <hr>
 </head>
@@ -16,7 +16,6 @@
 <body>
     <div id="appVue">
         <div class="container">
-            <!--Con Bootstrap-->
             <div class="row">
                 <div class="col-sm-6">
                     <div>
@@ -79,74 +78,22 @@
                     </div>
                 </div>
             </div>
-
-            <!--Con Bulma-->
-            <!--
-            <div class="columns">
-                <div class="column is-7">
-                    <div>
-                        <h1 class="title is-1" v-if="lists.length > 0">Agregar Tarea</h1>
-                        <h1 class="title is-1" v-else="lists">Crear Tarea</h1>
-                        <input class="input" type="text" v-model="newKeep" v-on:keyup.enter="addKeep">
-                    </div>
-                    <hr>
-                    <div class="menu">
-                        <h1 class="title is-1" v-if="lists.length > 0">Lista de Tareas</h1>
-                        <h1 class="title is-1" v-else="lists">No hay Tareas</h1>
-                        <ul class="menu-list">
-                            <li v-for="item in lists" v-bind:class="item.completed == true ? 'disabled' : ''" @click="item.completed = ! item.completed">
-                                <a>{{ item.keep }}</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="column is-5">
-                    <h1 class="title is-1">Creditos</h1>
-                    <div class="notification is-info">
-                        <h4 class="title is-4">
-                            <strong>Lista de Tareas</strong>
-                        </h4>
-                        <p>
-                            Creada usando
-                            <a href="https://vuejs.org/" target="_blank">VUE js</a>.
-                        </p>
-                        <p>
-                            Escribe alguna tarea y luego presiona 'Intro'.
-                            <br>Haz click sobre cada tarea para marcarla.
-                        </p>
-                        <br>
-                        <p>
-                            Producido Por:
-                            <br>
-                            <a href="https://pmz94.github.io" target="_blank">
-                                <strong>Pedro Muñoz Zubía</strong>
-                            </a>
-                        </p>
-                        <p>
-                            <a href="https://www.facebook.com/pmz94" target="_blank">
-                                <i class="fab fa-facebook-square fa-lg"></i>
-                            </a>
-                            <a href="https://www.twitter.com/pmz94" target="_blank">
-                                <i class="fab fa-twitter-square fa-lg"></i>
-                            </a>
-                            <a href="https://www.github.com/pmz94" target="_blank">
-                                <i class="fab fa-github-square fa-lg"></i>
-                            </a>
-                        </p>
-                    </div>
-                    <div>
-                        <hr>
-                        <pre>
-                            {{ $data | json }}
-                        </pre>
-                    </div>
-                </div>
-            </div>
-            -->
         </div>
     </div>
-    <script src="vue.js"></script>
-    <script src="script.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#appVue',
+            data: {
+                newKeep: '',
+                lists: []
+            },
+            methods: {
+                addKeep: function () {
+                    this.lists.push({ keep: this.newKeep, completed: false });
+                    this.newKeep = '';
+                }
+            }
+        });</script>
 </body>
 
 </html>

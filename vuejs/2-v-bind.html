@@ -13,16 +13,30 @@
 </head>
 
 <body>
-    <header class="hero is-vue has-text-centered">
-        <h2 class="title is-2">V-BIND</h2>
-    </header>
-    <nav class="navbar is-vue">
+    <nav class="navbar is-transparent is-vue">
         <div class="container has-text-centered">
             <div class="navbar-brand">
-
+                <a href="../index.html" class="navbar-item">
+                    <img src="../asset/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal" class="logo">
+                </a>
+                <span class="navbar-burger" data-target="navRight">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navRight" class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="1-lista.html" class="navbar-item">Listas</a>
+                    <a href="#" class="navbar-item">V-Bind</a>
+                    <a href="3-ajax.html" class="navbar-item">AJAX</a>
+                </div>
             </div>
         </div>
     </nav>
+    <header class="hero is-vue has-text-centered">
+        <h2 class="title is-2">Tabla VUE.js con AJAX</h2>
+    </header>
     <section class="section">
         <div id="main" class="container">
             <input class="input is-medium" type="text" v-model="info">

@@ -8,6 +8,14 @@ body, .title, .subtitle, .input, .textarea, .content h1, .content h2, .content h
     color: black;
 }
 
+.navbar-item {
+    color: black;
+}
+
+a.navbar-item:hover {
+    color: #35495e;
+}
+
 .button.is-vue {
     background-color: rgb(79, 192, 141);
     border-color: transparent;
