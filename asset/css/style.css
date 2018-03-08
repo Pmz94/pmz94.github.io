@@ -32,7 +32,7 @@ body, .title, .subtitle, .input, .textarea {
 /* Clases para que se hagan mas negros los botones de la izq de la barra de navegacion */
 
 .navbar.is-dark .navbar-brand .navbar-link.is-active, .navbar.is-dark .navbar-brand .navbar-link:hover, .navbar.is-dark .navbar-brand>a.navbar-item.is-active, .navbar.is-dark .navbar-brand>a.navbar-item:hover {
-	background-color: #202020;
+	background-color: #2f2f2f;
 	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
@@ -40,14 +40,14 @@ body, .title, .subtitle, .input, .textarea {
 
 @media screen and (min-width: 1024px) {
 	.navbar.is-dark .navbar-end .navbar-link.is-active, .navbar.is-dark .navbar-end .navbar-link:hover, .navbar.is-dark .navbar-end>a.navbar-item.is-active, .navbar.is-dark .navbar-end>a.navbar-item:hover, .navbar.is-dark .navbar-start .navbar-link.is-active, .navbar.is-dark .navbar-start .navbar-link:hover, .navbar.is-dark .navbar-start>a.navbar-item.is-active, .navbar.is-dark .navbar-start>a.navbar-item:hover {
-		background-color: #202020;
+		background-color: #2f2f2f;
 	}
 }
 
 /* Clase para que se haga mas negro los botones del footer cuando se haga hover */
 
 .hero.is-dark a.navbar-item:hover {
-	background-color: #202020;
+	background-color: #2f2f2f;
 	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
