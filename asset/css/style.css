@@ -301,9 +301,19 @@ body, .title, .subtitle, .input, .textarea {
 	box-shadow: 0 0 0 0.125em rgba(130, 130, 130, 0.45);
 }
 
-.is-paypal, .is-paypal:hover, .is-paypal:focus {
-	background-color: rgb(255, 196, 57);
+.button.is-paypal {
+	background-color: #ffc439;
 	border-color: transparent;
 	color: black;
 	font-weight: bold;
+	font-style: italic;
+	width: 150px;
+}
+
+.button.is-paypal:hover {
+	box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.05);
+}
+
+.button.is-paypal:focus {
+	box-shadow: -1px -1px 18px 1px rgba(0, 0, 0, 0.25) inset;
 }
