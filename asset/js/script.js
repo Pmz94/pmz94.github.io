@@ -1,3 +1,4 @@
+/* navbar burger */
 document.addEventListener("DOMContentLoaded", function () {
     //Obtener los elementos que hay en la clase "navbar-burger"
     var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+/* contacto.html */
 document.addEventListener("DOMContentLoaded", function () {
     //Para validar el input del nombre
     var $nombre = document.getElementById("nombre");
