@@ -304,7 +304,8 @@ body, .title, .subtitle, .input, .textarea {
 .button.is-paypal {
 	background-color: #ffc439;
 	border-color: transparent;
-	color: black;
+	color: #111111;
+    font-family: Verdana, sans-serif;
 	font-weight: bold;
 	font-style: italic;
 	width: 150px;
