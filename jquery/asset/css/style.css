@@ -1,0 +1,33 @@
+.logo {
+    height: 28px;
+}
+
+nav {
+    background-color: #303030;
+}
+
+.navbar-text {
+    color: white;
+}
+
+#espaciotabla {
+    height: 500px;
+}
+
+.table.dataTable {
+    border-collapse: collapse !important;
+}
+
+.page-item.active .page-link {
+    background-color: #a9b2b2;
+    border-color: #bbb;
+    color: black;
+}
+
+.page-link {
+    color: #000;
+}
+
+.page-link:hover {
+    color: #000000;
+}
