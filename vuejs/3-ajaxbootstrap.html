@@ -8,15 +8,15 @@
     <title>Tabla con AJAX en Bootstrap</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="vuestyle.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.0/vue-resource.min.js"></script>
 </head>
 
+<style>
+    body {
+        background: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
+    }
+</style>
+
 <body>
-    <header class="jumbotron is-vue text-center" style="padding:0rem;">
-        <h2>Tabla VUE.js con AJAX</h2>
-    </header>
     <nav class="navbar is-vue">
         <div class="container text-center">
             <div class="navbar-brand">
@@ -24,7 +24,9 @@
             </div>
         </div>
     </nav>
+
     <section>
+        <h2 class="text-center">Tabla VUE.js con AJAX</h2>
         <div id="main" class="container">
             <div class="row">
                 <div class="col">
@@ -45,7 +47,7 @@
                                 <td>{{item.name.first}} {{item.name.last}}</td>
                                 <td>{{item.gender}}</td>
                                 <td>{{item.location.city}}, {{item.location.state}}, {{item.nat}}</td>
-                                <td>{{item.dob}}</td>
+                                <td>{{item.dob.date}}</td>
                                 <td>{{item.email}}</td>
                                 <td>{{item.cell}}</td>
                             </tr>
@@ -78,7 +80,7 @@
                         </p>
                         <p>
                             Creada usando
-                            <a href="https://vuejs.org/" target="_blank">VUE.js</a> con el API
+                            <a href="https://vuejs.org/" target="_blank">VUE.js</a> con
                             <a href="https://www.w3schools.com/xml/ajax_intro.asp" target="_blank">AJAX</a>.
                             <br> Datos obtenidos del API
                             <a href="https://randomuser.me" target="_blank">Random User Generator</a>.
@@ -112,12 +114,13 @@
             </div>
         </div>
     </section>
-    <script type="text/javascript">
-        //10 personas aleatorias con todos los atributos
-        //var urlUsers = "https://randomuser.me/api/?results=20";
 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.0/vue-resource.min.js"></script>
+    <script type="text/javascript">
         //10 personas españolas y americanas aleatorias con todos los atributos
-        var urlUsers = "https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=10";
+        var urlUsers = "https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=15";
 
         //var urlUsers = "https://jsonplaceholder.typicode.com/users";
         new Vue({

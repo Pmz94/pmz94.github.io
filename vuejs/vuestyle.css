@@ -35,8 +35,13 @@ a.navbar-item:hover {
     border-radius: 5px;
 }
 
+pre {
+    background-color: white !important;
+}
+
 .table {
     color: black;
+    background-color: white;
 }
 
 .table.is-hoverable tbody tr:not(.is-selected):hover {

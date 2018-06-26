@@ -8,11 +8,13 @@
     <title>Tabla con AJAX</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
     <link rel="stylesheet" href="vuestyle.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.0/vue-resource.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>-->
 </head>
+
+<style>
+    body {
+        background: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
+    }
+</style>
 
 <body>
     <nav class="navbar is-transparent is-vue">
@@ -29,8 +31,7 @@
             </div>
             <div id="navRight" class="navbar-menu">
                 <div class="navbar-end">
-                    <a href="1-lista.html" class="navbar-item">Listas</a>
-                    <a href="2-v-bind.html" class="navbar-item">V-Bind</a>
+                    <a href="1-lista.html" class="navbar-item">Lista y V-Bind</a>
                     <a href="#" class="navbar-item">AJAX</a>
                 </div>
             </div>
@@ -51,6 +52,7 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Genero</th>
+                                        <th>Edad</th>
                                         <th>Ubicacion</th>
                                         <th>Fecha de Nacimiento</th>
                                         <th>Correo</th>
@@ -61,8 +63,9 @@
                                     <tr v-for="item in gente">
                                         <td>{{item.name.first}} {{item.name.last}}</td>
                                         <td>{{item.gender}}</td>
+                                        <td>{{item.dob.age}}</td>
                                         <td>{{item.location.city}}, {{item.location.state}}, {{item.nat}}</td>
-                                        <td>{{item.dob}}</td>
+                                        <td>{{item.dob.date}}</td>
                                         <td>{{item.email}}</td>
                                         <td>{{item.cell}}</td>
                                     </tr>
@@ -88,7 +91,7 @@
                             </p>
                             <p>
                                 Creada usando
-                                <a href="https://vuejs.org/" target="_blank">VUE.js</a> con el API
+                                <a href="https://vuejs.org/" target="_blank">VUE.js</a> con
                                 <a href="https://www.w3schools.com/xml/ajax_intro.asp" target="_blank">AJAX</a>.
                                 <br> Datos obtenidos de la pagina
                                 <a href="https://randomuser.me" target="_blank">Random User Generator</a>.
@@ -122,10 +125,13 @@
             </div>
         </div>
     </section>
-    <script type="text/javascript">
-        //20 personas aleatorias con todos los atributos
-        //var urlUsers = "https://randomuser.me/api/?results=20";
 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.0/vue-resource.min.js"></script>
+    <!--<script src = "https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/es.js"></script>
+    <script type="text/javascript">
         //20 personas aleatorias con todos los atributos
         var urlUsers = "https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=20";
         new Vue({

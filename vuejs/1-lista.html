@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista</title>
+    <title>Lista y V-Bind</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
     <link rel="stylesheet" href="vuestyle.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
 </head>
+
+<style>
+    #section1 {
+        background: url('https://www.transparenttextures.com/patterns/black-thread-light.png');
+    }
+    #section2 {
+        background: url('https://www.transparenttextures.com/patterns/always-grey.png');
+    }
+</style>
 
 <body>
     <nav class="navbar is-transparent is-vue">
@@ -27,18 +34,17 @@
             </div>
             <div id="navRight" class="navbar-menu">
                 <div class="navbar-end">
-                    <a href="#" class="navbar-item">Listas</a>
-                    <a href="2-v-bind.html" class="navbar-item">V-Bind</a>
+                    <a href="#" class="navbar-item">Lista y V-Bind</a>
                     <a href="3-ajax.html" class="navbar-item">AJAX</a>
                 </div>
             </div>
         </div>
     </nav>
-    <header class="hero is-vue has-text-centered">
-        <h2 class="title is-2">Tabla VUE.js con AJAX</h2>
-    </header>
-    <section class="section">
-        <div id="main" class="container">
+
+    <!--Lista-->
+    <section id = "section1" class="section">
+        <h2 class="title is-2 has-text-centered">Lista</h2>
+        <div id="lista" class="container">
             <div class="columns">
                 <div class="column">
                     <h2 class="title">Escribe algo para agregar a la lista</h2>
@@ -104,9 +110,24 @@
             </div>
         </div>
     </section>
+
+    <!--V-Bind-->
+    <section id = "section2" class="section">
+        <h2 class="title is-2 has-text-centered">V-Bind</h2>
+        <div id="v-bind" class="container">
+            <input class="input is-medium" type="text" v-model="info">
+            <br>
+            <h3 class="subtitle" v-bind:title="info">Texto de Relleno...
+                <br>{{ info }}</h3>
+        </div>
+    </section>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
     <script type="text/javascript">
+        //Para la lista
         new Vue({
-            el: "#main",
+            el: "#lista",
             data: {
                 lista: []
             },
@@ -120,6 +141,14 @@
                         this.name = "";
                     }
                 }
+            }
+        });
+        
+        //Para el V-Bind
+        new Vue({
+            el: "#v-bind",
+            data: {
+                info: "",
             }
         });
     </script>

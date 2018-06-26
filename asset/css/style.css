@@ -1,7 +1,6 @@
 /*navbar*/
 
 /* Clase para icono en la esquina de la barra de navegacion */
-
 .logo {
 	height: 28px;
 }
@@ -30,14 +29,12 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 /* Clases para que se hagan mas negros los botones de la izq de la barra de navegacion */
-
 .navbar.is-dark .navbar-brand .navbar-link.is-active, .navbar.is-dark .navbar-brand .navbar-link:hover, .navbar.is-dark .navbar-brand>a.navbar-item.is-active, .navbar.is-dark .navbar-brand>a.navbar-item:hover {
 	background-color: #2f2f2f;
 	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
 /* Clase para que se hagan mas negros los botones de la derecha de la bara de navegacion */
-
 @media screen and (min-width: 1024px) {
 	.navbar.is-dark .navbar-end .navbar-link.is-active, .navbar.is-dark .navbar-end .navbar-link:hover, .navbar.is-dark .navbar-end>a.navbar-item.is-active, .navbar.is-dark .navbar-end>a.navbar-item:hover, .navbar.is-dark .navbar-start .navbar-link.is-active, .navbar.is-dark .navbar-start .navbar-link:hover, .navbar.is-dark .navbar-start>a.navbar-item.is-active, .navbar.is-dark .navbar-start>a.navbar-item:hover {
 		background-color: #2f2f2f;
@@ -45,31 +42,27 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 /* Clase para que se haga mas negro los botones del footer cuando se haga hover */
-
 .hero.is-dark a.navbar-item:hover {
 	background-color: #2f2f2f;
 	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
 /* Clase para el menu de la hamburguesita */
-
 @media screen and (max-width: 1023px) {
 	.hero.is-dark .navbar-menu {
 		background-color: rgb(40, 40, 40);
 	}
 }
 
-/*index.html*/
+/* index.html */
 
 /* Clase para logo de la portada */
-
 .logoportada {
 	height: 130px;
 	border-radius: 80px;
 }
 
 /* Clase para el fondo de la portada */
-
 .portada {
 	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url("../img/navbar/nature.jpg");
 	background-position: center top;
@@ -82,7 +75,6 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 /* Clases para algun posible boton en la portada */
-
 .btnp {
 	border: 1px solid white;
 	border-radius: 70px;
@@ -100,7 +92,6 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 /* Clase para iconos de la portada */
-
 .iconr {
 	height: 100px;
 	margin-top: 5px;
@@ -108,7 +99,6 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 /* Clases para el color de los botones de redes sociales */
-
 .fbc {
 	background-color: rgb(59, 89, 152);
 	border-color: transparent;
@@ -152,7 +142,6 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 /* hovers para los botones */
-
 .fbc:hover {
 	background-color: rgb(49, 75, 127);
 	border-color: transparent;
@@ -196,7 +185,6 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 /* focus para los botones */
-
 .fbc:focus {
 	background-color: rgb(49, 75, 127);
 	border-color: #adadad;
@@ -240,7 +228,6 @@ body, .title, .subtitle, .input, .textarea {
 }
 
 /* Clases para el video */
-
 .embed-video {
 	max-width: 800px;
 }
@@ -266,7 +253,6 @@ body, .title, .subtitle, .input, .textarea {
 /*aptitudes.html*/
 
 /* Clase para iconos de Intereses Personales */
-
 .icona {
 	height: 100px;
 }
@@ -274,7 +260,6 @@ body, .title, .subtitle, .input, .textarea {
 /*habilidades.html*/
 
 /* Clase para iconos de habilidades */
-
 .iconp {
 	height: 90px;
 	object-fit: scale-down;
@@ -284,7 +269,6 @@ body, .title, .subtitle, .input, .textarea {
 /*trabajos.html*/
 
 /* Clase para iconos de cada trabajo */
-
 .icont {
 	height: 100px;
 	margin-bottom: 5px;
@@ -294,7 +278,6 @@ body, .title, .subtitle, .input, .textarea {
 /*contacto.html*/
 
 /* Clases para colorear el contorno de los texfields cuando tengan focus */
-
 .input.is-active, .input.is-focused, .input:active, .input:focus, .textarea.is-active, .textarea.is-focused, .textarea:active, .textarea:focus {
 	border-color: #adadad;
 	-webkit-box-shadow: 0 0 0 0.125em rgba(130, 130, 130, 0.45);
