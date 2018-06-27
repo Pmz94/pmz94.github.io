@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DataTables</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="jquerystyle.css">
 </head>
+
+<style>
+    #espaciotabla {
+        height: 500px;
+    }
+
+    .table.dataTable {
+        border-collapse: collapse !important;
+    }
+
+    .page-item.active .page-link {
+        background-color: #a9b2b2;
+        border-color: #bbb;
+        color: black;
+    }
+
+    .page-link {
+        color: #000;
+    }
+
+    .page-link:hover {
+        color: #000000;
+    }
+</style>
 
 <body>
     <nav class="navbar">
@@ -36,9 +60,12 @@
                     <tr>
                         <th>Foto</th>
                         <th>Nombre</th>
+                        <th>Edad</th>
                         <th>Ubicacion</th>
                         <th>Nac</th>
                         <th>FechaNac</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
                     </tr>
                 </thead>
             </table>
@@ -84,7 +111,78 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.js"></script>
-    <script src="jqueryscript.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#tabla').DataTable({
+                buttons: ['csv'],
+                order: [],
+                pagingType: 'full',
+                lengthMenu: [[8, 16, 24], [8, 16, 24]],
+                columnDefs: [
+                    {
+                        targets: [0, 7],
+                        orderable: false
+                    }
+                ],
+                ajax: {
+                    url: 'https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=100',
+                    dataSrc: 'results'
+                },
+                columns: [
+                    {
+                        data: 'picture.thumbnail',
+                        render: function (data, type, row) {
+                            return '<img src="' + data + '">';
+                        }
+                    },
+                    {
+                        data: 'name',
+                        render: function (data, type, row) {
+                            return data.first + ' ' + data.last;
+                        }
+                    },
+                    {
+                        data: 'dob',
+                        render: function (data, type, row) {
+                            return data.age;
+                        }
+                    },
+                    {
+                        data: 'location',
+                        render: function (data, type, row) {
+                            return data.city + ', ' + data.state;
+                        }
+                    },
+                    { data: 'nat' },
+                    {
+                        data: 'dob',
+                        render: function (data, type, row) {
+                            return data.date;
+                        }
+                    },
+                    { data: 'email' },
+                    { data: 'cell' }
+                ],
+                language: {
+                    info: 'Pag. _PAGE_ de _PAGES_',
+                    infoEmpty: 'No hay datos',
+                    infoFiltered: '(filtrado de los _MAX_ renglones)',
+                    lengthMenu: 'Mostrar _MENU_ renglones por pagina',
+                    loadingRecords: 'Cargando datos...',
+                    processing: 'Procesando...',
+                    search: 'Buscar:',
+                    zeroRecords: 'No se encontro nada',
+                    paginate: {
+                        first: '<<',
+                        last: '>>',
+                        next: '>',
+                        previous: '<'
+                    }
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>

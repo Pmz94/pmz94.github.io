@@ -14,6 +14,10 @@
     body {
         background: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
     }
+
+    .table.is-hoverable tbody tr:not(.is-selected):hover {
+        background-color: rgb(236, 236, 236);
+    }
 </style>
 
 <body>
@@ -37,15 +41,13 @@
             </div>
         </div>
     </nav>
-    <header class="hero is-vue has-text-centered">
-        <h2 class="title is-2">Tabla VUE.js con AJAX</h2>
-    </header>
+
     <section class="section">
+        <h2 class="title is-2 has-text-centered">Tabla VUE.js con AJAX</h2>
         <div id="main">
             <div class="container">
                 <div class="columns">
                     <div class="column">
-                        <h2 class="title">Tabla</h2>
                         <div style="overflow-x:auto;">
                             <table class="table is-bordered is-narrow is-hoverable is-fullwidth">
                                 <thead>
@@ -129,13 +131,12 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.0/vue-resource.min.js"></script>
-    <!--<script src = "https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/es.js"></script>
     <script type="text/javascript">
         //20 personas aleatorias con todos los atributos
         var urlUsers = "https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=20";
         new Vue({
-            el: "#main",
+            el: '#main',
             created: function () {
                 this.getUsers();
             },
@@ -147,10 +148,6 @@
                     this.$http.get(urlUsers).then(function (response) {
                         this.gente = response.data.results;
                     });
-                    //metodo axios
-                    /*axios.get(urlUsers).then(response => {
-                        this.gente = response.data.gente
-                    });*/
                 }
             }
         });

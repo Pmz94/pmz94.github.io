@@ -15,6 +15,41 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
 </head>
 
+<style>
+    /* Clases para colorear el contorno de los texfields cuando tengan focus */
+
+    .input.is-active,
+    .input.is-focused,
+    .input:active,
+    .input:focus,
+    .textarea.is-active,
+    .textarea.is-focused,
+    .textarea:active,
+    .textarea:focus {
+        border-color: #adadad;
+        -webkit-box-shadow: 0 0 0 0.125em rgba(130, 130, 130, 0.45);
+        box-shadow: 0 0 0 0.125em rgba(130, 130, 130, 0.45);
+    }
+
+    .button.is-paypal {
+        background-color: #ffc439;
+        border-color: transparent;
+        color: #111111;
+        font-family: Verdana, sans-serif;
+        font-weight: bold;
+        font-style: italic;
+        width: 150px;
+    }
+
+    .button.is-paypal:hover {
+        box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.05);
+    }
+
+    .button.is-paypal:focus {
+        box-shadow: -1px -1px 18px 1px rgba(0, 0, 0, 0.25) inset;
+    }
+</style>
+
 <body>
     <section class="hero is-fullheight">
         <div class="hero-head">
@@ -50,7 +85,7 @@
                 <hr>
                 <div class="columns is-centered">
                     <div class="column is-8">
-                        <form action="https://formspree.io/pmz94@hotmail.com" method="POST">
+                        <form id="contactForm" action="https://formspree.io/pmz94@hotmail.com" method="POST" autocomplete="off">
                             <!--Nombre-->
                             <div class="field">
                                 <div class="control has-icons-left has-icons-right">
@@ -114,7 +149,9 @@
                         </form>
                     </div>-->
                     <div class="column">
-                        <a href="https://www.paypal.me/pmz94" class="button is-rounded is-paypal">Donar con &nbsp;<i class="fab fa-paypal"></i></a>
+                        <a href="https://www.paypal.me/pmz94" class="button is-rounded is-paypal">Donar con &nbsp;
+                            <i class="fab fa-paypal"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -157,7 +194,52 @@
             </nav>
         </div>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
     <script src="asset/js/script.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#contactForm').validate({
+                rules: {
+                    nombre: {
+                        required: true,
+                        minlength: 3
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    asunto: {
+                        required: true,
+                        minlength: 4
+                    },
+                    mensaje: {
+                        required: true,
+                        minlength: 40
+                    }
+                },
+                messages: {
+                    nombre: {
+                        required: 'Cual es su nombre?',
+                        minlength: 'Nombre completo Por favor!'
+                    },
+                    email: {
+                        required: 'Le falto su correo!',
+                        email: 'Escriba un correo de verdad! (email@correo.com)'
+                    },
+                    asunto: {
+                        required: 'Que quiere?',
+                        minlength: 'Diga bien que se le ofrece!'
+                    },
+                    mensaje: {
+                        required: 'Diga algo!',
+                        minlength: 'Diga algo mas!'
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
