@@ -1,55 +1,64 @@
-/*navbar*/
-
-/* Clase para icono en la esquina de la barra de navegacion */
-.logo {
+.benny-logo {
 	height: 28px;
 }
 
-.hero.is-dark, .button.is-dark {
-	background-color: rgb(40, 40, 40);
-	color: white;
+:root {
+	--main-color: #252525;
+	--main-color-hover: #2f2f2f;
 }
 
 body, .title, .subtitle, .input, .textarea {
-	color: rgb(40, 40, 40);
+	color: var(--main-color);
 }
 
+.hero.is-dark, .button.is-dark {
+	background-color: var(--main-color);
+	color: white;
+}
+
+/* Clase para atenuar color de los botones cuando se le haga hover */
 .button {
 	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
+/* Clase para colorear de gris el borde de los botones cuando tenga focus */
 .button.is-focused, .button:focus {
 	border-color: #adadad;
 	color: #ffffff;
 }
 
+/* Clase para sombrear los botones de color gris cuando tenan focus */
 .button.is-focused:not(:active), .button:focus:not(:active) {
 	-webkit-box-shadow: 0 0 0 0.125em rgba(70, 70, 70, 0.40);
 	box-shadow: 0 0 0 0.125em rgba(70, 70, 70, 0.40);
 }
 
+/* Clase para el menu de la hamburguesita */
+@media screen and (max-width: 1023px) {
+	.hero.is-dark .navbar-menu {
+		background-color: var(--main-color);
+	}
+}
+
 /* Clases para que se hagan mas negros los botones de la izq de la barra de navegacion */
 .navbar.is-dark .navbar-brand .navbar-link.is-active, .navbar.is-dark .navbar-brand .navbar-link:hover, .navbar.is-dark .navbar-brand>a.navbar-item.is-active, .navbar.is-dark .navbar-brand>a.navbar-item:hover {
-	background-color: #2f2f2f;
+	background-color: var(--main-color-hover);
 	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
 /* Clase para que se hagan mas negros los botones de la derecha de la bara de navegacion */
 @media screen and (min-width: 1024px) {
 	.navbar.is-dark .navbar-end .navbar-link.is-active, .navbar.is-dark .navbar-end .navbar-link:hover, .navbar.is-dark .navbar-end>a.navbar-item.is-active, .navbar.is-dark .navbar-end>a.navbar-item:hover, .navbar.is-dark .navbar-start .navbar-link.is-active, .navbar.is-dark .navbar-start .navbar-link:hover, .navbar.is-dark .navbar-start>a.navbar-item.is-active, .navbar.is-dark .navbar-start>a.navbar-item:hover {
-		background-color: #2f2f2f;
+		background-color: var(--main-color-hover);
 	}
 }
 
 /* Clase para que se haga mas negro los botones del footer cuando se haga hover */
 .hero.is-dark a.navbar-item:hover {
-	background-color: #2f2f2f;
+	background-color: var(--main-color-hover);
 	transition: color 0.20s ease-in-out, background-color 0.20s ease-in-out, border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
-/* Clase para el menu de la hamburguesita */
-@media screen and (max-width: 1023px) {
-	.hero.is-dark .navbar-menu {
-		background-color: rgb(40, 40, 40);
-	}
+.tabs ul {
+	border-bottom-style: none;
 }
