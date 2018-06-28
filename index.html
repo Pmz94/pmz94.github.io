@@ -6,9 +6,9 @@
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
 	<link rel = "apple-touch-icon" sizes = "180x180" href = "pagpersonal/asset/img/navbar/benny.png">
-	<link rel = "icon" type = "image/png" sizes = "32x32" href = "pagpersonal/asset/img/navbar/benny.png">
-	<link rel = "icon" type = "image/png" sizes = "16x16" href = "pagpersonal/asset/img/navbar/benny.png">
-	<link rel = "shortcut icon" href = "pagpersonal/asset/img/navbar/benny.png">
+	<link rel = "icon" type = "image/png" sizes = "32x32" href = "pagpersonal/asset/img/navbar/bennyfavicon.png">
+	<link rel = "icon" type = "image/png" sizes = "16x16" href = "pagpersonal/asset/img/navbar/bennyfavicon.png">
+	<link rel = "shortcut icon" href = "pagpersonal/asset/img/navbar/bennyfavicon.png">
 	<title>Página de Pedro Muñoz</title>
 	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
 	<link rel = "stylesheet" href = "pagpersonal/asset/css/style.css">
@@ -202,7 +202,7 @@
 	.videoWrapper {
 		position: relative;
 		padding-bottom: 56.25%; /* 56.25% para que tenga 16:9 */
-		padding-top: 0px;
+		padding-top: 0;
 		height: 0;
 		margin: 0 auto;
 		overflow: hidden;
@@ -430,16 +430,18 @@
 	<script src = "pagpersonal/asset/js/script.js"></script>
 	<script type = "text/javascript">
 		$(function() {
-			$('#tituloportada').addClass('animated fadeInUp');
-			$('#tituloportada').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			var tituloportada = $('#tituloportada');
+			tituloportada.addClass('animated fadeInUp');
+			tituloportada.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeInUp');
 			});
 
+			var logoportada = $('#logoportada');
 			var hoverorclick = function() {
 				$(this).addClass('animated bounce');
 			};
-			$('#logoportada').hover(hoverorclick).click(hoverorclick);
-			$('#logoportada').bind('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
+			logoportada.hover(hoverorclick).click(hoverorclick);
+			logoportada.bind('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
 				$(this).removeClass('animated bounce');
 			});
 		});

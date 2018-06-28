@@ -1,0 +1,70 @@
+.benny-logo {
+	height: 28px;
+}
+/**/
+body, .title, .subtitle, .input, .textarea, .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+	/* color: rgb(40, 40, 40); */
+	color: black;
+}
+
+:root {
+	--vue-color: rgb(79, 192, 141);
+}
+
+@media (min-width: 1472px) {
+	.container {
+		max-width: 1344px;
+	}
+}
+
+.is-vue {
+	background-color: var(--vue-color);
+	color: black;
+}
+
+.navbar-item {
+	color: black;
+}
+
+a.navbar-item:hover {
+	color: #35495e;
+}
+
+.button.is-vue {
+	background-color: var(--vue-color);
+	border-color: transparent;
+	/* color: rgb(44, 62, 80); */
+	color: black;
+}
+
+.notification.is-vue {
+	background-color: var(--vue-color);
+	/*color: rgb(25, 25, 25);*/
+	color: black;
+}
+
+.btnbulma {
+	border: 1px solid black;
+	padding-top: 11px;
+	border-radius: 5px;
+}
+
+pre {
+	background-color: white !important;
+}
+
+.table {
+	color: black;
+	background-color: white;
+}
+
+.table tbody td {
+	text-align: center !important;
+}
+
+.table thead th {
+	text-align: center !important;
+	background-color: var(--vue-color);
+	/*color: rgb(25, 25, 25);*/
+	color: black;
+}
