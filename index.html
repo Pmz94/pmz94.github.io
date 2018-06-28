@@ -435,9 +435,10 @@
 				$(this).removeClass('animated fadeInUp');
 			});
 
-			$('#logoportada').hover(function() {
+			var hoverorclick = function() {
 				$(this).addClass('animated bounce');
-			});
+			};
+			$('#logoportada').hover(hoverorclick).click(hoverorclick);
 			$('#logoportada').bind('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
 				$(this).removeClass('animated bounce');
 			});
