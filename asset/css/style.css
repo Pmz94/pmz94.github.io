@@ -11,9 +11,20 @@ body, .title, .subtitle, .input, .textarea {
 	color: var(--main-color);
 }
 
-.hero.is-dark, .button.is-dark {
+.navbar.is-dark, .navbar-item, .button.is-dark, .hero.is-dark {
 	background-color: var(--main-color);
 	color: white;
+}
+
+@media screen and (max-width: 1087px) {
+	.navbar-menu {
+		background-color: var(--main-color);
+		color: white;
+	}
+	.navbar-item:hover, a.navbar-item:hover {
+		background-color: var(--main-color-hover);
+		color: white;
+	}
 }
 
 /* Clase para atenuar color de los botones cuando se le haga hover */

@@ -1,403 +1,448 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang = "es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" sizes="180x180" href="asset/img/navbar/benny.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="asset/img/navbar/benny.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="asset/img/navbar/benny.png">
-    <link rel="shortcut icon" href="asset/img/navbar/benny.png">
-    <title>Página de Pedro Muñoz</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
-    <link rel="stylesheet" href="asset/css/style.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+	<link rel = "apple-touch-icon" sizes = "180x180" href = "asset/img/navbar/benny.png">
+	<link rel = "icon" type = "image/png" sizes = "32x32" href = "asset/img/navbar/benny.png">
+	<link rel = "icon" type = "image/png" sizes = "16x16" href = "asset/img/navbar/benny.png">
+	<link rel = "shortcut icon" href = "asset/img/navbar/benny.png">
+	<title>Página de Pedro Muñoz</title>
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+	<link rel = "stylesheet" href = "asset/css/style.css">
+	<script defer src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 </head>
 
 <style>
-    /* Clase para logo de la portada */
-    .logoportada {
-        height: 130px;
-        border-radius: 80px;
-    }
+	/* Clase para logo de la portada */
+	.logoportada {
+		height: 130px;
+		border-radius: 80px;
+	}
 
-    /* Clase para el fondo de la portada */
-    .portada {
-        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('asset/img/navbar/nature.jpg');
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-        line-height: 1.2;
-        padding: 8vw 2em;
-        text-align: center;
-    }
+	/* Clase para el fondo de la portada */
+	.portada {
+		background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('asset/img/navbar/nature.jpg');
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+		line-height: 1.2;
+		padding: 8vw 2em;
+		text-align: center;
+	}
 
-    /* Clases para algun posible boton en la portada */
-    .btnp {
-        border: 1px solid white;
-        border-radius: 70px;
-        color: white;
-        letter-spacing: 0.05em;
-        padding: 0.8em 1em;
-        text-decoration: none;
-        transition: none 200ms ease-out;
-        transition-property: color, background;
-    }
-    .btnp:hover {
-        background: white;
-        color: black;
-    }
+	/* Clases para algun posible boton en la portada */
+	.btnp {
+		border: 1px solid white;
+		border-radius: 70px;
+		color: white;
+		letter-spacing: 0.05em;
+		padding: 0.8em 1em;
+		text-decoration: none;
+		transition: none 200ms ease-out;
+		transition-property: color, background;
+	}
 
-    /* Clase para iconos de la portada */
-    .iconr {
-        height: 100px;
-        margin-top: 5px;
-        object-fit: scale-down;
-    }
+	.btnp:hover {
+		background: white;
+		color: black;
+	}
 
-    /* Clases para el color, hover y focus de los botones de redes sociales */
-    /* Facebook */
-    .fbc {
-        background-color: rgb(59, 89, 152);
-        border-color: transparent;
-        color: white;
-    }
-    .fbc:hover {
-        background-color: rgb(49, 75, 127);
-        border-color: transparent;
-        color: white;
-    }
-    .fbc:focus {
-        background-color: rgb(49, 75, 127);
-        border-color: #adadad;
-        color: white;
-    }
+	/* Clase para iconos de la portada */
+	.iconr {
+		height: 100px;
+		margin-top: 5px;
+		object-fit: scale-down;
+	}
 
-    /* Twitter */
-    .twc {
-        background-color: rgb(0, 172, 237);
-        border-color: transparent;
-        color: white;
-    }
-    .twc:hover {
-        background-color: rgb(0, 153, 211);
-        border-color: transparent;
-        color: white;
-    }
-    .twc:focus {
-        background-color: rgb(0, 153, 211);
-        border-color: #adadad;
-        color: white;
-    }
+	/* Clases para el color, hover y focus de los botones de redes sociales */
 
-    /* WhatsApp */
-    .wac {
-        background-color: rgb(37, 211, 102);
-        border-color: transparent;
-        color: white;
-    }
-    .wac:hover {
-        background-color: rgb(33, 185, 90);
-        border-color: transparent;
-        color: white;
-    }
-    .wac:focus {
-        background-color: rgb(33, 185, 90);
-        border-color: #adadad;
-        color: white;
-    }
+	/* Facebook */
+	.fbc {
+		background-color: rgb(59, 89, 152);
+		border-color: transparent;
+		color: white;
+	}
 
-    /* Instagram */
-    .igc {
-        background: linear-gradient(to bottom right, rgb(76, 104, 215), rgb(138, 58, 185), rgb(188, 42, 141), rgb(233, 89, 80), rgb(252, 204, 99));
-        border-color: rgb(225, 225, 225);
-        color: white;
-    }
-    .igc:hover {
-        background: linear-gradient(to bottom right, rgb(67, 92, 189), rgb(119, 50, 159), rgb(162, 36, 122), rgb(207, 79, 71), rgb(226, 183, 89));
-        border-color: rgb(225, 225, 225);
-        color: white;
-    }
-    .igc:focus {
-        background: linear-gradient(to bottom right, rgb(67, 92, 189), rgb(119, 50, 159), rgb(162, 36, 122), rgb(207, 79, 71), rgb(226, 183, 89));
-        border-color: #adadad;
-        color: white;
-    }
+	.fbc:hover {
+		background-color: rgb(49, 75, 127);
+		border-color: transparent;
+		color: white;
+	}
 
-    /* LinkedIn */
-    .lic {
-        background-color: rgb(0, 119, 181);
-        border-color: transparent;
-        color: white;
-    }
-    .lic:hover {
-        background-color: rgb(0, 102, 155);
-        border-color: transparent;
-        color: white;
-    }
-    .lic:focus {
-        background-color: rgb(0, 102, 155);
-        border-color: #adadad;
-        color: white;
-    }
+	.fbc:focus {
+		background-color: rgb(49, 75, 127);
+		border-color: #adadad;
+		color: white;
+	}
 
-    /* GitHub */
-    .ghc {
-        background-color: rgb(36, 41, 46);
-        border-color: transparent;
-        color: white;
-    }
-    .ghc:hover {
-        background-color: rgb(46, 52, 59);
-        border-color: transparent;
-        color: white;
-    }
-    .ghc:focus {
-        background-color: rgb(46, 52, 59);
-        border-color: #adadad;
-        color: white;
-    }
+	/* Twitter */
+	.twc {
+		background-color: rgb(0, 172, 237);
+		border-color: transparent;
+		color: white;
+	}
 
-    /* YouTube */
-    .ytc {
-        background-color: red;
-        border-color: transparent;
-        color: white;
-    }
-    .ytc:hover {
-        background-color: rgb(229, 0, 0);
-        border-color: transparent;
-        color: white;
-    }
-    .ytc:focus {
-        background-color: rgb(229, 0, 0);
-        border-color: #adadad;
-        color: white;
-    }
+	.twc:hover {
+		background-color: rgb(0, 153, 211);
+		border-color: transparent;
+		color: white;
+	}
 
-    /* Clases para el video */
-    .embed-video {
-        max-width: 800px;
-    }
+	.twc:focus {
+		background-color: rgb(0, 153, 211);
+		border-color: #adadad;
+		color: white;
+	}
 
-    .videoWrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 56.25% para que tenga 16:9 */
-        padding-top: 0px;
-        height: 0;
-        margin: 0 auto;
-        overflow: hidden;
-    }
+	/* WhatsApp */
+	.wac {
+		background-color: rgb(37, 211, 102);
+		border-color: transparent;
+		color: white;
+	}
 
-    .videoWrapper iframe, .videoWrapper object, .videoWrapper embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+	.wac:hover {
+		background-color: rgb(33, 185, 90);
+		border-color: transparent;
+		color: white;
+	}
+
+	.wac:focus {
+		background-color: rgb(33, 185, 90);
+		border-color: #adadad;
+		color: white;
+	}
+
+	/* Instagram */
+	.igc {
+		background: linear-gradient(to bottom right, rgb(76, 104, 215), rgb(138, 58, 185), rgb(188, 42, 141), rgb(233, 89, 80), rgb(252, 204, 99));
+		border-color: rgb(225, 225, 225);
+		color: white;
+	}
+
+	.igc:hover {
+		background: linear-gradient(to bottom right, rgb(67, 92, 189), rgb(119, 50, 159), rgb(162, 36, 122), rgb(207, 79, 71), rgb(226, 183, 89));
+		border-color: rgb(225, 225, 225);
+		color: white;
+	}
+
+	.igc:focus {
+		background: linear-gradient(to bottom right, rgb(67, 92, 189), rgb(119, 50, 159), rgb(162, 36, 122), rgb(207, 79, 71), rgb(226, 183, 89));
+		border-color: #adadad;
+		color: white;
+	}
+
+	/* LinkedIn */
+	.lic {
+		background-color: rgb(0, 119, 181);
+		border-color: transparent;
+		color: white;
+	}
+
+	.lic:hover {
+		background-color: rgb(0, 102, 155);
+		border-color: transparent;
+		color: white;
+	}
+
+	.lic:focus {
+		background-color: rgb(0, 102, 155);
+		border-color: #adadad;
+		color: white;
+	}
+
+	/* GitHub */
+	.ghc {
+		background-color: rgb(36, 41, 46);
+		border-color: transparent;
+		color: white;
+	}
+
+	.ghc:hover {
+		background-color: rgb(46, 52, 59);
+		border-color: transparent;
+		color: white;
+	}
+
+	.ghc:focus {
+		background-color: rgb(46, 52, 59);
+		border-color: #adadad;
+		color: white;
+	}
+
+	/* YouTube */
+	.ytc {
+		background-color: red;
+		border-color: transparent;
+		color: white;
+	}
+
+	.ytc:hover {
+		background-color: rgb(229, 0, 0);
+		border-color: transparent;
+		color: white;
+	}
+
+	.ytc:focus {
+		background-color: rgb(229, 0, 0);
+		border-color: #adadad;
+		color: white;
+	}
+
+	/* Clases para el video */
+	.embed-video {
+		max-width: 800px;
+	}
+
+	.videoWrapper {
+		position: relative;
+		padding-bottom: 56.25%; /* 56.25% para que tenga 16:9 */
+		padding-top: 0px;
+		height: 0;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	.videoWrapper iframe, .videoWrapper object, .videoWrapper embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 </style>
 
 <body>
-    <nav class="navbar hero is-dark" role="navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <a href="asset/img/navbar/CV.pdf" target="_blank" class="navbar-item">
-                    <img src="asset/img/navbar/benny.png" alt="Benny" title="Benny" class="benny-logo">
-                </a>
-                <a href="#" class="navbar-item">Pedro Muñoz Zubía</a>
-                <div id="navbarBurger" class="navbar-burger burger" data-target="navRight">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div id="navRight" class="navbar-menu">
-                <div class="navbar-end">
-                    <a href="aptitudes.html" class="navbar-item">Aptitudes</a>
-                    <a href="grados.html" class="navbar-item">Grados Académicos</a>
-                    <a href="habilidades.html" class="navbar-item">Habilidades</a>
-                    <a href="trabajos.html" class="navbar-item">Trabajos Realizados</a>
-                    <a href="contacto.html" class="navbar-item">Contacto</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
-    <section class="hero is-fullheight">
-        <div class="portada">
-            <img src="asset/img/navbar/benny.png" alt="Benny" class="logoportada">
-            <h2 class="title is-2" style="color:white;">Pedro Muñoz Zubía</h2>
-            <h3 class="subtitle is-3" style="color:white;">Ing. en Sistemas de Informacíon (ISI)</h3>
-        </div>
+	<nav class = "navbar is-dark">
+		<div class = "container">
+			<div class = "navbar-brand">
+				<a href = "asset/img/navbar/CV.pdf" target = "_blank" class = "navbar-item">
+					<img src = "asset/img/navbar/benny.png" alt = "Benny" title = "Benny" class = "benny-logo">
+				</a>
+				<a href = "#" class = "navbar-item">Pedro Muñoz Zubía</a>
+				<div class = "navbar-burger" data-target = "navRight">
+					<span aria-hidden = "true"></span>
+					<span aria-hidden = "true"></span>
+					<span aria-hidden = "true"></span>
+				</div>
+			</div>
+			<div id = "navRight" class = "navbar-menu">
+				<div class = "navbar-end">
+					<a href = "aptitudes.html" class = "navbar-item">Aptitudes</a>
+					<a href = "grados.html" class = "navbar-item">Grados Académicos</a>
+					<a href = "habilidades.html" class = "navbar-item">Habilidades</a>
+					<a href = "trabajos.html" class = "navbar-item">Trabajos Realizados</a>
+					<a href = "contacto.html" class = "navbar-item">Contacto</a>
+				</div>
+			</div>
+		</div>
+	</nav>
 
-        <div class="container has-text-centered">
-            <hr>
-            <div class="columns has-text-justified">
-                <div class="column">
-                    <h5 class="subtitle">Ingeniero en Sistemas de Información de la Universidad de Sonora, además de uno que otro conocimiento
-                        de Ingeniería Industrial y Mercadotecnia.</h5>
-                    <h5 class="subtitle">Nivel V de Ingles en el Departamento de Lenguas Extranjeras.</h5>
-                </div>
-                <div class="column">
-                    <h5 class="subtitle">Mis intereses son de todos, más que nada aquellos que involucren Estadística aplicada, Simulacion,
-                        Ciencia de datos e Investigación de operaciones.</h5>
-                    <h5 class="subtitle">Tambien me gusta todo lo que sea diseño y desarrollo de interfaces o vistas. Basicamente lo que viene
-                        siendo UX/UI y Front-end.</h5>
-                </div>
-            </div>
-            <hr>
-            <h4 class="title is-4">Esta carrera abarca los siguientes conceptos...</h4>
-            <div class="columns">
-                <div class="column is-3">
-                    <img src="asset/img/portada/adsi.png" alt="Analisis de Sistemas" class="iconr">
-                    <h4 class="subtitle">Análisis de Sistemas</h4>
-                    <img src="asset/img/portada/planeacion.png" alt="Planeacion de Proyectos" class="iconr">
-                    <h4 class="subtitle">Planeación de proyectos</h4>
-                </div>
-                <div class="column is-3">
-                    <img src="asset/img/portada/desarrollo.png" alt="Desarrollo" class="iconr">
-                    <h4 class="subtitle">Desarrollo</h4>
-                    <img src="asset/img/portada/cienciadedatos.png" alt="Ciencia de Datos" class="iconr">
-                    <h4 class="subtitle">Ciencia de Datos</h4>
-                </div>
-                <div class="column is-3">
-                    <img src="asset/img/portada/bd.png" alt="Bases de Datos" class="iconr">
-                    <h4 class="subtitle">Bases de Datos</h4>
-                    <img src="asset/img/portada/ia.png" alt="Inteligencia Artificial" class="iconr">
-                    <h4 class="subtitle">Inteligencia Artificial</h4>
-                </div>
-                <div class="column is-3">
-                    <img src="asset/img/portada/redes.png" alt="Redes" class="iconr">
-                    <h4 class="subtitle">Redes</h4>
-                    <img src="asset/img/portada/si.png" alt="Seguridad Informatica" class="iconr">
-                    <h4 class="subtitle">Seguridad Informática</h4>
-                </div>
-            </div>
-            <h4 class="title is-4">...entre otros más.</h4>
-            <hr>
-            <h3 class="title">De donde vengo</h3>
-            <br>
-            <div class="columns">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111577.34812482928!2d-111.05902662695992!3d29.08228698846668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce84687adfaee5%3A0xb33d5395e9887ff9!2sHermosillo%2C+Son.!5e0!3m2!1ses-419!2smx!4v1520483851464"
-                    width="100%" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-            <hr>
-            <h5 class="title">Redes sociales</h5>
-            <div class="columns">
-                <div class="column">
-                    <a href="http://www.facebook.com/pmz94" target="_blank" class="button is-medium fbc">
-                        <span class="icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </span>
-                        <span>Facebook</span>
-                    </a>
-                </div>
-                <div class="column">
-                    <a href="http://www.twitter.com/pmz94" target="_blank" class="button is-medium twc">
-                        <span class="icon">
-                            <i class="fab fa-twitter"></i>
-                        </span>
-                        <span>Twitter</span>
-                    </a>
-                </div>
-                <div class="column">
-                    <a href="tel:+526622055050" class="button is-medium wac">
-                        <span class="icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </span>
-                        <span>WhatsApp</span>
-                    </a>
-                </div>
-                <div class="column">
-                    <a href="http://www.instagram.com/pmz94" target="_blank" class="button is-medium igc">
-                        <span class="icon">
-                            <i class="fab fa-instagram"></i>
-                        </span>
-                        <span>Instagram</span>
-                    </a>
-                </div>
-                <div class="column">
-                    <a href="http://www.linkedin.com/in/pmz94" target="_blank" class="button is-medium lic">
-                        <span class="icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </span>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-                <div class="column">
-                    <a href="http://www.github.com/pmz94" target="_blank" class="button is-medium ghc">
-                        <span class="icon">
-                            <i class="fab fa-github"></i>
-                        </span>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-                <div class="column">
-                    <a href="http://www.youtube.com/channel/UCKBIluSLitTm3FnMHWzSDfQ" target="_blank" class="button is-medium ytc">
-                        <span class="icon">
-                            <i class="fab fa-youtube"></i>
-                        </span>
-                        <span>YouTube</span>
-                    </a>
-                </div>
-            </div>
-            <hr>
-            <h1 class="title">Un video del canal</h1>
-            <div class="container embed-video">
-                <div class="videoWrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tff4xF6nezI?rel=0" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-            <br>
-            <div>
-                <script src="https://apis.google.com/js/platform.js"></script>
-                <div class="g-ytsubscribe" data-channelid="UCKBIluSLitTm3FnMHWzSDfQ" data-layout="default" data-count="hidden"></div>
-            </div>
-        </div>
-    </section>
+	<section class = "portada">
+		<div id = "tituloportada">
+			<img id = "logoportada" src = "asset/img/navbar/benny.png" alt = "Benny" class = "logoportada">
+			<h2 class = "title is-2" style = "color:white;">Pedro Muñoz Zubía</h2>
+			<h3 class = "subtitle is-3" style = "color:white;">Ing. en Sistemas de Informacíon (ISI)</h3>
+		</div>
+	</section>
 
-    <footer>
-        <nav class="tabs is-centered is-fixed-bottom hero is-dark">
-            <div class="container">
-                <ul>
-                    <li>
-                        <a href="http://www.facebook.com/pmz94" alt="Facebook" target="_blank" class="navbar-item">
-                            <span class="icon">
-                                <i class="fab fa-lg fa-facebook-f"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.twitter.com/pmz94" alt="Twitter" target="_blank" class="navbar-item">
-                            <span class="icon">
-                                <i class="fab fa-lg fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.instagram.com/pmz94" alt="Instagram" target="_blank" class="navbar-item">
-                            <span class="icon">
-                                <i class="fab fa-lg fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.linkedin.com/in/pmz94" alt="LinkedIn" target="_blank" class="navbar-item">
-                            <span class="icon">
-                                <i class="fab fa-lg fa-linkedin-in"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </footer>
+	<section class = "section">
+		<div class = "container has-text-centered">
+			<div class = "columns has-text-justified">
+				<div class = "column">
+					<h5 class = "subtitle">Ingeniero en Sistemas de Información de la Universidad de Sonora, además de
+						uno que otro conocimiento
+						de Ingeniería Industrial y Mercadotecnia.</h5>
+					<h5 class = "subtitle">Nivel V de Ingles en el Departamento de Lenguas Extranjeras.</h5>
+				</div>
+				<div class = "column">
+					<h5 class = "subtitle">Mis intereses son de todos, más que nada aquellos que involucren Estadística
+						aplicada, Simulacion, Ciencia
+						de datos e Investigación de operaciones.</h5>
+					<h5 class = "subtitle">Tambien me gusta todo lo que sea diseño y desarrollo de interfaces o vistas.
+						Basicamente lo que viene
+						siendo UX/UI y Front-end.</h5>
+				</div>
+			</div>
+			<hr>
+			<h4 class = "title is-4">Esta carrera abarca los siguientes conceptos...</h4>
+			<div class = "columns">
+				<div class = "column is-3">
+					<img src = "asset/img/portada/adsi.png" alt = "Analisis de Sistemas" class = "iconr">
+					<h4 class = "subtitle">Análisis de Sistemas</h4>
+					<img src = "asset/img/portada/planeacion.png" alt = "Planeacion de Proyectos" class = "iconr">
+					<h4 class = "subtitle">Planeación de proyectos</h4>
+				</div>
+				<div class = "column is-3">
+					<img src = "asset/img/portada/desarrollo.png" alt = "Desarrollo" class = "iconr">
+					<h4 class = "subtitle">Desarrollo</h4>
+					<img src = "asset/img/portada/cienciadedatos.png" alt = "Ciencia de Datos" class = "iconr">
+					<h4 class = "subtitle">Ciencia de Datos</h4>
+				</div>
+				<div class = "column is-3">
+					<img src = "asset/img/portada/bd.png" alt = "Bases de Datos" class = "iconr">
+					<h4 class = "subtitle">Bases de Datos</h4>
+					<img src = "asset/img/portada/ia.png" alt = "Inteligencia Artificial" class = "iconr">
+					<h4 class = "subtitle">Inteligencia Artificial</h4>
+				</div>
+				<div class = "column is-3">
+					<img src = "asset/img/portada/redes.png" alt = "Redes" class = "iconr">
+					<h4 class = "subtitle">Redes</h4>
+					<img src = "asset/img/portada/si.png" alt = "Seguridad Informatica" class = "iconr">
+					<h4 class = "subtitle">Seguridad Informática</h4>
+				</div>
+			</div>
+			<h4 class = "title is-4">...entre otros más.</h4>
+			<hr>
+		</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="asset/js/script.js"></script>
+		<div class = "container is-fluid has-text-centered">
+			<h3 class = "title">De donde vengo</h3>
+			<br>
+			<div class = "columns">
+				<div class = "column">
+					<iframe src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111577.34812482928!2d-111.05902662695992!3d29.08228698846668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce84687adfaee5%3A0xb33d5395e9887ff9!2sHermosillo%2C+Son.!5e0!3m2!1ses-419!2smx!4v1520483851464"
+							width = "100%" height = "550" frameborder = "0" style = "border:0" allowfullscreen
+					></iframe>
+				</div>
+			</div>
+		</div>
+
+		<div class = "container has-text-centered">
+			<hr>
+			<h5 class = "title">Redes sociales</h5>
+			<div class = "columns">
+				<div class = "column">
+					<a href = "http://www.facebook.com/pmz94" target = "_blank" class = "button is-medium fbc">
+                        <span class = "icon">
+                            <i class = "fab fa-facebook-f"></i>
+                        </span>
+						<span>Facebook</span>
+					</a>
+				</div>
+				<div class = "column">
+					<a href = "http://www.twitter.com/pmz94" target = "_blank" class = "button is-medium twc">
+                        <span class = "icon">
+                            <i class = "fab fa-twitter"></i>
+                        </span>
+						<span>Twitter</span>
+					</a>
+				</div>
+				<div class = "column">
+					<a href = "tel:+526622055050" class = "button is-medium wac">
+                        <span class = "icon">
+                            <i class = "fab fa-whatsapp"></i>
+                        </span>
+						<span>WhatsApp</span>
+					</a>
+				</div>
+				<div class = "column">
+					<a href = "http://www.instagram.com/pmz94" target = "_blank" class = "button is-medium igc">
+                        <span class = "icon">
+                            <i class = "fab fa-instagram"></i>
+                        </span>
+						<span>Instagram</span>
+					</a>
+				</div>
+				<div class = "column">
+					<a href = "http://www.linkedin.com/in/pmz94" target = "_blank" class = "button is-medium lic">
+                        <span class = "icon">
+                            <i class = "fab fa-linkedin-in"></i>
+                        </span>
+						<span>LinkedIn</span>
+					</a>
+				</div>
+				<div class = "column">
+					<a href = "http://www.github.com/pmz94" target = "_blank" class = "button is-medium ghc">
+                        <span class = "icon">
+                            <i class = "fab fa-github"></i>
+                        </span>
+						<span>GitHub</span>
+					</a>
+				</div>
+				<div class = "column">
+					<a href = "http://www.youtube.com/channel/UCKBIluSLitTm3FnMHWzSDfQ" target = "_blank" class = "button is-medium ytc">
+                        <span class = "icon">
+                            <i class = "fab fa-youtube"></i>
+                        </span>
+						<span>YouTube</span>
+					</a>
+				</div>
+			</div>
+			<hr>
+			<h1 class = "title">Un video del canal</h1>
+			<div class = "container embed-video">
+				<div class = "videoWrapper">
+					<iframe width = "560" height = "315" src = "https://www.youtube.com/embed/tff4xF6nezI?rel=0" frameborder = "0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<br>
+			<div>
+				<script src = "https://apis.google.com/js/platform.js"></script>
+				<div class = "g-ytsubscribe" data-channelid = "UCKBIluSLitTm3FnMHWzSDfQ" data-layout = "default" data-count = "hidden"></div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<nav class = "tabs is-centered hero is-dark">
+			<div class = "container">
+				<ul>
+					<li>
+						<a href = "https://www.facebook.com/pmz94" alt = "Facebook" target = "_blank" class = "navbar-item">
+                            <span class = "icon">
+                                <i class = "fab fa-lg fa-facebook-f"></i>
+                            </span>
+						</a>
+					</li>
+					<li>
+						<a href = "https://www.twitter.com/pmz94" alt = "Twitter" target = "_blank" class = "navbar-item">
+                            <span class = "icon">
+                                <i class = "fab fa-lg fa-twitter"></i>
+                            </span>
+						</a>
+					</li>
+					<li>
+						<a href = "https://www.instagram.com/pmz94" alt = "Instagram" target = "_blank" class = "navbar-item">
+                            <span class = "icon">
+                                <i class = "fab fa-lg fa-instagram"></i>
+                            </span>
+						</a>
+					</li>
+					<li>
+						<a href = "https://www.linkedin.com/in/pmz94" alt = "LinkedIn" target = "_blank" class = "navbar-item">
+                            <span class = "icon">
+                                <i class = "fab fa-lg fa-linkedin-in"></i>
+                            </span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</footer>
+
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script src = "asset/js/script.js"></script>
+	<script type = "text/javascript">
+		$(function() {
+			$('#tituloportada').addClass('animated fadeInUp');
+			$('#tituloportada').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+				$(this).removeClass('animated fadeInUp');
+			});
+
+			$('#logoportada').hover(function() {
+				$(this).addClass('animated bounce');
+			});
+			$('#logoportada').bind('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
+				$(this).removeClass('animated bounce');
+			});
+		});
+	</script>
 </body>
 
 </html>
