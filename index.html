@@ -61,117 +61,132 @@
 	}
 
 	/* Clases para el color, hover y focus de los botones de redes sociales */
+	:root {
+		--col-fbc: #3b5998;
+		--col-fbc-hov: #314b7f;
+		--col-twc: #00aced;
+		--col-twc-hov: #0099d3;
+		--col-wac: #25d366;
+		--col-wac-hov: #21b95a;
+		--col-igc-p: #bc2a8d;
+		--col-igc: linear-gradient(to bottom right, #4c68d7, #8a3ab9, #bc2a8d, #e95950, #fccc63);
+		--col-igc-hov: linear-gradient(to bottom right, #435cbd, #77329f, #a2247a, #cf4f47, #e2b759);
+		--col-lic: #0077b5;
+		--col-lic-hov: #00669b;
+		--col-ghc: #24292e;
+		--col-ghc-hov: #2e343b;
+	}
 
 	/* Facebook */
 	.fbc {
-		background-color: rgb(59, 89, 152);
+		background-color: var(--col-fbc);
 		border-color: transparent;
 		color: white;
 	}
 
 	.fbc:hover {
-		background-color: rgb(49, 75, 127);
+		background-color: var(--col-fbc-hov);
 		border-color: transparent;
 		color: white;
 	}
 
 	.fbc:focus {
-		background-color: rgb(49, 75, 127);
+		background-color: var(--col-fbc-hov);
 		border-color: #adadad;
 		color: white;
 	}
 
 	/* Twitter */
 	.twc {
-		background-color: rgb(0, 172, 237);
+		background-color: var(--col-twc);
 		border-color: transparent;
 		color: white;
 	}
 
 	.twc:hover {
-		background-color: rgb(0, 153, 211);
+		background-color: var(--col-twc-hov);
 		border-color: transparent;
 		color: white;
 	}
 
 	.twc:focus {
-		background-color: rgb(0, 153, 211);
+		background-color: var(--col-twc-hov);
 		border-color: #adadad;
 		color: white;
 	}
 
 	/* WhatsApp */
 	.wac {
-		background-color: rgb(37, 211, 102);
+		background-color: var(--col-wac);
 		border-color: transparent;
 		color: white;
 	}
 
 	.wac:hover {
-		background-color: rgb(33, 185, 90);
+		background-color: var(--col-wac-hov);
 		border-color: transparent;
 		color: white;
 	}
 
 	.wac:focus {
-		background-color: rgb(33, 185, 90);
+		background-color: var(--col-wac-hov);
 		border-color: #adadad;
 		color: white;
 	}
 
 	/* Instagram */
 	.igc {
-		background: linear-gradient(to bottom right, rgb(76, 104, 215), rgb(138, 58, 185), rgb(188, 42, 141), rgb(233, 89, 80), rgb(252, 204, 99));
+		background: var(--col-igc);
 		border-color: rgb(225, 225, 225);
 		color: white;
 	}
 
 	.igc:hover {
-		background: linear-gradient(to bottom right, rgb(67, 92, 189), rgb(119, 50, 159), rgb(162, 36, 122), rgb(207, 79, 71), rgb(226, 183, 89));
+		background: var(--col-igc-hov);
 		border-color: rgb(225, 225, 225);
 		color: white;
 	}
 
 	.igc:focus {
-		background: linear-gradient(to bottom right, rgb(67, 92, 189), rgb(119, 50, 159), rgb(162, 36, 122), rgb(207, 79, 71), rgb(226, 183, 89));
+		background: var(--col-igc-hov);
 		border-color: #adadad;
 		color: white;
 	}
 
 	/* LinkedIn */
 	.lic {
-		background-color: rgb(0, 119, 181);
+		background-color: var(--col-lic);
 		border-color: transparent;
 		color: white;
 	}
 
 	.lic:hover {
-		background-color: rgb(0, 102, 155);
+		background-color: var(--col-lic-hov);
 		border-color: transparent;
 		color: white;
 	}
 
 	.lic:focus {
-		background-color: rgb(0, 102, 155);
+		background-color: var(--col-lic-hov);
 		border-color: #adadad;
 		color: white;
 	}
 
 	/* GitHub */
 	.ghc {
-		background-color: rgb(36, 41, 46);
+		background-color: var(--col-ghc);
 		border-color: transparent;
 		color: white;
 	}
 
 	.ghc:hover {
-		background-color: rgb(46, 52, 59);
+		background-color: var(--col-ghc-hov);
 		border-color: transparent;
 		color: white;
 	}
 
 	.ghc:focus {
-		background-color: rgb(46, 52, 59);
+		background-color: var(--col-ghc-hov);
 		border-color: #adadad;
 		color: white;
 	}
@@ -256,18 +271,16 @@
 		<div class = "container has-text-centered">
 			<div class = "columns has-text-justified">
 				<div class = "column">
-					<h5 class = "subtitle">Ingeniero en Sistemas de Información de la Universidad de Sonora, además de
-						uno que otro conocimiento de Ingeniería Industrial y Mercadotecnia.</h5>
+					<h5 class = "subtitle">Ingeniero en Sistemas de Información de la Universidad de Sonora, además de uno que otro conocimiento de Ingeniería Industrial y Mercadotecnia.</h5>
 					<h5 class = "subtitle">Nivel V de Ingles en el Departamento de Lenguas Extranjeras.</h5>
 				</div>
 				<div class = "column">
-					<h5 class = "subtitle">Mis intereses son de todos, más que nada aquellos que involucren Estadística
-						aplicada, Simulacion, Ciencia de datos e Investigación de operaciones.</h5>
-					<h5 class = "subtitle">Tambien me gusta todo lo que sea diseño y desarrollo de interfaces o vistas.
-						Basicamente lo que viene siendo UX/UI y Front-end.</h5>
+					<h5 class = "subtitle">Mis intereses son de todos, más que nada aquellos que involucren Estadística aplicada, Simulacion, Ciencia de datos e Investigación de operaciones.</h5>
+					<h5 class = "subtitle">Tambien me gusta todo lo que sea diseño y desarrollo de interfaces o vistas. Basicamente lo que viene siendo UX/UI y Front-end.</h5>
 				</div>
 			</div>
 			<hr>
+
 			<h4 class = "title is-4">Esta carrera abarca los siguientes conceptos...</h4>
 			<div class = "columns">
 				<div class = "column is-3">
@@ -373,6 +386,7 @@
 				</div>
 			</div>
 			<hr>
+
 			<h1 class = "title">Un video del canal</h1>
 			<div class = "container embed-video">
 				<div class = "videoWrapper">
@@ -386,6 +400,35 @@
 			</div>
 		</div>
 	</section>
+
+	<!--<footer class = "footer hero is-light">-->
+		<!--<div class = "hero-body">-->
+			<!--<div class = "container">-->
+				<!--<h2 class = "title is-2">Dejen dormir</h2>-->
+				<!--<div class = "columns">-->
+					<!--<div class = "column"></div>-->
+					<!--<div class = "column"></div>-->
+					<!--<div class = "column is-5">-->
+						<!--<a href = "https://www.facebook.com/pmz94" alt = "Facebook" target = "_blank" style = "color:var(&#45;&#45;col-fbc);">-->
+                            <!--<span class = "icon is-large">-->
+                                <!--<i class = "fab fa-3x fa-facebook-square"></i>-->
+                            <!--</span>-->
+						<!--</a>-->
+						<!--<a href = "https://www.twitter.com/pmz94" alt = "Twitter" target = "_blank" style = "color:var(&#45;&#45;col-twc);">-->
+                            <!--<span class = "icon is-large">-->
+                                <!--<i class = "fab fa-3x fa-twitter-square"></i>-->
+                            <!--</span>-->
+						<!--</a>-->
+						<!--<a href = "https://www.instagram.com/pmz94" alt = "Instagram" target = "_blank" style = "color:var(&#45;&#45;col-igc-p);">-->
+                            <!--<span class = "icon is-large">-->
+                                <!--<i class = "fab fa-3x fa-instagram"></i>-->
+                            <!--</span>-->
+						<!--</a>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</footer>-->
 
 	<footer>
 		<nav class = "tabs is-centered hero is-dark">
@@ -429,6 +472,12 @@
 	<script src = "pagpersonal/asset/js/script.js"></script>
 	<script type = "text/javascript">
 		$(function() {
+			var portada = $('.portada');
+			portada.addClass('animated fadeIn');
+			portada.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+				$(this).removeClass('animated fadeIn');
+			});
+
 			var tituloportada = $('#tituloportada');
 			tituloportada.addClass('animated fadeInUp');
 			tituloportada.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
@@ -437,20 +486,20 @@
 
 			var logoportada = $('#logoportada');
 			var onlyhover = function() {
-				$(this).addClass('animated bounce');
+				$(this).addClass('animated pulse');
 			};
 			var onlyclick = function() {
 				$(this).addClass('animated bounce');
 				$.toast({
-					heading: '<strong>Ahorita no joven</strong>', // Optional heading to be shown on the toast
-					text: '<strong>Deje dormir</strong>', // Text that is to be shown in the toast
+					heading: '<strong class="title is-5">Ahorita no joven</strong>', // Optional heading to be shown on the toast
+					text: '<strong class = "subtitle is-5">Deje dormir</strong>', // Text that is to be shown in the toast
 					showHideTransition: 'fade', // fade, slide or plain
 					allowToastClose: false, // Boolean value true or false
 					hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
 					stack: false, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
 					position: 'mid-center', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
 					icon: false,	// info, warning, error or success
-					bgColor: '#ffffff',  // Background color of the toast
+					bgColor: 'rgba(255, 255, 255, 0.85)',  // Background color of the toast
 					textColor: '#252525',  // Text color of the toast
 					textAlign: 'center',  // Text alignment i.e. left, right or center
 					loader: false,  // Whether to show loader or not. True by default
@@ -467,6 +516,7 @@
 			};
 			logoportada.hover(onlyhover).click(onlyclick);
 			logoportada.bind('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationEnd', function() {
+				$(this).removeClass('animated pulse');
 				$(this).removeClass('animated bounce');
 			});
 
