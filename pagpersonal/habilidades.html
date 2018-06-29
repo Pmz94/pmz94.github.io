@@ -13,6 +13,7 @@
 	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
 	<link rel = "stylesheet" href = "asset/css/style.css">
 	<script defer src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 	<link rel = "stylesheet" href = "https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 </head>
 
@@ -60,105 +61,123 @@
 				<hr>
 				<div class = "columns">
 					<div class = "column is-half">
-						<h2 class = "title">Estadística Aplicada</h2>
-						<table style = "height: 100%; width: 100%;">
-							<tr>
-								<td style = "text-align: center;">
-									<img src = "asset/img/habilidades/excel.png" title = "Microsoft Excel" alt = "Microsoft Excel" class = "iconp">
-								</td>
-								<td style = "text-align: center;">
-									<img src = "asset/img/habilidades/rstudio.png" title = "R" alt = "R" class = "iconp">
-								</td>
-								<td style = "text-align: center;">
-									<img src = "asset/img/habilidades/minitab.png" title = "Minitab" alt = "Minitab" class = "iconp">
-								</td>
-							</tr>
-							<tr>
-								<td style = "text-align: center;">
-									<img src = "asset/img/habilidades/matlab.png" title = "MATLAB" alt = "MATLAB" class = "iconp">
-								</td>
-								<td style = "text-align: center;">
-									<img src = "asset/img/habilidades/spss.png" title = "SPSS" alt = "SPSS" class = "iconp" style = "height: 70px; padding-top: 15px;">
-								</td>
-								<td style = "text-align: center;">
-									<img src = "asset/img/habilidades/winqsb.png" title = "WinQSB" alt = "WinQSB" class = "iconp">
-								</td>
-							</tr>
-						</table>
+						<h2 id = "estadistica-titulo" class = "title">Estadística Aplicada</h2>
+						<div id = "estadistica">
+							<table style = "height: 100%; width: 100%;">
+								<tr>
+									<td style = "text-align: center;">
+										<img src = "asset/img/habilidades/excel.png" title = "Microsoft Excel" alt = "Microsoft Excel" class = "iconp">
+									</td>
+									<td style = "text-align: center;">
+										<img src = "asset/img/habilidades/rstudio.png" title = "R" alt = "R" class = "iconp">
+									</td>
+									<td style = "text-align: center;">
+										<img src = "asset/img/habilidades/minitab.png" title = "Minitab" alt = "Minitab" class = "iconp">
+									</td>
+								</tr>
+								<tr>
+									<td style = "text-align: center;">
+										<img src = "asset/img/habilidades/matlab.png" title = "MATLAB" alt = "MATLAB" class = "iconp">
+									</td>
+									<td style = "text-align: center;">
+										<img src = "asset/img/habilidades/spss.png" title = "SPSS" alt = "SPSS" class = "iconp" style = "height: 70px; padding-top: 15px;">
+									</td>
+									<td style = "text-align: center;">
+										<img src = "asset/img/habilidades/winqsb.png" title = "WinQSB" alt = "WinQSB" class = "iconp">
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 					<hr>
 					<div class = "column">
-						<h2 class = "title">Programación</h2>
-						<div class = "columns is-centered">
-							<i title = "Visual Studio" style = "font-size: 90px;color:#5b2d90;" class = "devicon-visualstudio-plain colored"></i>
-							<i title = "PhpStorm" style = "font-size: 90px;color:#8753f9;" class = "devicon-phpstorm-plain colored"></i>
-						</div>
-						<div class = "columns is-centered">
-							<i title = "Java" style = "font-size: 90px;" class = "devicon-java-plain-wordmark colored"></i>
-							<i title = "C#" style = "font-size: 90px;" class = "devicon-csharp-plain colored"></i>
-							<i title = "PHP" style = "font-size: 90px;color:#787cb4;" class = "devicon-php-plain colored"></i>
-							<img src = "asset/img/habilidades/r.png" title = "R" alt = "R" style = "height: 90px;">
-						</div>
-						<div class = "columns is-centered">
-							<i title = "JavaScript" style = "font-size: 85px;color:#f7e018;" class = "devicon-javascript-plain colored"></i>
-							<i title = "Python" style = "font-size: 90px;color:#62c03d;" class = "devicon-python-plain colored"></i>
-							<i title = "C" style = "font-size: 90px;" class = "devicon-c-plain colored"></i>
-							<i title = "C++" style = "font-size: 90px;" class = "devicon-cplusplus-plain colored"></i>
+						<h2 id = "programacion-titulo" class = "title">Programación</h2>
+						<div id = "programacion">
+							<div class = "columns is-centered">
+								<i title = "Visual Studio" style = "font-size: 90px;color:#5b2d90;" class = "devicon-visualstudio-plain colored"></i>
+								<i title = "PhpStorm" style = "font-size: 90px;color:#8753f9;" class = "devicon-phpstorm-plain colored"></i>
+							</div>
+							<div class = "columns is-centered">
+								<i title = "Java" style = "font-size: 90px;" class = "devicon-java-plain colored"></i>
+								<i title = "C#" style = "font-size: 90px;" class = "devicon-csharp-plain colored"></i>
+								<i title = "PHP" style = "font-size: 90px;color:#787cb4;" class = "devicon-php-plain colored"></i>
+								<img src = "asset/img/habilidades/r.png" title = "R" alt = "R" style = "height: 90px;">
+							</div>
+							<div class = "columns is-centered">
+								<i title = "JavaScript" style = "font-size: 85px;color:#f7e018;" class = "devicon-javascript-plain colored"></i>
+								<i title = "Python" style = "font-size: 90px;color:#62c03d;" class = "devicon-python-plain colored"></i>
+								<i title = "C" style = "font-size: 90px;" class = "devicon-c-plain colored"></i>
+								<i title = "C++" style = "font-size: 90px;" class = "devicon-cplusplus-plain colored"></i>
+							</div>
 						</div>
 					</div>
 				</div>
 				<hr>
 				<div class = "columns">
 					<div class = "column is-half">
-						<h2 class = "title">Desarrollo Web</h2>
-						<i title = "HTML5" style = "font-size: 85px;" class = "devicon-html5-plain-wordmark colored"></i>
-						<i title = "CSS3" style = "font-size: 85px;color:#0170ba;" class = "devicon-css3-plain-wordmark colored"></i>
-						<i title = "Bootstrap" style = "font-size: 80px;color:#5f3f8a;" class = "devicon-bootstrap-plain colored"></i>
-						<img src = "asset/img/habilidades/bulmaicon.png" title = "Bulma" alt = "Bulma" style = "height: 80px;">
-						<i title = "jQuery" style = "font-size: 75px;" class = "devicon-jquery-plain colored"></i>
-						<i title = "Laravel" style = "font-size: 80px;" class = "devicon-laravel-plain colored"></i>
-						<img src = "asset/img/habilidades/phalcon.png" title = "Phalcon" alt = "Phalcon" style = "height: 90px;">
+						<h2 id = "web-titulo" class = "title">Desarrollo Web</h2>
+						<div id = "web">
+							<i title = "HTML5" style = "font-size: 85px;" class = "devicon-html5-plain colored"></i>
+							<i title = "CSS3" style = "font-size: 85px;color:#0170ba;" class = "devicon-css3-plain colored"></i>
+							<i title = "Bootstrap" style = "font-size: 80px;color:#5f3f8a;" class = "devicon-bootstrap-plain colored"></i>
+							<img src = "asset/img/habilidades/bulmaicon.png" title = "Bulma" alt = "Bulma" style = "height: 80px;">
+							<i title = "jQuery" style = "font-size: 80px;" class = "devicon-jquery-plain colored"></i>
+							<i title = "Laravel" style = "font-size: 80px;" class = "devicon-laravel-plain colored"></i>
+							<img src = "asset/img/habilidades/phalcon.png" title = "Phalcon" alt = "Phalcon" style = "height: 90px;">
+						</div>
 					</div>
 					<hr>
 					<div class = "column">
-						<h2 class = "title">Desarrollo Movil</h2>
-						<i title = "Android" style = "font-size: 90px;" class = "devicon-android-plain colored"></i>
+						<h2 id = "movil-titulo" class = "title">Desarrollo Movil</h2>
+						<div id = "movil">
+							<i title = "Android" style = "font-size: 90px;" class = "devicon-android-plain colored"></i>
+						</div>
 					</div>
 				</div>
 				<hr>
 				<div class = "columns">
 					<div class = "column">
-						<h2 class = "title">Base de Datos</h2>
-						<i title = "MySQL" style = "font-size: 90px;" class = "devicon-mysql-plain colored"></i>
-						<i title = "PostgreSQL" style = "font-size: 90px;" class = "devicon-postgresql-plain colored"></i>
+						<h2 id = "bd-titulo" class = "title">Base de Datos</h2>
+						<div id = "bd">
+							<i title = "MySQL" style = "font-size: 90px;" class = "devicon-mysql-plain colored"></i>
+							<i title = "PostgreSQL" style = "font-size: 90px;" class = "devicon-postgresql-plain colored"></i>
+						</div>
 					</div>
 					<hr>
 					<div class = "column">
-						<h2 class = "title">Sistemas Operativos</h2>
-						<i title = "Windows" style = "font-size: 90px;color:#0077db;" class = "devicon-windows8-original colored"></i>
-						<i title = "iOS, macOS" style = "font-size: 90px;color:#666666;" class = "devicon-apple-original colored"></i>
-						<i title = "Linux" style = "font-size: 90px;" class = "devicon-linux-plain colored"></i>
+						<h2 id = "so-titulo" class = "title">Sistemas Operativos</h2>
+						<div id = "so">
+							<i title = "Windows" style = "font-size: 90px;color:#0077db;" class = "devicon-windows8-original colored"></i>
+							<i title = "iOS, macOS" style = "font-size: 90px;color:#666666;" class = "devicon-apple-original colored"></i>
+							<i title = "Linux" style = "font-size: 90px;" class = "devicon-linux-plain colored"></i>
+						</div>
 					</div>
 				</div>
 				<hr>
 				<div class = "columns">
 					<div class = "column">
-						<h2 class = "title">Control de Versiones</h2>
-						<i title = "Git" style = "font-size: 90px;" class = "devicon-git-plain colored"></i>
-						<img src = "asset/img/habilidades/subversion.png" title = "Subversion" alt = "Subversion" style = "height: 90px;">
+						<h2 id = "vcs-titulo" class = "title">Control de Versiones</h2>
+						<div id = "vcs">
+							<i title = "Git" style = "font-size: 90px;" class = "devicon-git-plain colored"></i>
+							<img src = "asset/img/habilidades/subversion.png" title = "Subversion" alt = "Subversion" style = "height: 90px;">
+						</div>
 					</div>
 					<hr>
 					<div class = "column">
-						<h2 class = "title">Diseño Grafico</h2>
-						<i title = "Photoshop" style = "font-size: 90px;color:#001d26;background-color:#00c9ff;" class = "devicon-photoshop-plain colored"></i>
-						<i title = "Illustrator" style = "font-size: 90px;color:#210b00;background-color:#ff7d00;" class = "devicon-illustrator-plain colored"></i>
+						<h2 id = "diseño-titulo" class = "title">Diseño Grafico</h2>
+						<div id = "diseño">
+							<i title = "Photoshop" style = "font-size: 90px;color:#001d26;background-color:#00c9ff;" class = "devicon-photoshop-plain colored"></i>
+							<i title = "Illustrator" style = "font-size: 90px;color:#210b00;background-color:#ff7d00;" class = "devicon-illustrator-plain colored"></i>
+						</div>
 					</div>
 				</div>
 				<hr>
 				<div class = "columns">
 					<div class = "column">
-						<h2 class = "title">Neurociencias</h2>
-						<img src = "asset/img/habilidades/psychopy.png" title = "PsychoPy" alt = "PsychoPy" style = "height: 90px; object-fit: scale-down;">
+						<h2 id = "neuro-titulo" class = "title">Neurociencias</h2>
+						<div id = "neuro">
+							<img src = "asset/img/habilidades/psychopy.png" title = "PsychoPy" alt = "PsychoPy" style = "height: 90px; object-fit: scale-down;">
+						</div>
 					</div>
 				</div>
 			</div>
@@ -204,6 +223,20 @@
 
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script src = "asset/js/script.js"></script>
+	<script type = "text/javascript">
+		$(function() {
+			var titulos = $('#estadistica-titulo, #programacion-titulo, #web-titulo, #movil-titulo, #bd-titulo, #so-titulo, #vcs-titulo, #diseño-titulo, #neuro-titulo');
+			var iconos = $('#estadistica, #programacion, #web, #movil, #bd, #so, #vcs, #diseño, #neuro');
+			titulos.addClass('animated fadeIn');
+			titulos.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+				$(this).removeClass('animated fadeIn');
+			});
+			iconos.addClass('animated fadeInUp');
+			iconos.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+				$(this).removeClass('animated fadeInUp');
+			});
+		});
+	</script>
 </body>
 
 </html>

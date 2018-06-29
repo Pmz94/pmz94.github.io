@@ -13,6 +13,7 @@
 	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
 	<link rel = "stylesheet" href = "asset/css/style.css">
 	<script defer src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 </head>
 
 <style>
@@ -57,20 +58,21 @@
 			<div class = "container has-text-centered">
 				<h1 class = "title is-2 has-text-centered">Trabajos Realizados</h1>
 				<hr>
-				<div class = "columns">
+				<div class = "columns a">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/dados.png" alt = "*Dados*" class = "icont">
 					</div>
 					<div class = "column is-8">
 						<h3 class = "title is-4">Impartición de asesorías de Probabilidad y Estadística</h3>
-						<h3 class = "subtitle">Contenido de estadística descriptiva, probabilidad y estadística inferencial. Hobby personal. 2015-2 - 2018-1.
+						<h3 class = "subtitle">Contenido de estadística descriptiva, probabilidad y estadística
+							inferencial. Hobby personal. 2015-2 - 2018-1.
 						</h3>
 					</div>
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/distribucionnormal.png" alt = "*Distribucion Normal*" class = "icont">
 					</div>
 				</div>
-				<div class = "columns">
+				<div class = "columns b">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/choque.png" alt = "*Choque*" class = "icont">
 					</div>
@@ -82,7 +84,7 @@
 						<img src = "asset/img/trabajos/analisis.png" alt = "*Analisis*" class = "icont">
 					</div>
 				</div>
-				<div class = "columns">
+				<div class = "columns a">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/website.png" alt = "*Sitio Web*" class = "icont">
 					</div>
@@ -94,7 +96,7 @@
 						<img src = "asset/img/trabajos/llaveshtml.png" alt = "*LLaves de HTML*" class = "icont">
 					</div>
 				</div>
-				<div class = "columns">
+				<div class = "columns b">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/estres.png" alt = "*Persona estresada*" class = "icont">
 					</div>
@@ -107,7 +109,7 @@
 						<img src = "asset/img/trabajos/tarea.png" alt = "*Tarea*" class = "icont">
 					</div>
 				</div>
-				<div class = "columns">
+				<div class = "columns a">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/cerebro.png" alt = "*Cerebro*" class = "icont">
 					</div>
@@ -120,7 +122,7 @@
 						<img src = "asset/img/trabajos/cuchillo.png" alt = "*Cuchillo*" class = "icont">
 					</div>
 				</div>
-				<div class = "columns">
+				<div class = "columns b">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/lista.png" alt = "*Lista*" class = "icont">
 					</div>
@@ -132,7 +134,7 @@
 						<img src = "asset/img/trabajos/estrategia.png" alt = "*Estrategia*" class = "icont">
 					</div>
 				</div>
-				<div class = "columns">
+				<div class = "columns a">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/mooplot.png" alt = "*MooPlot*" class = "icont">
 					</div>
@@ -144,20 +146,20 @@
 						<img src = "asset/img/trabajos/granja.png" alt = "*Granja*" class = "icont">
 					</div>
 				</div>
-				<div class = "columns">
+				<div class = "columns b">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/manosalaobra.png" alt = "*Manos a la Obra*" class = "icont">
 					</div>
 					<div class = "column is-8">
 						<h3 class = "title is-4">Proyecto “Manos a la Obra”</h3>
-						<h3 class = "subtitle">Servicio social sin ánimos de lucro dedicado a la donación de ropa a casa hogar "Ciudad de los Niños".2015-1.
+						<h3 class = "subtitle">Servicio social sin ánimos de lucro dedicado a la donación de ropa a casa hogar "Ciudad de los Niños". 2015-1.
 						</h3>
 					</div>
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/calcetin.png" alt = "*Calcetin*" class = "icont">
 					</div>
 				</div>
-				<div class = "columns">
+				<div class = "columns a">
 					<div class = "column is-2">
 						<img src = "asset/img/trabajos/cartas.png" alt = "*Cartas*" class = "icont">
 					</div>
@@ -213,6 +215,21 @@
 
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script src = "asset/js/script.js"></script>
+	<script type = "text/javascript">
+		$(function() {
+			var trabajosa = $('div.columns.a');
+			var trabajosb = $('div.columns.b');
+			trabajosa.addClass('animated fadeInLeft');
+			trabajosa.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+				$(this).removeClass('animated fadeInLeft');
+			});
+
+			trabajosb.addClass('animated fadeInRight');
+			trabajosb.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+				$(this).removeClass('animated fadeInRight');
+			});
+		});
+	</script>
 </body>
 
 </html>
