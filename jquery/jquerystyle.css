@@ -3,7 +3,7 @@
 }
 
 nav {
-    background-color: #303030;
+    background-color: #0769ad;
 }
 
 .navbar-text {
@@ -14,4 +14,8 @@ nav {
     .container {
         max-width: 1344px;
     }
+}
+
+pre {
+    background-color: white;
 }
