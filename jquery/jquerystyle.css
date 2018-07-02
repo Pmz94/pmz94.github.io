@@ -1,21 +1,30 @@
 .benny-logo {
-    height: 28px;
+	height: 28px;
 }
 
-nav {
-    background-color: #0769ad;
+nav.navbar.navbar-jq {
+	background-color: #0769ad;
+	color: white;
+}
+
+a.nav-link {
+	color: white;
+}
+
+a.nav-link:hover {
+	background-color: #0a589e;
 }
 
 .navbar-text {
-    color: white;
+	color: white;
 }
 
 @media (min-width: 1472px) {
-    .container {
-        max-width: 1344px;
-    }
+	.container {
+		max-width: 1344px;
+	}
 }
 
 pre {
-    background-color: white;
+	background-color: white;
 }
