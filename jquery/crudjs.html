@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang = "es">
+
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+	<title>paises CRUD</title>
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+	<link rel = "stylesheet" href = "jquerystyle.css">
+	<script defer src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</head>
+
+<style>
+	body {
+		background: url('https://www.transparenttextures.com/patterns/always-grey.png');
+	}
+
+	table.table {
+		background-color: #ffffff;
+	}
+
+	input[type='submit'], button, [aria-label] {
+		cursor: pointer;
+	}
+</style>
+
+<body>
+	<nav class = "navbar bg-jq navbar-expand-lg">
+		<div class = "container">
+			<a href = "../index.html" class = "navbar-brand">
+				<img src = "../pagpersonal/asset/img/navbar/benny.png" alt = "Benny" title = "Volver a la pagina principal" class = "benny-logo">
+			</a>
+			<button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarNav" aria-controls = "navbarNav" aria-expanded = "false" aria-label = "Toggle navigation">
+				<span class = "navbar-toggler-icon"></span>
+			</button>
+			<div class = "collapse navbar-collapse" id = "navbarNav">
+				<ul class = "navbar-nav ml-auto">
+					<li class = "nav-item">
+						<a href = "lista.html" class = "nav-link">Lista y V-Bind</a>
+					</li>
+					<li class = "nav-item">
+						<a href = "ajax.html" class = "nav-link">AJAX</a>
+					</li>
+					<li class = "nav-item">
+						<a href = "#" class = "nav-link">CRUD</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class = "container text-center">
+		<h1>CRUD de paises con JS</h1>
+		<form action = "javascript:void(0);" method = "POST" onsubmit = "agregar()" autocomplete = "off">
+			<div class = "row">
+				<div class = "col-5">
+					<input id = "add-name" class = "form-control" type = "text" placeholder = "Nuevo Pais">
+				</div>
+				<div class = "col-1">
+					<input id = "btnAgregar" class = "btn btn-primary" type = "submit" value = "Agregar">
+				</div>
+			</div>
+		</form>
+
+		<!-- Modal para editar -->
+		<div class = "modal fade" id = "modalEditar" tabindex = "-1" role = "dialog" aria-labelledby = "modalEditarLabel" aria-hidden = "true">
+			<div class = "modal-dialog" role = "document">
+				<div class = "modal-content">
+					<div class = "modal-header">
+						<h5 class = "modal-title" id = "modalEditarLabel">Editar Pais</h5>
+						<button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
+							<span aria-hidden = "true">&times;</span>
+						</button>
+					</div>
+					<form action = "javascript:void(0);" method = "POST" id = "saveEdit">
+						<div class = "modal-body">
+							<div id = "spoiler" role = "aria-hidden">
+								<div class = "form-group">
+									<input class = "form-control" type = "text" id = "edit-name">
+								</div>
+							</div>
+						</div>
+						<div class = "modal-footer">
+							<button onclick = "CloseInput()" type = "button" class = "btn btn-secondary" data-dismiss = "modal" aria-label = "Cerrar">Cancelar</button>
+							<input class = "btn btn-success" type = "submit" value = "Editar">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<table class = "table table-bordered table-hover table-sm">
+			<thead>
+				<tr>
+					<th colspan = "3">Pais</th>
+				</tr>
+			</thead>
+			<tbody id = "paises">
+			</tbody>
+			<tfoot>
+				<tr>
+					<th colspan = "3"><span id = "contador"></span></th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js"></script>
+	<script type = "text/javascript">
+		$(function() {
+			var el = $('#paises');
+			var paises = ['Francia', 'Alemania', 'Inglaterra', 'España', 'Belgica', 'Italia', 'Portugal', 'Irlanda', 'Luxemburgo'];
+
+			var contar = function(data) {
+				var el = $('#contador');
+				var name = '';
+				if(data) {
+					name = (data = 1) ? 'pais' : 'paises';
+					el.html(data + ' ' + name);
+				} else {
+					el.html('No hay paises');
+				}
+			};
+
+			var fetchAll = function() {
+				var data = '';
+				if(paises.length > 0) {
+					for(i = 0; i < paises.length; i++) {
+						data += '<tr>';
+						data += '<td>' + paises[i] + '</td>';
+						data += '<td><button id = "btnEditar" data-item="' + i + '" class="btn btn-info" data-toggle="modal" data-target="#modalEditar">Editar</button></td>';
+						data += '<td><button id = "btnBorrar" data-item="' + i + '" class="btn btn-danger">Borrar</button></td>';
+						data += '</tr>';
+					}
+				} else {
+					data = '<tr><td colspan="3">No hay paises</td></tr>';
+				}
+				contar(paises.length);
+				return el.html(data);
+			};
+
+			var agregar = function() {
+				el = $('#add-name');
+				// Get the value
+				var pais = el.val();
+				if(pais) {
+					// Add the new value
+					paises.push(pais.trim());
+					// Reset input value
+					el.text('');
+					// Dislay the new list
+					fetchAll();
+				}
+			};
+
+			var editar = function(item) {
+				var el = $('#edit-name');
+				// Display value in the field
+				el.val(paises[item]);
+				// Display fields
+				//document.getElementById('spoiler').style.display = 'block';
+				self = this;
+				$('#saveEdit').submit(function() {
+					// Get value
+					var pais = el.val();
+					if(pais) {
+						// Edit value
+						self.paises.splice(item, 1, pais.trim());
+						// Display the new list
+						fetchAll();
+						// Hide fields
+						CloseInput();
+					}
+				});
+			};
+
+			var borrar = function(item) {
+				// Delete the current row
+				paises.splice(item, 1);
+				// Display the new list
+				fetchAll();
+			};
+
+			fetchAll();
+
+			function CloseInput() {
+				$('#modalEditar').hide();
+			}
+
+		});
+
+		// var app = new function() {
+		// 	this.el = document.getElementById('paises');
+		// 	this.paises = ['Francia', 'Alemania', 'Inglaterra', 'España', 'Belgica', 'Italia', 'Portugal', 'Irlanda', 'Luxemburgo'];
+		//
+		// 	this.Count = function(data) {
+		// 		var el = document.getElementById('contador');
+		// 		var name = 'country';
+		// 		if(data) {
+		// 			if(data > 1) {
+		// 				name = 'paises';
+		// 			}
+		// 			el.innerHTML = data + ' ' + name;
+		// 		} else {
+		// 			el.innerHTML = 'No ' + name;
+		// 		}
+		// 	};
+		//
+		// 	this.FetchAll = function() {
+		// 		var data = '';
+		// 		if(this.paises.length > 0) {
+		// 			for(i = 0; i < this.paises.length; i++) {
+		// 				data += '<tr>';
+		// 				data += '<td>' + this.paises[i] + '</td>';
+		// 				data += '<td><button class="btn btn-info" onclick="app.Edit(' + i + ')" data-toggle="modal" data-target="#modalEditar">Edit</button></td>';
+		// 				data += '<td><button class="btn btn-danger" onclick="app.Delete(' + i + ')" >Delete</button></td>';
+		// 				data += '</tr>';
+		// 			}
+		// 		}
+		// 		this.Count(this.paises.length);
+		// 		return this.el.innerHTML = data;
+		// 	};
+		//
+		// 	this.Add = function() {
+		// 		el = document.getElementById('add-name');
+		// 		// Get the value
+		// 		var country = el.value;
+		// 		if(country) {
+		// 			// Add the new value
+		// 			this.paises.push(country.trim());
+		// 			// Reset input value
+		// 			el.value = '';
+		// 			// Dislay the new list
+		// 			this.FetchAll();
+		// 		}
+		// 	};
+		//
+		// 	this.Edit = function(item) {
+		// 		var el = document.getElementById('edit-name');
+		// 		// Display value in the field
+		// 		el.value = this.paises[item];
+		// 		// Display fields
+		// 		document.getElementById('spoiler').style.display = 'block';
+		// 		self = this;
+		// 		document.getElementById('saveEdit').onsubmit = function() {
+		// 			// Get value
+		// 			var country = el.value;
+		// 			if(country) {
+		// 				// Edit value
+		// 				self.paises.splice(item, 1, country.trim());
+		// 				// Display the new list
+		// 				self.FetchAll();
+		// 				// Hide fields
+		// 				CloseInput();
+		// 			}
+		// 		}
+		// 	};
+		//
+		// 	this.Delete = function(item) {
+		// 		// Delete the current row
+		// 		this.paises.splice(item, 1);
+		// 		// Display the new list
+		// 		this.FetchAll();
+		// 	};
+		//
+		// };
+		//
+		// app.FetchAll();
+		//
+		// function CloseInput() {
+		// 	document.getElementById('modalEditar').style.display = 'none';
+		// }
+	</script>
+</body>
+
+</html>

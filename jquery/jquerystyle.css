@@ -2,8 +2,12 @@
 	height: 28px;
 }
 
-nav.navbar.navbar-jq {
-	background-color: #0769ad;
+.navbar {
+	box-shadow: 0 3px 15px -5px #555555;
+}
+
+.bg-jq {
+	background-color: #0769ad !important;
 	color: white;
 }
 
