@@ -48,9 +48,10 @@
 
 	<div class = "container text-center">
 		<h1>CRUD de paises con JS</h1>
+		<hr>
 		<div class = "row">
 			<div class = "col-5">
-				<input id = "add-name" class = "form-control" type = "text" placeholder = "Nuevo Pais" autocomplete = "off">
+				<input id = "addInput" class = "form-control" type = "text" placeholder = "Nuevo Pais" autocomplete = "off">
 			</div>
 			<div class = "col-1">
 				<button id = "btnAgregar" class = "btn btn-primary">Agregar</button>
@@ -58,37 +59,43 @@
 		</div>
 		<hr>
 		<div style = "overflow-x:auto;">
-			<table class = "table table-bordered table-hover table-sm">
+			<table id = "tabla" class = "table table-bordered table-hover table-sm">
 				<thead>
 					<tr>
 						<th colspan = "3">Pais</th>
 					</tr>
 				</thead>
-				<tbody id = "paises">
+				<tbody id = "tbody">
 				</tbody>
 				<tfoot>
 					<tr>
-						<th colspan = "3"><span id = "contador"></span></th>
+						<th id = "contador" colspan = "3"></th>
 					</tr>
 				</tfoot>
 			</table>
 		</div>
+
 		<!-- Modal para editar -->
 		<div class = "modal fade bd-example-modal-sm" id = "modalEditar" tabindex = "-1" role = "dialog" aria-labelledby = "modalEditarLabel" aria-hidden = "true">
 			<div class = "modal-dialog modal-sm" role = "document">
 				<div class = "modal-content">
 					<div class = "modal-header">
-						<h6 class = "modal-title" id = "modalEditarLabel">Editar Pais</h6>
+						<h6 id = "modalLabel" class = "modal-title">Editar Pais</h6>
 						<button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
 							<span aria-hidden = "true">&times;</span>
 						</button>
 					</div>
 					<div class = "modal-body">
-						<input class = "form-control" type = "text" id = "edit-name" autocomplete = "off">
+						<div class = "input-group input-group-sm mb-1">
+							<div class = "input-group-prepend">
+								<span class = "input-group-text" id = "inputTitulo">Pais</span>
+							</div>
+							<input id = "editInput" class = "form-control" type = "text" autocomplete = "off">
+						</div>
 					</div>
 					<div class = "modal-footer">
 						<button class = "btn btn-secondary btn-sm" data-dismiss = "modal" aria-label = "Close">Cancelar</button>
-						<button id = "btnEdit2" class = "btn btn-success btn-sm">Editar</button>
+						<button id = "btnEditar" class = "btn btn-success btn-sm">Editar</button>
 					</div>
 				</div>
 			</div>
@@ -99,40 +106,32 @@
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js"></script>
 	<script type = "text/javascript">
 		$(function() {
-			var elemento = $('#paises');
-			var paises = ['Francia', 'Alemania', 'Inglaterra', 'España', 'Belgica', 'Italia', 'Portugal', 'Irlanda', 'Luxemburgo'];
+			var tbody = $('#tbody');
+			var paises = ['Francia', 'Alemania', 'Inglaterra', 'España', 'Bélgica', 'Italia', 'Portugal', 'Irlanda', 'Luxemburgo'];
 
-			var contar = function(data) {
-				var elemento = $('#contador');
-				var name = '';
-				if(data) {
-					name = (data == 1) ? 'pais' : 'paises';
-					elemento.html(data + ' ' + name);
-				} else {
-					elemento.html('No hay paises');
-				}
-			};
-
-			var fetchAll = function() {
-				var data = '';
+			function cargarDatos() {
+				tbody.empty();
 				if(paises.length > 0) {
-					for(i = 0; i <= paises.length; i++) {
-						data += '<tr>';
-						data += '<td>' + paises[i] + '</td>';
-						data += '<td><button id = "btnEditar" data-item = "' + i + '" class = "btn btn-info btn-sm" data-toggle = "modal" data-target = "#modalEditar">Editar</button></td>';
-						data += '<td><button id = "btnBorrar" data-item = "' + i + '" class = "btn btn-danger btn-sm">Borrar</button></td>';
-						data += '</tr>';
+					for(var i = 0; i < paises.length; i++) {
+						tbody.append(
+							'<tr>' +
+							'<td>' + paises[i] + '</td>' +
+							'<td><button id = "btnModalEditar" data-item = "' + i + '" class = "btn btn-info btn-sm" data-toggle = "modal" data-target = "#modalEditar">Editar</button></td>' +
+							'<td><button id = "btnBorrar" data-item = "' + i + '" class = "btn btn-danger btn-sm">Borrar</button></td>' +
+							'</tr>'
+						);
+						var contador = 1 + i;
+						var footer = (contador == 1) ? ' pais' : ' paises';
+						$('#contador').text(contador + footer);
 					}
 				} else {
-					data = '<tr><td colspan = "3">No hay paises</td></tr>';
+					tbody.append('<tr><td colspan = "3">No hay paises</td></tr>');
+					$('#contador').text('');
 				}
-				contar(paises.length);
-				//console.log(data);
-				elemento.html(data);
-			};
+			}
 
-			var agregar = function() {
-				elemento = $('#add-name');
+			function agregar() {
+				var elemento = $('#addInput');
 				// Get the value
 				var pais = elemento.val();
 				if(pais) {
@@ -141,50 +140,50 @@
 					// Reset input value
 					elemento.val('');
 					// Dislay the new list
-					fetchAll();
+					cargarDatos();
 				}
-			};
+			}
 
-			var editar = function(item) {
-				var elemento = $('#edit-name');
+			function editar(i) {
+				var elemento = $('#editInput');
 				// Display value in the field
-				elemento.val(paises[item]);
+				elemento.val(paises[i]);
 				// Display fields
-				$('#btnEdit2').on('click', function() {
+				$('#btnEditar').on('click', function() {
 					// Get value
 					var pais = elemento.val();
 					if(pais) {
 						// Edit value
-						paises.splice(item, 1, pais.trim());
+						paises.splice(i, 1, pais.trim());
 						// Display the new list
-						fetchAll();
+						cargarDatos();
 						// Hide fields
 						$('#modalEditar').modal('hide');
 					}
 				});
-			};
+			}
 
-			var borrar = function(item) {
-				// Delete the current row
-				paises.splice(item, 1);
+			function borrar(i) {
+				//Delete the current row
+				paises.splice(i, 1);
 				// Display the new list
-				fetchAll();
-			};
+				cargarDatos();
+			}
 
-			fetchAll();
+			cargarDatos();
 
 			$('#btnAgregar').click(function() {
 				agregar();
 			});
 
-			$(document).on('click', '#btnEditar', function() {
-				var item = $(this).data('item');
-				editar(item);
+			$(document).on('click', '#btnModalEditar', function() {
+				var i = $(this).data('item');
+				editar(i);
 			});
 
 			$(document).on('click', '#btnBorrar', function() {
-				var item = $(this).data('item');
-				borrar(item);
+				var i = $(this).data('item');
+				borrar(i);
 			});
 
 		});

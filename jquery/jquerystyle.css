@@ -36,3 +36,9 @@ pre {
 table.table {
 	background-color: #ffffff;
 }
+
+.alert-jq {
+	color: #ffffff;
+	background-color: #0769ad;
+	border-color: #7acef4;
+}

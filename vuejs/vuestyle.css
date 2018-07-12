@@ -1,6 +1,7 @@
 .benny-logo {
 	height: 28px;
 }
+
 /**/
 body, .title, .subtitle, .input, .textarea, .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
 	/* color: rgb(40, 40, 40); */
@@ -20,6 +21,10 @@ body, .title, .subtitle, .input, .textarea, .content h1, .content h2, .content h
 .is-vue {
 	background-color: var(--vue-color);
 	color: black;
+}
+
+.navbar {
+	box-shadow: 0 3px 15px -5px #555555;
 }
 
 .navbar-item {
