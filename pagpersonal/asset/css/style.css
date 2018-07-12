@@ -19,6 +19,10 @@ img {
 	user-select: none;
 }
 
+.navbar {
+	box-shadow: 0 3px 15px -5px #555555;
+}
+
 .navbar.is-dark, .navbar-item, .button.is-dark, .hero.is-dark {
 	background-color: var(--main-color);
 	color: white;

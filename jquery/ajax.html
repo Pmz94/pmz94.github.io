@@ -38,13 +38,14 @@
 	</nav>
 
 	<div class = "container">
-		<h1>Tabla con datos AJAX</h1>
+		<h1 class = "text-center">Tabla con datos AJAX</h1>
 		<div class = "row">
 			<div class = "col">
 				<div style = "overflow-x:auto;">
 					<table class = "table table-bordered table-hover table-sm text-center">
 						<thead>
 							<tr>
+								<th></th>
 								<th class = "text-center" scope = "col">Nombre</th>
 								<th class = "text-center" scope = "col">Genero</th>
 								<th class = "text-center" scope = "col">Edad</th>
@@ -56,6 +57,11 @@
 						</thead>
 						<tbody id = "tbody">
 						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan = "7"><span id = "tfoot"></span></td>
+							</tr>
+						</tfoot>
 					</table>
 				</div>
 			</div>
@@ -82,7 +88,7 @@
 					</p>
 					<p>
 						Creada usando
-						<a href = "https://vuejs.org/" target = "_blank">VUE.js</a> con
+						<a href = "https://jquery.com/" target = "_blank">jQuery</a> con
 						<a href = "https://www.w3schools.com/xml/ajax_intro.asp" target = "_blank">AJAX</a>.
 						<br> Datos obtenidos del API
 						<a href = "https://randomuser.me" target = "_blank">Random User Generator</a>.
@@ -115,7 +121,30 @@
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"></script>
 	<script type = "text/javascript">
 		$(function() {
-
+			$.ajax({
+				url: 'https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=20',
+				dataType: 'json',
+				success: function(data) {
+					var results = data.results;
+					//console.log(results);
+					for(i = 0; i < results.length; i++) {
+						persona = results[i];
+						row = '<tr>';
+						row += '<td>' + i + '</td>';
+						row += '<td>' + persona.name.first + ' ' + persona.name.last + '</td>';
+						row += '<td>' + persona.gender + '</td>';
+						row += '<td>' + persona.dob.age + '</td>';
+						row += '<td>' + persona.location.city + ', ' + persona.location.state + ', ' + persona.nat + '</td>';
+						row += '<td>' + persona.dob.date + '</td>';
+						row += '<td>' + persona.email + '</td>';
+						row += '<td>' + persona.phone + '</td>';
+						row += '</tr>';
+						$(row).appendTo('#tbody');
+					}
+					$('#tfoot').text(results.length + ' personas');
+					$('#json').text(JSON.stringify(results, null, 4));
+				}
+			});
 		});
 	</script>
 </body>
