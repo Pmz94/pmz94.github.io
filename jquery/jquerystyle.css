@@ -2,12 +2,17 @@
 	height: 28px;
 }
 
+:root {
+	--col-jq: #0769ad;
+	--col-jq-hov: #0a589e;
+}
+
 .navbar {
 	box-shadow: 0 3px 15px -5px #555555;
 }
 
 .bg-jq {
-	background-color: #0769ad !important;
+	background-color: var(--col-jq) !important;
 	color: white;
 }
 
@@ -15,8 +20,8 @@ a.nav-link {
 	color: white;
 }
 
-a.nav-link:hover {
-	background-color: #0a589e;
+nav.bg-jq a.nav-link:hover {
+	background-color: var(--col-jq-hov);
 }
 
 .navbar-text {
@@ -39,6 +44,40 @@ table.table {
 
 .alert-jq {
 	color: #ffffff;
-	background-color: #0769ad;
+	background-color: var(--col-jq);
 	border-color: #7acef4;
+}
+
+.btn-jq {
+	color: #fff;
+	background-color: var(--col-jq);
+	border-color: var(--col-jq);
+}
+
+.btn-jq:hover {
+	color: #fff;
+	background-color: var(--col-jq-hov);
+	border-color: var(--col-jq);
+}
+
+.btn-jq:focus, .btn-jq.focus {
+	box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
+}
+
+.btn-jq.disabled, .btn-jq:disabled {
+	color: #fff;
+	background-color: var(--col-jq);
+	border-color: var(--col-jq);
+}
+
+.btn-jq:not(:disabled):not(.disabled):active, .btn-jq:not(:disabled):not(.disabled).active,
+.show > .btn-jq.dropdown-toggle {
+	color: #fff;
+	background-color: #343a40;
+	border-color: #78cff5;
+}
+
+.btn-jq:not(:disabled):not(.disabled):active:focus, .btn-jq:not(:disabled):not(.disabled).active:focus,
+.show > .btn-jq.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }

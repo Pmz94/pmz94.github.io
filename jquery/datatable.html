@@ -12,6 +12,10 @@
 </head>
 
 <style>
+	body {
+		background: #f5f5f5 url('https://www.transparenttextures.com/patterns/crissxcross.png');
+	}
+
 	#espaciotabla {
 		height: 500px;
 	}
@@ -27,7 +31,7 @@
 	}
 
 	.page-link {
-		color: #000;
+		color: #000000;
 	}
 
 	.page-link:hover {
@@ -36,39 +40,56 @@
 </style>
 
 <body>
-	<nav class = "navbar">
+	<nav class = "navbar bg-jq navbar-expand-md">
 		<div class = "container">
-			<div class = "navbar-brand">
-				<a href = "../index.html" class = "navbar-item">
-					<img src = "../pagpersonal/asset/img/navbar/benny.png" alt = "Benny" title = "Volver a la pagina principal" class = "benny-logo">
-				</a>
-				<span class = "navbar-burger" data-target = "navRight">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
+			<a href = "../index.html" class = "navbar-brand">
+				<img src = "../pagpersonal/asset/img/navbar/benny.png" alt = "Benny" title = "Volver a la pagina principal" class = "benny-logo">
+			</a>
+			<span class = "navbar-text">Plugin de jQuery DataTables</span>
+			<button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarNav" aria-controls = "navbarNav" aria-expanded = "false" aria-label = "Toggle navigation">
+				<span class = "navbar-toggler-icon"></span>
+			</button>
+			<div class = "collapse navbar-collapse" id = "navbarNav">
+				<ul class = "navbar-nav ml-auto">
+					<li class = "nav-item">
+						<a href = "lista.html" class = "nav-link">Lista</a>
+					</li>
+					<li class = "nav-item">
+						<a href = "ajax.html" class = "nav-link">AJAX</a>
+					</li>
+					<li class = "nav-item">
+						<a href = "#" class = "nav-link">DataTables</a>
+					</li>
+					<li class = "nav-item">
+						<a href = "crudjs.html" class = "nav-link">CRUD</a>
+					</li>
+				</ul>
 			</div>
-			<h5 class = "navbar-text">Plugin de jQuery DataTables</h5>
-			<button class = "btn btn-primary" data-toggle = "modal" data-target = "#userModal">Agregar</button>
 		</div>
 	</nav>
+
 	<div class = "container text-center">
-		<br>
-		<div id = "espaciotabla">
-			<table id = "tabla" class = "table table-bordered table-striped table-hover table-sm">
-				<thead>
-					<tr>
-						<th>Foto</th>
-						<th>Nombre</th>
-						<th>Edad</th>
-						<th>Ubicacion</th>
-						<th>Nac</th>
-						<th>FechaNac</th>
-						<th>Correo</th>
-						<th>Telefono</th>
-					</tr>
-				</thead>
-			</table>
+		<div class = "row">
+			<div class = "col">
+				<div id = "espaciotabla">
+					<br>
+					<button class = "btn btn-jq" data-toggle = "modal" data-target = "#userModal">Agregar</button>
+					<table id = "tabla" class = "table table-bordered table-striped table-hover table-sm">
+						<thead>
+							<tr>
+								<th>Foto</th>
+								<th>Nombre</th>
+								<th>Edad</th>
+								<th>Ubicacion</th>
+								<th>Nac</th>
+								<th>FechaNac</th>
+								<th>Correo</th>
+								<th>Telefono</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
 		</div>
 		<br>
 	</div>
@@ -153,15 +174,15 @@
 							return data.city + ', ' + data.state;
 						}
 					},
-					{data: 'nat'},
+					{ data: 'nat' },
 					{
 						data: 'dob',
 						render: function(data, type, row) {
 							return data.date;
 						}
 					},
-					{data: 'email'},
-					{data: 'cell'}
+					{ data: 'email' },
+					{ data: 'cell' }
 				],
 				language: {
 					info: 'Pag. _PAGE_ de _PAGES_',
