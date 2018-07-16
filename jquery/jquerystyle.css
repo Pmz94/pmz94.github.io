@@ -28,6 +28,15 @@ nav.bg-jq a.nav-link:hover {
 	color: white;
 }
 
+.navbar-toggler {
+	padding: 0.25rem 0.3rem;
+}
+
+.navbar-white .navbar-toggler {
+	color: #fff;
+	border-color: #fff;
+}
+
 @media (min-width: 1472px) {
 	.container {
 		max-width: 1344px;
