@@ -7,6 +7,7 @@
 	<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
 	<title>Buscar CDNs</title>
 	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.css">
 	<link rel = "stylesheet" href = "jquerystyle.css">
 	<script defer src = "https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
@@ -42,46 +43,125 @@
 	<div class = "container py-5">
 		<h1 class = "text-center">Buscar CDNs</h1>
 		<hr>
-		<div class = "row">
-			<div class = "col-8">
-				<input id = "buscar" type = "text" class = "form-control" placeholder = "Buscar..." autocomplete = "off">
-			</div>
-			<div class = "col-2">
-				<button id = "btnLoad" class = "btn btn-success">Cagar CDNs</button>
-			</div>
-		</div>
-		<hr>
 		<table id = "resultados" class = "table table-bordered table-striped table-hover table-sm">
 			<thead>
 				<tr>
+					<th></th>
 					<th>Nombre</th>
-					<th>Descripcion</th>
 					<th>Ultima version</th>
 					<th>Pagina web</th>
-					<th>Autor</th>
+					<th>Descripcion</th>
+					<th>Ver</th>
 				</tr>
 			</thead>
 			<tbody>
 			</tbody>
 		</table>
 		<hr>
-		<h3>JSON</h3>
-		<pre><code id = "code"></code></pre>
+		<div class = "row">
+			<div class = "col-8">
+				<input id = "buscar" type = "text" class = "form-control" placeholder = "Buscar..." autocomplete = "off">
+			</div>
+			<div class = "col-2">
+				<button id = "btnLoad" class = "btn btn-success">Cargar CDNs</button>
+			</div>
+		</div>
 	</div>
 
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap4.js"></script>
+	<script src	= "datatables.responsive.js"></script>
 	<script type = "text/javascript">
 		$(function() {
+			var responsiveHelper = undefined;
+			var breakpointDefinition = {
+				tablet: 1024,
+				phone: 480
+			};
+
+			$('#resultados').DataTable({
+				responsive: true,
+				ordering: false,
+				pagingType: 'full',
+				//autoWidth: false,
+				//filter: false, // Buscar...
+				//lengthChange: false, // renglones por pag.
+				lengthMenu: [[15, 30, 40], [15, 30, 40]],
+				ajax: {
+					url: 'https://api.cdnjs.com/libraries?fields=version,description,homepage',
+					dataSrc: 'results'
+				},
+				columns: [
+					{ data: null },
+					{ data: 'name' },
+					{ data: 'version' },
+					{
+						data: 'homepage',
+						render: function(data, type, row) {
+							return (data != null) ? '<a href = "' + data + '">' + data + '</a>' : 'Sin pagina web';
+						}
+					},
+					{ data: 'description' },
+					{
+						data: null,
+						render: function(data, type, row) {
+							return '<a href ="#" class = "btn btn-jq btn-sm"><i class = "fas fa-search"></i></a>';
+						}
+					}
+				],
+				preDrawCallback: function() {
+					// Initialize the responsive datatables helper once.
+					if(!responsiveHelper) {
+						responsiveHelper = new ResponsiveDatatablesHelper($('#resultados'), breakpointDefinition);
+					}
+				},
+				rowCallback: function(row) {
+					responsiveHelper.createExpandIcon(row);
+				},
+				drawCallback: function(settings) {
+					responsiveHelper.respond();
+				},
+				fnRowCallback: function(row, data, iDisplayIndex) {
+					var settings = (this.fnSettings) ? this.fnSettings() : this;
+					$('td:first', row).html(settings._iDisplayStart + iDisplayIndex + 1);
+					return row;
+				},
+				language: {
+					info: 'Pag. _PAGE_ de _PAGES_',
+					infoEmpty: 'No hay datos',
+					infoFiltered: '(filtrado de los _MAX_ renglones)',
+					lengthMenu: 'Mostrar _MENU_ registros',
+					loadingRecords: 'Cargando datos...',
+					processing: 'Procesando...',
+					search: 'Buscar:',
+					zeroRecords: 'No se encontro nada',
+					paginate: {
+						first: '<<',
+						last: '>>',
+						next: '>',
+						previous: '<'
+					},
+					emptyTable: 'Ningún dato disponible en la tabla',
+					infoPostFix: '',
+					infoThousands: ',',
+					url: '',
+					aria: {
+						sortAscending: ': Activar para ordenar la columna de manera ascendente',
+						sortDescending: ': Activar para ordenar la columna de manera descendente'
+					}
+				}
+			});
 			//https://api.cdnjs.com/libraries?search=jquery&fields=version,description,homepage,repository,autoupdate,author,assets&output=human
 			$('#btnLoad').on('click', function() {
 				var search = $('#buscar').val();
 				var url = 'https://api.cdnjs.com/libraries';
 				url += '?search=' + search.trim();
-				url += '&fields=version,description,homepage,repository,author,assets';
-				console.log(url);
+				url += '&fields=version,description,homepage,author';
+				//console.log(url);
 				$.getJSON(url, function(data) {
-					console.log(data);
+					//console.log(data);
 					var row = '';
 					$.each(data.results, function(key, val) {
 						var link = (val.homepage != null) ? '<a href = "' + val.homepage + '">' + val.homepage + '</a>' : 'Sin pagina web';
@@ -95,14 +175,15 @@
 						row += '<td>' + author + '</td>';
 						row += '</tr>';
 
-						console.log(val.author);
+						//console.log(val.author);
 						$('#resultados tbody').html(row);
 					});
-					$('#code').text(JSON.stringify(data.results, null, 4));
 				}).fail(function() {
 					console.log('error');
+					alert('Error');
 				});
 			});
+
 		});
 	</script>
 </body>
