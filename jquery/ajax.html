@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang = "es">
+<html lang="es">
 
 <head>
-	<meta charset = "UTF-8">
-	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-	<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>AJAX</title>
-	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-	<link rel = "stylesheet" href = "jquerystyle.css">
-	<script defer src = "https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/jquerystyle.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 
 <style>
@@ -18,69 +18,69 @@
 </style>
 
 <body>
-	<nav class = "navbar navbar-white bg-jq navbar-expand-md">
-		<div class = "container">
-			<a href = "../index.html" class = "navbar-brand">
-				<img src = "../pagpersonal/asset/img/navbar/benny.png" alt = "Benny" title = "Volver a la pagina principal" class = "benny-logo">
+	<nav class="navbar navbar-white bg-jq navbar-expand-md">
+		<div class="container">
+			<a href="../index.html" class="navbar-brand">
+				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal" class="benny-logo">
 			</a>
-			<button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarNav" aria-controls = "navbarNav" aria-expanded = "false" aria-label = "Toggle navigation">
-				<i class = "fas fa-bars fa-lg"></i>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars fa-lg"></i>
 			</button>
-			<div class = "collapse navbar-collapse" id = "navbarNav">
-				<ul class = "navbar-nav ml-auto">
-					<li class = "nav-item">
-						<a href = "lista.html" class = "nav-link">Lista</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="lista.html" class="nav-link">Lista</a>
 					</li>
-					<li class = "nav-item">
-						<a href = "#" class = "nav-link">AJAX</a>
+					<li class="nav-item">
+						<a href="#" class="nav-link">AJAX</a>
 					</li>
-					<li class = "nav-item">
-						<a href = "datatable.html" class = "nav-link">DataTables</a>
+					<li class="nav-item">
+						<a href="datatable.html" class="nav-link">DataTables</a>
 					</li>
-					<li class = "nav-item">
-						<a href = "crudjs.html" class = "nav-link">CRUD</a>
+					<li class="nav-item">
+						<a href="crudjs.html" class="nav-link">CRUD</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<div class = "container">
-		<h1 class = "text-center">Tabla con datos AJAX</h1>
+	<div class="container">
+		<h1 class="text-center">Tabla con datos AJAX</h1>
 		<hr>
-		<div class = "row">
-			<div class = "col-4">
-				<input id = "numGente" type = "number" class = "form-control" autocomplete = "off">
+		<div class="row">
+			<div class="col-4">
+				<input id="numGente" type="number" class="form-control" autocomplete="off">
 			</div>
-			<div class = "col">
-				<button id = "load" class = "btn btn-jq">Cargar personas</button>
+			<div class="col">
+				<button id="load" class="btn btn-jq">Cargar personas</button>
 			</div>
 		</div>
 		<hr>
-		<div class = "row">
-			<div class = "col">
-				<div style = "overflow-x:auto;">
-					<table class = "table table-bordered table-hover table-sm text-center">
+		<div class="row">
+			<div class="col">
+				<div style="overflow-x:auto;">
+					<table class="table table-bordered table-hover table-sm text-center">
 						<thead>
 							<tr>
 								<th>#</th>
-								<th class = "text-center" scope = "col">Nombre</th>
-								<th class = "text-center" scope = "col">Genero</th>
-								<th class = "text-center" scope = "col">Edad</th>
-								<th class = "text-center" scope = "col">Ubicacion</th>
-								<th class = "text-center" scope = "col">Fecha de Nacimiento</th>
-								<th class = "text-center" scope = "col">Correo</th>
-								<th class = "text-center" scope = "col">Telefono</th>
+								<th class="text-center" scope="col">Nombre</th>
+								<th class="text-center" scope="col">Genero</th>
+								<th class="text-center" scope="col">Edad</th>
+								<th class="text-center" scope="col">Ubicacion</th>
+								<th class="text-center" scope="col">Fecha de Nacimiento</th>
+								<th class="text-center" scope="col">Correo</th>
+								<th class="text-center" scope="col">Telefono</th>
 							</tr>
 						</thead>
-						<tbody id = "tbody">
+						<tbody id="tbody">
 							<tr>
-								<td colspan = "8">Introduce el numero de personas a cargar</td>
+								<td colspan="8">Introduce el numero de personas a cargar</td>
 							</tr>
 						</tbody>
 						<tfoot>
 							<tr>
-								<th id = "tfoot" colspan = "8"></th>
+								<th id="tfoot" colspan="8"></th>
 							</tr>
 						</tfoot>
 					</table>
@@ -88,18 +88,18 @@
 			</div>
 		</div>
 		<hr>
-		<div class = "row">
-			<div class = "col-sm-7">
+		<div class="row">
+			<div class="col-sm-7">
 				<h2>Archivo JSON</h2>
-				<pre id = "json" class = "pre-scrollable" style = "max-height:900px;"></pre>
+				<pre id="json" class="pre-scrollable" style="max-height:900px;"></pre>
 			</div>
-			<div class = "col-sm-5">
+			<div class="col-sm-5">
 				<h2>Lista</h2>
-				<ul class = "list-group">
+				<ul class="list-group">
 				</ul>
 				<hr>
 				<h2>Creditos</h2>
-				<div class = "alert alert-primary">
+				<div class="alert alert-primary">
 					<h4>
 						<strong>Lista con AJAX</strong>
 					</h4>
@@ -109,27 +109,27 @@
 					</p>
 					<p>
 						Creada usando
-						<a href = "https://jquery.com/" target = "_blank">jQuery</a> con
-						<a href = "https://www.w3schools.com/xml/ajax_intro.asp" target = "_blank">AJAX</a>.
+						<a href="https://jquery.com/" target="_blank">jQuery</a> con
+						<a href="https://www.w3schools.com/xml/ajax_intro.asp" target="_blank">AJAX</a>.
 						<br> Datos obtenidos del API
-						<a href = "https://randomuser.me" target = "_blank">Random User Generator</a>.
+						<a href="https://randomuser.me" target="_blank">Random User Generator</a>.
 					</p>
 					<p>
 						Producido Por:
 						<br>
-						<a href = "https://pmz94.github.io" target = "_blank">
+						<a href="https://pmz94.github.io" target="_blank">
 							<strong>Pedro Muñoz Zubía</strong>
 						</a>
 					</p>
 					<p>
-						<a href = "https://www.facebook.com/pmz94" target = "_blank">
-							<i class = "fab fa-facebook-square fa-2x"></i>
+						<a href="https://www.facebook.com/pmz94" target="_blank">
+							<i class="fab fa-facebook-square fa-2x"></i>
 						</a>
-						<a href = "https://www.twitter.com/pmz94" target = "_blank">
-							<i class = "fab fa-twitter-square fa-2x"></i>
+						<a href="https://www.twitter.com/pmz94" target="_blank">
+							<i class="fab fa-twitter-square fa-2x"></i>
 						</a>
-						<a href = "https://www.github.com/pmz94" target = "_blank">
-							<i class = "fab fa-github-square fa-2x"></i>
+						<a href="https://www.github.com/pmz94" target="_blank">
+							<i class="fab fa-github-square fa-2x"></i>
 						</a>
 					</p>
 				</div>
@@ -138,37 +138,37 @@
 		</div>
 	</div>
 
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.js"></script>
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"></script>
-	<script type = "text/javascript">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"></script>
+	<script type="text/javascript">
 		$(function() {
+			$('#load').on('click', function() {
+				cargarGente(parseInt($('#numGente').val()));
+			});
+
 			function cargarGente(cant) {
 				var url = 'https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=' + cant;
 				$.getJSON(url, function(data) {
-					var row = '';
-					$.each(data.results, function(key, val) {
+					$('#tbody').empty();
+					$.each(data.results, function(i, person) {
+						var row = '';
 						row += '<tr>';
-						row += '<td>' + key + '</td>';
-						row += '<td>' + val.name.first + ' ' + val.name.last + '</td>';
-						row += '<td>' + val.gender + '</td>';
-						row += '<td>' + val.dob.age + '</td>';
-						row += '<td>' + val.location.city + ', ' + val.location.state + ', ' + val.nat + '</td>';
-						row += '<td>' + val.dob.date + '</td>';
-						row += '<td>' + val.email + '</td>';
-						row += '<td>' + val.phone + '</td>';
+						row += '	<td>' + (i + 1) + '</td>';
+						row += '	<td>' + person.name.first + ' ' + person.name.last + '</td>';
+						row += '	<td>' + person.gender + '</td>';
+						row += '	<td>' + person.dob.age + '</td>';
+						row += '	<td>' + person.location.city + ', ' + person.location.state + ', ' + person.nat + '</td>';
+						row += '	<td>' + person.dob.date + '</td>';
+						row += '	<td>' + person.email + '</td>';
+						row += '	<td>' + person.phone + '</td>';
 						row += '</tr>';
-						$('#tbody').html(row);
+						$('#tbody').append(row);
 					});
 					$('#tfoot').text(data.results.length + ' personas');
 					$('#json').text(JSON.stringify(data, null, 4));
 				});
 			}
-
-			$('#load').on('click', function() {
-				var cant = $('#numGente').val();
-				cargarGente(cant);
-			});
 		});
 	</script>
 </body>

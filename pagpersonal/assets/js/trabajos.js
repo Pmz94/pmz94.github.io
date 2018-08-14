@@ -1,4 +1,4 @@
-var trabajo = [
+var trabajos = [
 	{
 		'titulo': 'Impartición de asesorías de Probabilidad y Estadística',
 		'descripcion': 'Contenido de estadística descriptiva, probabilidad y estadística inferencial. Hobby personal.',

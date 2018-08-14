@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 function ResponsiveDatatablesHelper(a, b, c) {
 	"string" == typeof a ? this.tableElement = $(a) : this.tableElement = a, this.api = this.tableElement.dataTable().api(), this.columnIndexes = [], this.columnsShownIndexes = [], this.columnsHiddenIndexes = [], this.currentBreakpoint = "", this.lastBreakpoint = "", this.lastColumnsHiddenIndexes = [];
 	var d = window.location.pathname.split("/").pop(), e = this.api.settings().context[0];
 	this.tableId = e.sTableId, this.saveState = e.oInit.bStateSave, this.cookieName = "DataTablesResponsiveHelper_" + this.tableId + (d ? "_" + d : ""), this.lastStateExists = !1, this.expandColumn = void 0, this.origBreakpointsDefs = void 0, this.breakpoints = {}, this.options = {
-		"hideEmptyColumnsInRowDetail": !1,
+		'hideEmptyColumnsInRowDetail': !1,
 		"clickOn": "icon",
 		"showDetail": null,
 		"hideDetail": null
@@ -16,12 +16,16 @@ ResponsiveDatatablesHelper.prototype.init = function(a, b) {
 }, ResponsiveDatatablesHelper.prototype.initBreakpoints = function() {
 	if(this.saveState && this.getState(), !this.lastStateExists) {
 		var a = [];
-		for(var b in this.origBreakpointsDefs) a.push({"name": b, "upperLimit": this.origBreakpointsDefs[b], "columnsToHide": []});
+		for(var b in this.origBreakpointsDefs) a.push({
+			"name": b,
+			"upperLimit": this.origBreakpointsDefs[b],
+			"columnsToHide": []
+		});
 		a.sort(function(a, b) {
 			return a.upperLimit - b.upperLimit
 		});
 		for(var c = 0, d = 0; d < a.length; d++) a[d].lowerLimit = c, c = a[d].upperLimit;
-		a.push({"name": "always", "lowerLimit": c, "upperLimit": 1 / 0, "columnsToHide": []}), this.breakpoints = {};
+		a.push({ "name": "always", "lowerLimit": c, "upperLimit": 1 / 0, "columnsToHide": [] }), this.breakpoints = {};
 		var d, e;
 		for(d = 0, e = a.length; e > d; d++) this.breakpoints[a[d].name] = a[d];
 		var f = this.api.columns().header(), g = [];
@@ -52,7 +56,8 @@ ResponsiveDatatablesHelper.prototype.init = function(a, b) {
 		}
 		var f = !1;
 		if(!this.skipNextWindowsWidthChange) if(0 === this.lastBreakpoint.length && c.length) f = !0; else if(this.lastBreakpoint != this.currentBreakpoint) f = !0; else if(this.columnsHiddenIndexes.length !== c.length) f = !0; else {
-			var g = this.difference(this.columnsHiddenIndexes, c).length, h = this.difference(c, this.columnsHiddenIndexes).length;
+			var g = this.difference(this.columnsHiddenIndexes, c).length,
+				h = this.difference(c, this.columnsHiddenIndexes).length;
 			f = g + h > 0
 		}
 		f && (this.skipNextWindowsWidthChange = !0, this.columnsHiddenIndexes = c, this.columnsShownIndexes = this.difference(this.columnIndexes, this.columnsHiddenIndexes), this.showHideColumns(), this.lastBreakpoint = this.currentBreakpoint, this.setState(), this.skipNextWindowsWidthChange = !1), this.columnsHiddenIndexes.length ? (this.tableElement.addClass("has-columns-hidden"), $("tr.detail-show", this.tableElement).each(function(b, c) {
@@ -77,13 +82,13 @@ ResponsiveDatatablesHelper.prototype.init = function(a, b) {
 		if(e = $(e), f === this.expandColumn) {
 			if(0 == $("span.responsiveExpander", e).length) switch(e.prepend(this.expandIconTemplate), this.options.clickOn) {
 				case"cell":
-					e.on("click", {"responsiveDatatablesHelperInstance": this}, this.showRowDetailEventHandler);
+					e.on("click", { "responsiveDatatablesHelperInstance": this }, this.showRowDetailEventHandler);
 					break;
 				case"row":
-					$(a).on("click", {"responsiveDatatablesHelperInstance": this}, this.showRowDetailEventHandler);
+					$(a).on("click", { "responsiveDatatablesHelperInstance": this }, this.showRowDetailEventHandler);
 					break;
 				default:
-					e.on("click", "span.responsiveExpander", {"responsiveDatatablesHelperInstance": this}, this.showRowDetailEventHandler)
+					e.on("click", "span.responsiveExpander", { "responsiveDatatablesHelperInstance": this }, this.showRowDetailEventHandler)
 			}
 			break
 		}
@@ -126,7 +131,8 @@ ResponsiveDatatablesHelper.prototype.init = function(a, b) {
 	var a = JSON.parse(localStorage.getItem(this.cookieName));
 	a && (this.columnIndexes = a.columnIndexes, this.breakpoints = a.breakpoints, this.expandColumn = a.expandColumn, this.lastBreakpoint = a.lastBreakpoint, this.lastStateExists = !0)
 }, ResponsiveDatatablesHelper.prototype.setState = function() {
-	var a = this.difference(this.lastColumnsHiddenIndexes, this.columnsHiddenIndexes).length, b = this.difference(this.columnsHiddenIndexes, this.lastColumnsHiddenIndexes).length;
+	var a = this.difference(this.lastColumnsHiddenIndexes, this.columnsHiddenIndexes).length,
+		b = this.difference(this.columnsHiddenIndexes, this.lastColumnsHiddenIndexes).length;
 	if(a + b > 0) {
 		var c = {
 			"columnIndexes": this.columnIndexes,

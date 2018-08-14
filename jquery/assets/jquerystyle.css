@@ -51,6 +51,10 @@ table.table {
 	background-color: #ffffff;
 }
 
+.table thead th, .table tbody td {
+	vertical-align: middle;
+}
+
 .alert-jq {
 	color: #ffffff;
 	background-color: var(--col-jq);

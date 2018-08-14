@@ -1,86 +1,84 @@
 <!DOCTYPE html>
-<html lang = "es">
+<html lang="es">
 
 <head>
-	<meta charset = "UTF-8">
-	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-	<meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Buscar CDNs</title>
-	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.css">
-	<link rel = "stylesheet" href = "jquerystyle.css">
-	<script defer src = "https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.css">
+	<link rel="stylesheet" href="assets/jquerystyle.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 
 <body>
-	<nav class = "navbar navbar-white bg-jq navbar-expand-md">
-		<div class = "container">
-			<a href = "../index.html" class = "navbar-brand">
-				<img src = "../pagpersonal/asset/img/navbar/benny.png" alt = "Benny" title = "Volver a la pagina principal" class = "benny-logo">
+	<nav class="navbar navbar-white bg-jq navbar-expand-md">
+		<div class="container">
+			<a href="../index.html" class="navbar-brand">
+				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal" class="benny-logo">
 			</a>
-			<button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarNav" aria-controls = "navbarNav" aria-expanded = "false" aria-label = "Toggle navigation">
-				<i class = "fas fa-bars fa-lg"></i>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars fa-lg"></i>
 			</button>
-			<div class = "collapse navbar-collapse" id = "navbarNav">
-				<ul class = "navbar-nav ml-auto">
-					<li class = "nav-item">
-						<a href = "lista.html" class = "nav-link">Lista</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="lista.html" class="nav-link">Lista</a>
 					</li>
-					<li class = "nav-item">
-						<a href = "ajax.html" class = "nav-link">AJAX</a>
+					<li class="nav-item">
+						<a href="ajax.html" class="nav-link">AJAX</a>
 					</li>
-					<li class = "nav-item">
-						<a href = "datatable.html" class = "nav-link">DataTables</a>
+					<li class="nav-item">
+						<a href="datatable.html" class="nav-link">DataTables</a>
 					</li>
-					<li class = "nav-item">
-						<a href = "crudjs.html" class = "nav-link">CRUD</a>
+					<li class="nav-item">
+						<a href="crudjs.html" class="nav-link">CRUD</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<div class = "container py-5">
-		<h1 class = "text-center">Buscar CDNs</h1>
+	<div class="container py-5">
+		<h1 class="text-center">Buscar CDNs</h1>
 		<hr>
-		<table id = "resultados" class = "table table-bordered table-striped table-hover table-sm">
+		<div class="row">
+			<div class="col-8">
+				<input id="buscar" type="text" class="form-control" placeholder="Buscar..." autocomplete="off">
+			</div>
+			<div class="col-2">
+				<button id="btnLoad" class="btn btn-success">Cargar CDNs</button>
+			</div>
+		</div>
+		<hr>
+		<table id="resultados" class="text-center table table-bordered table-striped table-hover table-sm">
 			<thead>
 				<tr>
-					<th></th>
 					<th>Nombre</th>
 					<th>Ultima version</th>
-					<th>Pagina web</th>
 					<th>Descripcion</th>
+					<th>Pagina web</th>
 					<th>Ver</th>
 				</tr>
 			</thead>
 			<tbody>
 			</tbody>
 		</table>
-		<hr>
-		<div class = "row">
-			<div class = "col-8">
-				<input id = "buscar" type = "text" class = "form-control" placeholder = "Buscar..." autocomplete = "off">
-			</div>
-			<div class = "col-2">
-				<button id = "btnLoad" class = "btn btn-success">Cargar CDNs</button>
-			</div>
-		</div>
 	</div>
 
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.js"></script>
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.js"></script>
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap4.js"></script>
-	<script src	= "datatables.responsive.js"></script>
-	<script type = "text/javascript">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap4.js"></script>
+	<script src="assets/datatables.responsive.js"></script>
+	<script type="text/javascript">
 		$(function() {
-			var responsiveHelper = undefined;
+			/*var responsiveHelper = undefined;
 			var breakpointDefinition = {
 				tablet: 1024,
 				phone: 480
 			};
-
 			$('#resultados').DataTable({
 				responsive: true,
 				ordering: false,
@@ -152,37 +150,56 @@
 						sortDescending: ': Activar para ordenar la columna de manera descendente'
 					}
 				}
-			});
+			});*/
 			//https://api.cdnjs.com/libraries?search=jquery&fields=version,description,homepage,repository,autoupdate,author,assets&output=human
-			$('#btnLoad').on('click', function() {
-				var search = $('#buscar').val();
+			$('#buscar').on('keyup', function(e) {
+				if(e.keyCode == 13) {
+					if($(this).val() == '') {
+						alert('Busca algo!');
+						return false;
+					}
+					buscar;
+				}
+			});
+
+			$('#btnLoad').on('click', buscar);
+
+			function buscar() {
+				if($('#buscar').val() == '') {
+					alert('Busca algo!');
+					return false;
+				}
+				$('#resultados tbody').empty();
 				var url = 'https://api.cdnjs.com/libraries';
-				url += '?search=' + search.trim();
-				url += '&fields=version,description,homepage,author';
-				//console.log(url);
-				$.getJSON(url, function(data) {
-					//console.log(data);
-					var row = '';
-					$.each(data.results, function(key, val) {
-						var link = (val.homepage != null) ? '<a href = "' + val.homepage + '">' + val.homepage + '</a>' : 'Sin pagina web';
-						var author = ($.isPlainObject(val.author)) ? val.author.name : val.author;
-
+				$.ajax({
+					url: url,
+					method: 'GET',
+					dataType: 'json',
+					data: {
+						search: $('#buscar').val().trim(),
+						fields: 'version,description,homepage'
+					}
+				}).done(function(data) {
+					data = data.results;
+					console.log(data);
+					$.each(data, function(i, cdn) {
+						var link = (cdn.homepage != null) ? '<a href = "' + cdn.homepage + '">' + cdn.homepage + '</a>' : 'Sin pagina web';
+						var row = '';
 						row += '<tr>';
-						row += '<td>' + val.name + '</td>';
-						row += '<td>' + val.description + '</td>';
-						row += '<td>' + val.version + '</td>';
-						row += '<td>' + link + '</td>';
-						row += '<td>' + author + '</td>';
+						row += '	<td>' + cdn.name + '</td>';
+						row += '	<td>' + cdn.version + '</td>';
+						row += '	<td>' + cdn.description + '</td>';
+						row += '	<td>' + link + '</td>';
+						row += '	<td><button id="verCDN" class="btn btn-jq btn-sm"><i class="fas fa-search"></i></button></td>';
 						row += '</tr>';
-
-						//console.log(val.author);
-						$('#resultados tbody').html(row);
+						$('#resultados tbody').append(row);
 					});
-				}).fail(function() {
-					console.log('error');
+					$('#buscar').val(null);
+				}).fail(function(error) {
+					console.log(error);
 					alert('Error');
 				});
-			});
+			}
 
 		});
 	</script>
