@@ -45,7 +45,7 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container py-3">
 		<h1 class="text-center">Tabla con datos AJAX</h1>
 		<hr>
 		<div class="row">
@@ -152,6 +152,9 @@
 				$.getJSON(url, function(data) {
 					$('#tbody').empty();
 					$.each(data.results, function(i, person) {
+						var d = new Date(person.dob.date);
+						var mes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sept', 'Oct', 'Nov', 'Dic'];
+						var fecha_nacimiento = d.getDate() + '/' + mes[d.getMonth()] + '/' + d.getFullYear();
 						var row = '';
 						row += '<tr>';
 						row += '	<td>' + (i + 1) + '</td>';
@@ -159,7 +162,7 @@
 						row += '	<td>' + person.gender + '</td>';
 						row += '	<td>' + person.dob.age + '</td>';
 						row += '	<td>' + person.location.city + ', ' + person.location.state + ', ' + person.nat + '</td>';
-						row += '	<td>' + person.dob.date + '</td>';
+						row += '	<td>' + fecha_nacimiento  + '</td>';
 						row += '	<td>' + person.email + '</td>';
 						row += '	<td>' + person.phone + '</td>';
 						row += '</tr>';
@@ -167,6 +170,7 @@
 					});
 					$('#tfoot').text(data.results.length + ' personas');
 					$('#json').text(JSON.stringify(data, null, 4));
+					$('#numGente').val(null);
 				});
 			}
 		});
