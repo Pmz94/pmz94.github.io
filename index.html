@@ -270,7 +270,7 @@
 			<div class="columns has-text-justified">
 				<div class="column">
 					<h5 class="subtitle">Ingeniero en Sistemas de Información de la Universidad de Sonora, además de uno que otro conocimiento de Ingeniería Industrial y Mercadotecnia.</h5>
-					<h5 class="subtitle">Nivel V de Ingles en el Departamento de Lenguas Extranjeras.</h5>
+					<h5 class="subtitle">Nivel VI de Ingles en el Departamento de Lenguas Extranjeras.</h5>
 				</div>
 				<div class="column">
 					<h5 class="subtitle">Mis intereses son de todos, más que nada aquellos que involucren Estadística aplicada, Simulacion, Ciencia de datos e Investigación de operaciones.</h5>
@@ -470,21 +470,21 @@
 	<script src="pagpersonal/assets/js/script.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			var portada = $('.portada');
-			portada.addClass('animated fadeIn');
-			portada.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			var $portada = $('.portada');
+			$portada.addClass('animated fadeIn');
+			$portada.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeIn');
 			});
 
-			var tituloportada = $('#tituloportada');
-			tituloportada.addClass('animated fadeInUp');
-			tituloportada.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			var $tituloportada = $('#tituloportada');
+			$tituloportada.addClass('animated fadeInUp');
+			$tituloportada.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeInUp');
 			});
 
-			var logoportada = $('#logoportada');
-			logoportada.hover(onlyhover).click(onlyclick);
-			logoportada.bind('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationEnd', function() {
+			var $logoportada = $('#logoportada');
+			$logoportada.hover(onlyhover).click(onlyclick);
+			$logoportada.bind('webkitAnimationEnd MSAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated pulse');
 				$(this).removeClass('animated bounce');
 			});

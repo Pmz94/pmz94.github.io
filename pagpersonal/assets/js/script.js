@@ -4,8 +4,7 @@ $(function() {
 		$('#navRight, .navbar-burger').toggleClass('is-active');
 	});
 
-	$('img').attr('draggable', false);
-	$('img').bind('contextmenu', function() {
+	$('img').attr('draggable', false).bind('contextmenu', function() {
 		return false;
 	});
 });
