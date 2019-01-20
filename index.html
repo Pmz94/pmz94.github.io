@@ -12,7 +12,7 @@
 	<title>Página de Pedro Muñoz</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
 	<link rel="stylesheet" href="pagpersonal/assets/css/style.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css">
 </head>
@@ -73,6 +73,18 @@
 		--col-lic-hov: #00669b;
 		--col-ghc: #24292e;
 		--col-ghc-hov: #353c43;
+	}
+
+	/*Tamaño para boton de redes sociales*/
+	.button.is-social {
+		font-size: 2.5rem;
+		border-radius: 45px;
+	}
+
+	/* Clase para sombrear los botones con clase is-social */
+	.button.is-social.is-focused:not(:active), .button.is-social:focus:not(:active) {
+		-webkit-box-shadow: 0 0 0 0.05em rgba(70, 70, 70, 0.40);
+		box-shadow: 0 0 0 0.05em rgba(70, 70, 70, 0.40);
 	}
 
 	/* Facebook */
@@ -229,6 +241,10 @@
 		width: 100%;
 		height: 100%;
 	}
+
+	footer.footer {
+		padding: 0.5rem;
+	}
 </style>
 
 <body>
@@ -277,39 +293,39 @@
 					<h5 class="subtitle">Tambien me gusta todo lo que sea diseño y desarrollo de interfaces o vistas. Basicamente lo que viene siendo UX/UI y Front-end.</h5>
 				</div>
 			</div>
-			<hr>
-
+		</div>
+		<hr>
+		<div class="container has-text-centered">
 			<h4 class="title is-4">Esta carrera abarca los siguientes conceptos...</h4>
 			<div class="columns">
 				<div class="column is-3">
-					<img src="pagpersonal/assets/img/portada/adsi.png" alt="Analisis de Sistemas" class="iconr">
+					<img src="pagpersonal/assets/img/portada/adsi.png" alt="Analisis de Sistemas" class="iconr" draggable="false">
 					<h4 class="subtitle">Análisis de Sistemas</h4>
-					<img src="pagpersonal/assets/img/portada/planeacion.png" alt="Planeacion de Proyectos" class="iconr">
+					<img src="pagpersonal/assets/img/portada/planeacion.png" alt="Planeacion de Proyectos" class="iconr" draggable="false">
 					<h4 class="subtitle">Planeación de proyectos</h4>
 				</div>
 				<div class="column is-3">
-					<img src="pagpersonal/assets/img/portada/desarrollo.png" alt="Desarrollo" class="iconr">
+					<img src="pagpersonal/assets/img/portada/desarrollo.png" alt="Desarrollo" class="iconr" draggable="false">
 					<h4 class="subtitle">Desarrollo</h4>
-					<img src="pagpersonal/assets/img/portada/cienciadedatos.png" alt="Ciencia de Datos" class="iconr">
+					<img src="pagpersonal/assets/img/portada/cienciadedatos.png" alt="Ciencia de Datos" class="iconr" draggable="false">
 					<h4 class="subtitle">Ciencia de Datos</h4>
 				</div>
 				<div class="column is-3">
-					<img src="pagpersonal/assets/img/portada/bd.png" alt="Bases de Datos" class="iconr">
+					<img src="pagpersonal/assets/img/portada/bd.png" alt="Bases de Datos" class="iconr" draggable="false">
 					<h4 class="subtitle">Bases de Datos</h4>
-					<img src="pagpersonal/assets/img/portada/ia.png" alt="Inteligencia Artificial" class="iconr">
+					<img src="pagpersonal/assets/img/portada/ia.png" alt="Inteligencia Artificial" class="iconr" draggable="false">
 					<h4 class="subtitle">Inteligencia Artificial</h4>
 				</div>
 				<div class="column is-3">
-					<img src="pagpersonal/assets/img/portada/redes.png" alt="Redes" class="iconr">
+					<img src="pagpersonal/assets/img/portada/redes.png" alt="Redes" class="iconr" draggable="false">
 					<h4 class="subtitle">Redes</h4>
-					<img src="pagpersonal/assets/img/portada/si.png" alt="Seguridad Informatica" class="iconr">
+					<img src="pagpersonal/assets/img/portada/si.png" alt="Seguridad Informatica" class="iconr" draggable="false">
 					<h4 class="subtitle">Seguridad Informática</h4>
 				</div>
 			</div>
 			<h4 class="title is-4">...entre otros más.</h4>
-			<hr>
 		</div>
-
+		<hr>
 		<div class="container has-text-centered">
 			<h3 class="title">De donde vengo</h3>
 			<br>
@@ -321,70 +337,47 @@
 				</div>
 			</div>
 		</div>
-
+		<hr>
 		<div class="container has-text-centered">
-			<hr>
 			<h5 class="title">Redes sociales</h5>
-			<div class="columns">
-				<div class="column">
-					<a href="http://www.facebook.com/pmz94" target="_blank" class="button is-medium fbc">
-                        <span class="icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </span>
-						<span>Facebook</span>
-					</a>
-				</div>
-				<div class="column">
-					<a href="http://www.twitter.com/pmz94" target="_blank" class="button is-medium twc">
-                        <span class="icon">
-                            <i class="fab fa-twitter"></i>
-                        </span>
-						<span>Twitter</span>
-					</a>
-				</div>
-				<div class="column">
-					<a href="tel:+526622055050" class="button is-medium wac">
-                        <span class="icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </span>
-						<span>WhatsApp</span>
-					</a>
-				</div>
-				<div class="column">
-					<a href="http://www.instagram.com/pmz94" target="_blank" class="button is-medium igc">
-                        <span class="icon">
-                            <i class="fab fa-instagram"></i>
-                        </span>
-						<span>Instagram</span>
-					</a>
-				</div>
-				<div class="column">
-					<a href="http://www.linkedin.com/in/pmz94" target="_blank" class="button is-medium lic">
-                        <span class="icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </span>
-						<span>LinkedIn</span>
-					</a>
-				</div>
-				<div class="column">
-					<a href="http://www.github.com/pmz94" target="_blank" class="button is-medium ghc">
-                        <span class="icon">
-                            <i class="fab fa-github"></i>
-                        </span>
-						<span>GitHub</span>
-					</a>
-				</div>
-				<div class="column">
-					<a href="http://www.youtube.com/channel/UCKBIluSLitTm3FnMHWzSDfQ" target="_blank" class="button is-medium ytc">
-                        <span class="icon">
-                            <i class="fab fa-youtube"></i>
-                        </span>
-						<span>YouTube</span>
-					</a>
-				</div>
-			</div>
-			<hr>
-
+			<a title="Facebook" href="http://www.facebook.com/pmz94" target="_blank" class="button is-social fbc">
+				<span class="icon">
+					<i class="fab fa-facebook-f fa-lg"></i>
+				</span>
+			</a>
+			<a title="Twitter" href="http://www.twitter.com/pmz94" target="_blank" class="button is-social twc">
+				<span class="icon">
+					<i class="fab fa-twitter fa-lg"></i>
+				</span>
+			</a>
+			<a title="WhatsApp" href="tel:+526622055050" class="button is-social wac">
+				<span class="icon">
+					<i class="fab fa-whatsapp fa-lg"></i>
+				</span>
+			</a>
+			<a title="Instagram" href="http://www.instagram.com/pmz94" target="_blank" class="button is-social igc">
+				<span class="icon">
+					<i class="fab fa-instagram fa-lg"></i>
+				</span>
+			</a>
+			<a title="LinkedIn" href="http://www.linkedin.com/in/pmz94" target="_blank" class="button is-social lic">
+				<span class="icon">
+					<i class="fab fa-linkedin-in fa-lg"></i>
+				</span>
+			</a>
+			<a title="GitHub" href="http://www.github.com/pmz94" target="_blank" class="button is-social ghc">
+				<span class="icon">
+					<i class="fab fa-github fa-lg"></i>
+				</span>
+			</a>
+			<a title="Youtube" href="http://www.youtube.com/channel/UCKBIluSLitTm3FnMHWzSDfQ" target="_blank" class="button is-social ytc">
+				<span class="icon">
+					<i class="fab fa-youtube fa-lg"></i>
+				</span>
+			</a>
+		</div>
+		<hr>
+		<div class="container has-text-centered">
 			<h1 class="title">Un video del canal</h1>
 			<div class="container embed-video">
 				<div class="videoWrapper">
@@ -428,41 +421,8 @@
 	<!--</div>-->
 	<!--</footer>-->
 
-	<footer>
-		<nav class="tabs is-centered hero is-dark">
-			<div class="container">
-				<ul>
-					<li>
-						<a href="https://www.facebook.com/pmz94" alt="Facebook" target="_blank" class="navbar-item">
-                            <span class="icon">
-                                <i class="fab fa-lg fa-facebook-f"></i>
-                            </span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.twitter.com/pmz94" alt="Twitter" target="_blank" class="navbar-item">
-                            <span class="icon">
-                                <i class="fab fa-lg fa-twitter"></i>
-                            </span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.instagram.com/pmz94" alt="Instagram" target="_blank" class="navbar-item">
-                            <span class="icon">
-                                <i class="fab fa-lg fa-instagram"></i>
-                            </span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.linkedin.com/in/pmz94" alt="LinkedIn" target="_blank" class="navbar-item">
-                            <span class="icon">
-                                <i class="fab fa-lg fa-linkedin-in"></i>
-                            </span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+	<footer class="footer hero is-dark">
+		<label class="subtitle has-text-centered">&copy;2019 Pedro Muñoz</label>
 	</footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>

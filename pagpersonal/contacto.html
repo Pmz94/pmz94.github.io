@@ -12,7 +12,7 @@
 	<title>Contactar a Pedro Muñoz</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
 </head>
 
 <style>
@@ -32,6 +32,7 @@
 		font-weight: bold;
 		font-style: italic;
 		width: 150px;
+		border-radius: 4px;
 	}
 
 	.button.is-paypal:hover {
@@ -141,14 +142,14 @@
 							<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
 						</form>
 					</div>
-					<!-- <div class="column">
-						<a href="https://www.paypal.me/pmz94" class="button is-paypal is-rounded">
-							<span>Donar con&nbsp;</span>
-							<span class="icon">
-								<i class="fab fa-lg fa-cc-paypal"></i>
-							</span>
-						</a>
-					</div> -->
+					<!--<div class="column">-->
+						<!--<a href="https://www.paypal.me/pmz94" class="button is-paypal is-rounded">-->
+							<!--<span>Donar con&nbsp;</span>-->
+							<!--<span class="icon">-->
+								<!--<i class="fab fa-lg fa-paypal"></i>-->
+							<!--</span>-->
+						<!--</a>-->
+					<!--</div>-->
 				</div>
 			</div>
 		</div>
@@ -192,11 +193,14 @@
 	</section>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 	<script src="assets/js/script.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			$('#contactForm').validate({
+				errorElement: 'span',
+				errorClass: 'tag is-dark is-medium',
+				highlight: function() {}, //Override para que no se agregen las clases a los inputs
 				rules: {
 					nombre: {
 						required: true,
