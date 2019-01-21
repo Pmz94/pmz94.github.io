@@ -45,152 +45,115 @@
 </style>
 
 <body>
-	<section class="hero is-fullheight">
-		<div class="hero-head">
-			<nav class="navbar hero is-dark">
-				<div class="container">
-					<div class="navbar-brand">
-						<a href="assets/img/navbar/CV.pdf" target="_blank" class="navbar-item">
-							<img src="assets/img/navbar/benny.png" alt="Benny" title="Benny" class="benny-logo">
-						</a>
-						<a href="../index.html" class="navbar-item">Pedro Muñoz Zubía</a>
-						<span class="navbar-burger" data-target="navRight">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-					</div>
-					<div id="navRight" class="navbar-menu">
-						<div class="navbar-end">
-							<a href="aptitudes.html" class="navbar-item">Aptitudes</a>
-							<a href="grados.html" class="navbar-item">Grados Académicos</a>
-							<a href="habilidades.html" class="navbar-item">Habilidades</a>
-							<a href="trabajos.html" class="navbar-item">Trabajos Realizados</a>
-							<a href="#" class="navbar-item">Contacto</a>
-						</div>
-					</div>
+	<nav class="navbar is-dark">
+		<div class="container">
+			<div class="navbar-brand">
+				<a href="assets/img/navbar/CV.pdf" target="_blank" class="navbar-item">
+					<img src="assets/img/navbar/benny.png" alt="Benny" title="Benny" class="benny-logo">
+				</a>
+				<a href="../index.html" class="navbar-item">Pedro Muñoz Zubía</a>
+				<div class="navbar-burger" data-target="navRight">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
 				</div>
-			</nav>
-		</div>
-
-		<div class="hero-body">
-			<div class="container">
-				<h1 class="title is-2 has-text-centered">Contacto</h1>
-				<hr>
-				<div class="columns is-centered">
-					<div class="column is-8">
-						<form id="contactForm" action="https://formspree.io/pmz94@hotmail.com" method="POST" autocomplete="off">
-							<!--Nombre-->
-							<div class="field">
-								<div class="control has-icons-left has-icons-right">
-									<input id="nombre" class="input is-medium" type="text" name="nombre" placeholder="Nombre" autocomplete="off" required>
-									<span class="icon is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
-								</div>
-							</div>
-							<!--Correo-->
-							<div class="field">
-								<div class="control has-icons-left has-icons-right">
-									<input id="email" class="input is-medium" type="email" name="email" placeholder="Correo" autocomplete="off" required>
-									<span class="icon is-left">
-                                        <i class="fas fa-envelope"></i>
-                                    </span>
-								</div>
-							</div>
-							<!--Asunto-->
-							<div class="field">
-								<div class="control has-icons-left has-icons-right">
-									<input id="asunto" class="input is-medium" type="text" name="asunto" placeholder="Asunto" autocomplete="off" required>
-									<span class="icon is-left">
-                                        <i class="fas fa-comment"></i>
-                                    </span>
-								</div>
-							</div>
-							<!--Mensaje-->
-							<div class="field">
-								<div class="control has-icons-left has-icons-right">
-									<textarea id="mensaje" class="textarea is-medium" name="mensaje" placeholder="Mensaje" required style="height:300px;resize:none;"></textarea>
-								</div>
-							</div>
-							<!--Boton para enviar-->
-							<div class="field">
-								<div class="control" style="text-align:center;">
-									<button type="submit" class="button is-medium is-dark">
-                                        <span class="icon">
-                                            <i class="fas fa-paper-plane"></i>
-                                        </span>
-										<span>Enviar</span>
-									</button>
-								</div>
-							</div>
-							<input type="hidden" name="_subject" value="Mensaje de Pagina Web">
-							<input type="hidden" name="_next" value="success/enviado.html">
-							<input type="hidden" name="_format" value="plain">
-							<input type="hidden" name="_language" value="es">
-						</form>
-					</div>
-				</div>
-				<hr>
-				<!--Donar con paypal-->
-				<div class="columns is-centered has-text-centered">
-					<div class="column">
-						<form action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_top">
-							<input type="hidden" name="cmd" value="_s-xclick">
-							<input type="hidden" name="hosted_button_id" value="JBUFDKHRU5UE6">
-							<input type="image" src="https://pmz94.github.io/pagpersonal/assets/img/navbar/paypal-donar.png" name="submit" alt="Donar con PayPal" height="35" draggable="false">
-							<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-						</form>
-					</div>
-					<!--<div class="column">-->
-						<!--<a href="https://www.paypal.me/pmz94" class="button is-paypal is-rounded">-->
-							<!--<span>Donar con&nbsp;</span>-->
-							<!--<span class="icon">-->
-								<!--<i class="fab fa-lg fa-paypal"></i>-->
-							<!--</span>-->
-						<!--</a>-->
-					<!--</div>-->
+			</div>
+			<div id="navRight" class="navbar-menu">
+				<div class="navbar-end">
+					<a href="aptitudes.html" class="navbar-item">Aptitudes</a>
+					<a href="grados.html" class="navbar-item">Grados Académicos</a>
+					<a href="habilidades.html" class="navbar-item">Habilidades</a>
+					<a href="trabajos.html" class="navbar-item">Trabajos Realizados</a>
+					<a href="#" class="navbar-item">Contacto</a>
 				</div>
 			</div>
 		</div>
+	</nav>
 
-		<div class="hero-foot">
-			<nav class="tabs is-centered hero is-dark">
-				<div class="container">
-					<ul>
-						<li>
-							<a href="http://www.facebook.com/pmz94" alt="Facebook" target="_blank" class="navbar-item">
-                                <span class="icon">
-                                    <i class="fab fa-lg fa-facebook-f"></i>
-                                </span>
-							</a>
-						</li>
-						<li>
-							<a href="http://www.twitter.com/pmz94" alt="Twitter" target="_blank" class="navbar-item">
-                                <span class="icon">
-                                    <i class="fab fa-lg fa-twitter"></i>
-                                </span>
-							</a>
-						</li>
-						<li>
-							<a href="http://www.instagram.com/pmz94" alt="Instagram" target="_blank" class="navbar-item">
-                                <span class="icon">
-                                    <i class="fab fa-lg fa-instagram"></i>
-                                </span>
-							</a>
-						</li>
-						<li>
-							<a href="http://www.linkedin.com/in/pmz94" alt="LinkedIn" target="_blank" class="navbar-item">
-                                <span class="icon">
-                                    <i class="fab fa-lg fa-linkedin-in"></i>
-                                </span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
+	<section class="section container has-text-centered">
+
+		<h1 class="title is-2">Contacto</h1>
+		<hr>
+		<br>
+		<div class="columns is-centered">
+			<div class="column is-8">
+				<form id="contactForm" action="https://formspree.io/pmz94@hotmail.com" method="POST" autocomplete="off">
+					<!--Nombre-->
+					<div class="field">
+						<div class="control has-icons-left has-icons-right">
+							<input id="nombre" class="input is-medium" type="text" name="nombre" placeholder="Nombre" autocomplete="off" required>
+							<span class="icon is-left">
+								<i class="fas fa-user"></i>
+							</span>
+						</div>
+					</div>
+					<!--Correo-->
+					<div class="field">
+						<div class="control has-icons-left has-icons-right">
+							<input id="email" class="input is-medium" type="email" name="email" placeholder="Correo" autocomplete="off" required>
+							<span class="icon is-left">
+								<i class="fas fa-envelope"></i>
+							</span>
+						</div>
+					</div>
+					<!--Asunto-->
+					<div class="field">
+						<div class="control has-icons-left has-icons-right">
+							<input id="asunto" class="input is-medium" type="text" name="asunto" placeholder="Asunto" autocomplete="off" required>
+							<span class="icon is-left">
+								<i class="fas fa-comment"></i>
+							</span>
+						</div>
+					</div>
+					<!--Mensaje-->
+					<div class="field">
+						<div class="control has-icons-left has-icons-right">
+							<textarea id="mensaje" class="textarea is-medium" name="mensaje" placeholder="Mensaje" required style="height:300px;resize:none;"></textarea>
+						</div>
+					</div>
+					<!--Boton para enviar-->
+					<div class="field">
+						<div class="control" style="text-align:center;">
+							<button type="submit" class="button is-medium is-dark">
+								<span class="icon">
+									<i class="fas fa-paper-plane"></i>
+								</span>
+								<span>Enviar</span>
+							</button>
+						</div>
+					</div>
+					<input type="hidden" name="_subject" value="Mensaje de Pagina Web">
+					<input type="hidden" name="_next" value="success/enviado.html">
+					<input type="hidden" name="_format" value="plain">
+					<input type="hidden" name="_language" value="es">
+				</form>
+			</div>
+		</div>
+		<hr>
+		<!--Donar con paypal-->
+		<div class="columns is-centered has-text-centered">
+			<div class="column">
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_top">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="JBUFDKHRU5UE6">
+					<input type="image" src="https://pmz94.github.io/pagpersonal/assets/img/navbar/paypal-donar.png" name="submit" alt="Donar con PayPal" height="35" draggable="false">
+					<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+				</form>
+			</div>
+			<!--<div class="column">
+				<a href="https://www.paypal.me/pmz94" class="button is-paypal is-rounded">
+					<span>Donar con&nbsp;</span>
+					<span class="icon">
+							<i class="fab fa-lg fa-paypal"></i>
+					</span>
+				</a>
+			</div>-->
 		</div>
 	</section>
+
+	<footer class="footer hero is-dark">
+		<label class="subtitle has-text-centered">&copy;2019 Pedro Muñoz</label>
+	</footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -200,7 +163,8 @@
 			$('#contactForm').validate({
 				errorElement: 'span',
 				errorClass: 'tag is-dark is-medium',
-				highlight: function() {}, //Override para que no se agregen las clases a los inputs
+				highlight: function() {
+				}, //Override para que no se agregen las clases a los inputs
 				rules: {
 					nombre: {
 						required: true,

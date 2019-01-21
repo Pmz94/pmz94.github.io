@@ -242,8 +242,8 @@
 		height: 100%;
 	}
 
-	footer.footer {
-		padding: 0.5rem;
+	#carrera {
+		display: none;
 	}
 </style>
 
@@ -281,8 +281,8 @@
 		</div>
 	</section>
 
-	<section class="section">
-		<div class="container has-text-centered">
+	<section class="section container has-text-centered">
+		<div id="descripcion">
 			<div class="columns has-text-justified">
 				<div class="column">
 					<h5 class="subtitle">Ingeniero en Sistemas de Información de la Universidad de Sonora, además de uno que otro conocimiento de Ingeniería Industrial y Mercadotecnia.</h5>
@@ -293,9 +293,9 @@
 					<h5 class="subtitle">Tambien me gusta todo lo que sea diseño y desarrollo de interfaces o vistas. Basicamente lo que viene siendo UX/UI y Front-end.</h5>
 				</div>
 			</div>
+			<hr>
 		</div>
-		<hr>
-		<div class="container has-text-centered">
+		<div id="carrera">
 			<h4 class="title is-4">Esta carrera abarca los siguientes conceptos...</h4>
 			<div class="columns">
 				<div class="column is-3">
@@ -324,9 +324,9 @@
 				</div>
 			</div>
 			<h4 class="title is-4">...entre otros más.</h4>
+			<hr>
 		</div>
-		<hr>
-		<div class="container has-text-centered">
+		<div id="mapa">
 			<h3 class="title">De donde vengo</h3>
 			<br>
 			<div class="columns">
@@ -336,49 +336,55 @@
 					></iframe>
 				</div>
 			</div>
+			<hr>
 		</div>
-		<hr>
-		<div class="container has-text-centered">
+		<div id="redes">
 			<h5 class="title">Redes sociales</h5>
 			<a title="Facebook" href="http://www.facebook.com/pmz94" target="_blank" class="button is-social fbc">
 				<span class="icon">
 					<i class="fab fa-facebook-f fa-lg"></i>
 				</span>
 			</a>
+			&nbsp;
 			<a title="Twitter" href="http://www.twitter.com/pmz94" target="_blank" class="button is-social twc">
 				<span class="icon">
 					<i class="fab fa-twitter fa-lg"></i>
 				</span>
 			</a>
+			&nbsp;
 			<a title="WhatsApp" href="tel:+526622055050" class="button is-social wac">
 				<span class="icon">
 					<i class="fab fa-whatsapp fa-lg"></i>
 				</span>
 			</a>
+			&nbsp;
 			<a title="Instagram" href="http://www.instagram.com/pmz94" target="_blank" class="button is-social igc">
 				<span class="icon">
 					<i class="fab fa-instagram fa-lg"></i>
 				</span>
 			</a>
+			&nbsp;
 			<a title="LinkedIn" href="http://www.linkedin.com/in/pmz94" target="_blank" class="button is-social lic">
 				<span class="icon">
 					<i class="fab fa-linkedin-in fa-lg"></i>
 				</span>
 			</a>
+			&nbsp;
 			<a title="GitHub" href="http://www.github.com/pmz94" target="_blank" class="button is-social ghc">
 				<span class="icon">
 					<i class="fab fa-github fa-lg"></i>
 				</span>
 			</a>
+			&nbsp;
 			<a title="Youtube" href="http://www.youtube.com/channel/UCKBIluSLitTm3FnMHWzSDfQ" target="_blank" class="button is-social ytc">
 				<span class="icon">
 					<i class="fab fa-youtube fa-lg"></i>
 				</span>
 			</a>
+			<hr>
 		</div>
-		<hr>
-		<div class="container has-text-centered">
-			<h1 class="title">Un video del canal</h1>
+		<div id="video">
+			<h1 class="title">Un video de mi canal</h1>
 			<div class="container embed-video">
 				<div class="videoWrapper">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/tff4xF6nezI?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -392,38 +398,38 @@
 		</div>
 	</section>
 
-	<!--<footer class = "footer hero is-light">-->
-	<!--<div class = "hero-body">-->
-	<!--<div class = "container">-->
-	<!--<h2 class = "title is-2">Dejen dormir</h2>-->
-	<!--<div class = "columns">-->
-	<!--<div class = "column"></div>-->
-	<!--<div class = "column"></div>-->
-	<!--<div class = "column is-5">-->
-	<!--<a href = "https://www.facebook.com/pmz94" alt = "Facebook" target = "_blank" style = "color:var(&#45;&#45;col-fbc);">-->
-	<!--<span class = "icon is-large">-->
-	<!--<i class = "fab fa-3x fa-facebook-square"></i>-->
-	<!--</span>-->
-	<!--</a>-->
-	<!--<a href = "https://www.twitter.com/pmz94" alt = "Twitter" target = "_blank" style = "color:var(&#45;&#45;col-twc);">-->
-	<!--<span class = "icon is-large">-->
-	<!--<i class = "fab fa-3x fa-twitter-square"></i>-->
-	<!--</span>-->
-	<!--</a>-->
-	<!--<a href = "https://www.instagram.com/pmz94" alt = "Instagram" target = "_blank" style = "color:var(&#45;&#45;col-igc-p);">-->
-	<!--<span class = "icon is-large">-->
-	<!--<i class = "fab fa-3x fa-instagram"></i>-->
-	<!--</span>-->
-	<!--</a>-->
-	<!--</div>-->
-	<!--</div>-->
-	<!--</div>-->
-	<!--</div>-->
-	<!--</footer>-->
-
 	<footer class="footer hero is-dark">
 		<label class="subtitle has-text-centered">&copy;2019 Pedro Muñoz</label>
 	</footer>
+
+	<!--<footer class = "footer hero is-light">
+	<div class = "hero-body">
+	<div class = "container">
+	<h2 class = "title is-2">Dejen dormir</h2>
+	<div class = "columns">
+	<div class = "column"></div>
+	<div class = "column"></div>
+	<div class = "column is-5">
+	<a href = "https://www.facebook.com/pmz94" alt = "Facebook" target = "_blank" style = "color:var(--col-fbc);">
+	<span class = "icon is-large">
+	<i class = "fab fa-3x fa-facebook-square"></i>
+	</span>
+	</a>
+	<a href = "https://www.twitter.com/pmz94" alt = "Twitter" target = "_blank" style = "color:var(--col-twc);">
+	<span class = "icon is-large">
+	<i class = "fab fa-3x fa-twitter-square"></i>
+	</span>
+	</a>
+	<a href = "https://www.instagram.com/pmz94" alt = "Instagram" target = "_blank" style = "color:var(--col-igc-p);">
+	<span class = "icon is-large">
+	<i class = "fab fa-3x fa-instagram"></i>
+	</span>
+	</a>
+	</div>
+	</div>
+	</div>
+	</div>
+	</footer>-->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"></script>
