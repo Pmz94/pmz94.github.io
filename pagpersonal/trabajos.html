@@ -86,16 +86,18 @@
 				$('#trabajos').append(data);
 			});
 
-			var trabajosa = $('div.columns.a');
-			trabajosa.addClass('animated fadeInLeft');
-			trabajosa.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			let trabajosa = $('div.columns.a');
+			trabajosa.addClass('animated fadeInLeft').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeInLeft');
 			});
 
-			var trabajosb = $('div.columns.b');
-			trabajosb.addClass('animated fadeInRight');
-			trabajosb.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			let trabajosb = $('div.columns.b');
+			trabajosb.addClass('animated fadeInRight').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeInRight');
+			});
+
+			$('#trabajos').find('img').attr('draggable', false).bind('contextmenu', function() {
+				return false;
 			});
 		});
 	</script>

@@ -170,13 +170,18 @@
 					<div class="column is-half">
 						<h2 id="web-titulo" class="title">Desarrollo Web</h2>
 						<div id="web">
-							<i title="HTML5" alt="HTML5" class="devicon-html5-plain colored iconp"></i>
-							<i title="CSS3" alt="CSS3" class="devicon-css3-plain colored iconp"></i>
-							<i title="Bootstrap" alt="Bootstrap" class="devicon-bootstrap-plain colored iconp"></i>
-							<img src="assets/img/habilidades/bulmaicon.png" title="Bulma" alt="Bulma" class="iconp">
-							<i title="jQuery" alt="jQuery" class="devicon-jquery-plain colored iconp"></i>
-							<img src="assets/img/habilidades/phalcon.png" title="Phalcon" alt="Phalcon" class="iconp">
-							<i title="Laravel" alt="Laravel" class="devicon-laravel-plain colored iconp"></i>
+							<div class="columns is-centered">
+								<i title="HTML5" alt="HTML5" class="devicon-html5-plain colored iconp"></i>
+								<i title="CSS3" alt="CSS3" class="devicon-css3-plain colored iconp"></i>
+								<i title="Bootstrap" alt="Bootstrap" class="devicon-bootstrap-plain colored iconp"></i>
+								<img src="assets/img/habilidades/bulmaicon.png" title="Bulma" alt="Bulma" class="iconp">
+							</div>
+							<div class="columns is-centered">
+								<i title="jQuery" alt="jQuery" class="devicon-jquery-plain colored iconp"></i>
+								<i title="VUEjs" alt="VUEjs" class="devicon-vuejs-plain colored iconp"></i>
+								<img src="assets/img/habilidades/phalcon.png" title="Phalcon" alt="Phalcon" class="iconp">
+								<i title="Laravel" alt="Laravel" class="devicon-laravel-plain colored iconp"></i>
+							</div>
 						</div>
 					</div>
 					<hr>
@@ -209,13 +214,22 @@
 				<hr>
 				<div class="columns">
 					<div class="column">
+						<h2 id="servers-titulo" class="title">Servidores</h2>
+						<div id="servers">
+							<i title="Apache" alt="Apache" class="devicon-apache-plain colored iconp"></i>
+						</div>
+					</div>
+					<hr>
+					<div class="column">
 						<h2 id="vcs-titulo" class="title">Control de Versiones</h2>
 						<div id="vcs">
 							<img src="assets/img/habilidades/subversion.png" title="Subversion" alt="Subversion" class="iconp">
 							<i title="GIT" alt="GIT" class="devicon-git-plain colored iconp"></i>
 						</div>
 					</div>
-					<hr>
+				</div>
+				<hr>
+				<div class="columns">
 					<div class="column">
 						<h2 id="diseño-titulo" class="title">Diseño Grafico</h2>
 						<div id="diseño">
@@ -223,9 +237,7 @@
 							<i title="Illustrator" alt="Illustrator" class="devicon-illustrator-plain colored iconp"></i>
 						</div>
 					</div>
-				</div>
-				<hr>
-				<div class="columns">
+					<hr>
 					<div class="column">
 						<h2 id="neuro-titulo" class="title">Neurociencias</h2>
 						<div id="neuro">
@@ -245,15 +257,13 @@
 	<script src="assets/js/script.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			var titulos = $('#estadistica-titulo, #programacion-titulo, #web-titulo, #movil-titulo, #bd-titulo, #so-titulo, #vcs-titulo, #diseño-titulo, #neuro-titulo');
-			titulos.addClass('animated fadeIn');
-			titulos.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			let titulos = $('#estadistica-titulo, #programacion-titulo, #web-titulo, #movil-titulo, #bd-titulo, #so-titulo, #vcs-titulo, #diseño-titulo, #neuro-titulo');
+			titulos.addClass('animated fadeIn').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeIn');
 			});
 
-			var iconos = $('#estadistica, #programacion, #web, #movil, #bd, #so, #vcs, #diseño, #neuro');
-			iconos.addClass('animated fadeInUp');
-			iconos.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			let iconos = $('#estadistica, #programacion, #web, #movil, #bd, #so, #vcs, #diseño, #neuro');
+			iconos.addClass('animated fadeInUp').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeInUp');
 			});
 		});

@@ -1,5 +1,45 @@
 var trabajos = [
 	{
+		'titulo': 'Sistema de plagios',
+		'descripcion': 'Funcion para checar copy/paste de tareas que suban los alumnos al portal de la escuela. CS Web.',
+		'tiempo': '2019-1',
+		'icono1': 'copypaste.png',
+		'icono2': 'plagiarism.png',
+		'altico1': '*Copy/Paste*',
+		'altico2': '*Plagio*',
+		'class': 'a'
+	},
+	{
+		'titulo': 'Catalogos y reportes',
+		'descripcion': 'Uno que otro catalogo y reporte de varias cosas. CS Web.',
+		'tiempo': '2018-2',
+		'icono1': 'catalog.png',
+		'icono2': 'report.png',
+		'altico1': '*Catalogo*',
+		'altico2': '*Reporte*',
+		'class': 'b'
+	},
+	{
+		'titulo': 'Sistema de inventario',
+		'descripcion': 'Control de productos que manejen las escuelas. CS Web.',
+		'tiempo': '2018-V',
+		'icono1': 'cajas.png',
+		'icono2': 'checklist.png',
+		'altico1': '*Cajas*',
+		'altico2': '*Checklist*',
+		'class': 'a'
+	},
+	{
+		'titulo': 'Sistema de cobranza',
+		'descripcion': 'Opcion de pago en linea integrando el API de PayPal al portal de alumnos. CS Web.',
+		'tiempo': '2018-1',
+		'icono1': 'pplogo.png',
+		'icono2': 'dollarsign.png',
+		'altico1': '*PayPal*',
+		'altico2': '*Dollar $ign*',
+		'class': 'b'
+	},
+	{
 		'titulo': 'Impartición de asesorías de Probabilidad y Estadística',
 		'descripcion': 'Contenido de estadística descriptiva, probabilidad y estadística inferencial. Hobby personal.',
 		'tiempo': '2015-2 - 2018-1',
