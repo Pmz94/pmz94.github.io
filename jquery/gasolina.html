@@ -48,101 +48,104 @@
 
 	<section class="container py-3 text-center">
 
-			<div class="row justify-content-center">
+		<div id="millas-km" class="row">
+			<div class="row">
 				<div class="col-auto">
-					<h6>Ve a la gasolinera, llena el tanque y luego anota el kilomeraje actual</h6>
-					<label for="kma">Kilometraje A</label>
-					<div class="input-group">
-						<input id="kma" type="number" class="form-control">
-						<div class="input-group-append">
-							<span class="input-group-text">km</span>
-						</div>
+					<input id="millas" type="number" class="form-control form-control-sm" placeholder="Millas" min="0">
+				</div>
+				<div class="col-auto">
+					<input id="kilometros" type="number" class="form-control form-control-sm" placeholder="Kilometros" min="0">
+				</div>
+			</div>
+		</div>
+
+		<div id="instrucciones" class="row">
+			<div class="col-auto">
+				<h5>Calcular km/l de un carro</h5>
+				<ul style="text-align: left;">
+					<li>Ve a la gasolinera, llena el tanque y luego anota el kilomeraje actual (Kilometraje A).</li>
+					<li>Conduce normalmente, espera hasta que el tanque este casi vacio y vuelve a llenar el tanque.</li>
+					<li>(mejor si es en la misma gasolinera y la misma bomba que la ultima vez, capaz que las otras esten calibradas diferente)</li>
+					<li>Fijate con cuantos litros se llena el tanque (Litros).</li>
+					<li>Anota el nuevo kilometraje (Kilometraje B).</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div id="kml" class="col-auto">
+				<label for="kma">Kilometraje A</label>
+				<div class="input-group">
+					<input id="kma" type="number" class="form-control">
+					<div class="input-group-append">
+						<span class="input-group-text">km</span>
 					</div>
-		
-					<h6>Conduce normalmente, espera hasta que el tanque este casi vacio</h6>
-					<h6>Vuelve a llenar el tanque</h6>
-					<h6>(mejor si es la misma gasolinera y misma bomba que la primera vez,</h6>
-					<h6>capaz que las otras esten calibradas diferente.</h6>
-					<h6>Fijate con cuantos litros se llena el tanque.</h6>
-					<h6>Anota el nuevo kilometraje</h6>
-					<label for="kmb">Kilometraje B</label>
-					<div class="input-group">
-						<input id="kmb" type="number" class="form-control">
-						<div class="input-group-append">
-							<span class="input-group-text">km</span>
-						</div>
-					</div>
-									
-					<label for="litros">Litros del tanque</label>
-					<div class="input-group">
-						<input id="litros" type="number" class="form-control">
-						<div class="input-group-append">
-							<span class="input-group-text">l</span>
-						</div>
-					</div>
-								
-					<button id="calc-kml" class="btn btn-success">Calcular</button>
 				</div>
 
-				<div class="col-auto">
-					<label for="distancia">Distancia a recorrer</label>
-					<div class="input-group">
-						<input id="distancia" type="number" class="form-control">
-						<div class="input-group-append">
-							<span class="input-group-text">km</span>
-						</div>
+				<label for="kmb">Kilometraje B</label>
+				<div class="input-group">
+					<input id="kmb" type="number" class="form-control">
+					<div class="input-group-append">
+						<span class="input-group-text">km</span>
 					</div>
-					<input id="regreso" type="checkbox"> agregar camino de regreso<br>
-					
-					<label for="consumo">Consumo promedio del vehiculo</label>
-					<div class="input-group">
-						<input id="consumo" type="number" class="form-control">
-						<div class="input-group-append">
-							<select id="unidad" class="input-group-text">
-								<option value="1">l/100km</option>
-								<option value="2">km/l</option>
-							</select>
-						</div>
-					</div>
-					
-					<label for="gas">Precio de la gasolina</label>
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text">$</span>
-						</div>
-						<input id="gas" type="number" class="form-control">
-						<div class="input-group-append">
-							<span class="input-group-text">MXN/l</span>
-						</div>
-					</div>
-				
-					<button id="calc" class="btn btn-success">Calcular</button>
 				</div>
-			</div>
-		
-			<div class="row justify-content-center">
-				<div class="col-auto">
-					<table id="tabla" class="table table-bordered" style="display: none;">
-						<tbody>
-							<tr>
-								<th></th>
-								<th>Consumo (l)</th>
-								<th>Precio</th>
-							</tr>
-							<tr>
-								<td id="distanciatd"></td>
-								<td id="gasolinadist"></td>
-								<td id="preciodist"></td>
-							</tr>
-							<tr>
-								<td>1 km</td>
-								<td id="gasolina1km"></td>
-								<td id="precio1km"></td>
-							</tr>
-						</tbody>
-					</table>
+
+				<label for="litros">Litros del tanque</label>
+				<div class="input-group">
+					<input id="litros" type="number" class="form-control">
+					<div class="input-group-append">
+						<span class="input-group-text">l</span>
+					</div>
 				</div>
+
+				<button id="calc-kml" class="btn btn-success">Calcular</button>
+
+				<span id="kml-res" style="display: none;"></span>
 			</div>
+
+			<div id="precio-gas-distancia" class="col-auto">
+				<label for="distancia">Distancia a recorrer</label>
+				<div class="input-group">
+					<input id="distancia" type="number" class="form-control">
+					<div class="input-group-append">
+						<span class="input-group-text">km</span>
+					</div>
+				</div>
+				<input id="regreso" type="checkbox"> Agregar camino de regreso<br>
+
+				<label for="rendimiento">Rendimiento promedio del vehiculo</label>
+				<div class="input-group">
+					<input id="rendimiento" type="number" class="form-control">
+					<div class="input-group-append">
+						<select id="unidad" class="input-group-text">
+							<option value="1">l/100km</option>
+							<option value="2">km/l</option>
+						</select>
+					</div>
+				</div>
+
+				<label for="precio-gas">Precio de la gasolina</label>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">$</span>
+					</div>
+					<input id="precio-gas" type="number" class="form-control">
+					<div class="input-group-append">
+						<span class="input-group-text">MXN/l</span>
+					</div>
+				</div>
+
+				<button id="calc-precio-gas" class="btn btn-success">Calcular</button>
+
+				<table id="tabla" class="table table-bordered table-sm" style="display: none;">
+					<tbody>
+						<tr><th></th><th>Consumo (l)</th><th>Precio</th></tr>
+						<tr><td id="distanciatd"></td><td id="gasolinadist"></td><td id="preciodist"></td></tr>
+						<tr><td>1 km</td><td id="gasolina1km"></td><td id="precio1km"></td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 	</section>
 			
@@ -150,46 +153,61 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			$('#calc-kml').on('click', function() {
-				kma = parseInt($('#kma').val());
-				kmb = parseInt($('#kmb').val());
-				litros = parseInt($('#litros').val());
+			$('#millas').on('keyup', function() {
+				let millas = parseFloat($(this).val());
+				let millaskm = millas * 1.60934;
+				$('#kilometros').val(millaskm.toFixed(4));
+			});
+			$('#kilometros').on('keyup', function() {
+				let kilometros = parseFloat($(this).val());
+				let kmmillas = kilometros / 1.60934;
+				$('#millas').val(kmmillas.toFixed(4));
 			});
 
-			$('#calc').on('click', function() {
-				if($('#distancia').val() == '') {
+			$('#calc-kml').on('click', function() {
+				let kma = parseFloat($('#kma').val());
+				let kmb = parseFloat($('#kmb').val());
+				let litros = parseFloat($('#litros').val());
+				let kml = (kmb - kma) / litros;
+
+				$('#kml-res').text(kml.toFixed(2) + ' km/l').show();
+			});
+
+			$('#calc-precio-gas').on('click', function() {
+
+				let distancia = parseFloat($('#distancia').val());
+				let regreso_checked = $('#regreso').is(':checked');
+				let rendimiento = parseFloat($('#rendimiento').val());
+				let unidad = parseInt($('#unidad option:selected').val());
+				let precio_gas = parseFloat($('#precio-gas').val());
+
+				if(!distancia) {
 					alert('Cuanto va recorrer?');
 					return null;
-				} else if($('#consumo').val() == '') {
+				} else if(!rendimiento) {
 					alert('Cuanta gasolina gasta su carro?');
 					return null;
 				} else {
 
-					let distancia = parseFloat($('#distancia').val());
-					let gas = parseFloat($('#gas').val());
-
-					if($('#regreso').is(':checked') == true) {
+					if(regreso_checked == true) {
 						distancia = distancia * 2;
 					}
 
-					let consumo = 0;
-					if($('#unidad option:selected').val() == 1) {   // l/100km
-						consumo = parseFloat($('#consumo').val());
-					} else { // km/l
-						consumo = 100 / parseFloat($('#consumo').val());
+					if(unidad == 2) { // km/l
+						rendimiento = 100 / rendimiento;
 					}
 
-					let gasolinadist = (distancia / 100) * consumo;
-					let gasolina1km = consumo / 100;
+					let gasolinadist = (distancia / 100) * rendimiento;
+					let gasolina1km = rendimiento / 100;
 
-					let preciodist = gasolinadist * gas;
-					let precio1km = gasolina1km * gas;
+					let preciodist = gasolinadist * precio_gas;
+					let precio1km = gasolina1km * precio_gas;
 
 					$('#distanciatd').text(distancia + ' km');
 					$('#gasolinadist').text(gasolinadist.toFixed(2));
 					$('#gasolina1km').text(gasolina1km.toFixed(2));
 
-					if($('#gas').val() != '') {
+					if(precio_gas) {
 						$('#preciodist').text('$' + preciodist.toFixed(2));
 						$('#precio1km').text('$' + precio1km.toFixed(2));
 					} else {
@@ -198,10 +216,10 @@
 					}
 
 					$('#tabla').show();
-
 				}
 			});
 		});
 	</script>
 </body>
+
 </html>
