@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Consumo de gasolina</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/jquerystyle.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"></script>
+</head>
+
+<style>
+	body {
+		background: url('https://www.transparenttextures.com/patterns/binding-light.png');
+	}
+</style>
+
+<body>
+	<nav class="navbar navbar-white bg-jq navbar-expand-md">
+		<div class="container">
+			<a href="../index.html" class="navbar-brand">
+				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal" class="benny-logo">
+			</a>
+			<span class="navbar-text">Calcular consumo de gasolina</span>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars fa-sm"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="lista.html" class="nav-link">Lista</a>
+					</li>
+					<li class="nav-item">
+						<a href="ajax.html" class="nav-link">AJAX</a>
+					</li>
+					<li class="nav-item">
+						<a href="datatable.html" class="nav-link">DataTables</a>
+					</li>
+					<li class="nav-item">
+						<a href="crudjs.html" class="nav-link">CRUD</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container py-3 text-center">
+		<div class="row justify-content-center">
+			<div class="col-auto">
+				<label for="distancia">Distancia a recorrer</label>
+				<div class="input-group">
+					<input id="distancia" type="number" class="form-control">
+					<div class="input-group-append">
+						<span class="input-group-text">km</span>
+					</div>
+				</div>
+				<input id="regreso" type="checkbox"> agregar camino de regreso<br>
+
+				<label for="consumo">Consumo promedio del vehiculo</label>
+				<div class="input-group">
+					<input id="consumo" type="number" class="form-control">
+					<div class="input-group-append">
+						<select id="unidad" class="input-group-text">
+							<option value="1">l/100km</option>
+							<option value="2">km/l</option>
+						</select>
+					</div>
+				</div>
+
+				<label for="gas">Precio de la gasolina</label>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">$</span>
+					</div>
+					<input id="gas" type="number" class="form-control">
+					<div class="input-group-append">
+						<span class="input-group-text">MXN/l</span>
+					</div>
+				</div>
+
+				<button id="calc" class="btn btn-success">Calcular</button>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-auto">
+				<table id="tabla" class="table table-bordered" style="display: none;">
+					<tbody>
+						<tr>
+							<th></th>
+							<th>Consumo (l)</th>
+							<th>Precio</th></tr>
+						<tr>
+							<td id="distanciatd"></td>
+							<td id="gasolinadist"></td>
+							<td id="preciodist"></td>
+						</tr>
+						<tr>
+							<td>1 km</td>
+							<td id="gasolina1km"></td>
+							<td id="precio1km"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#calc').on('click', function() {
+				if($('#distancia').val() == '') {
+					alert('Cuanto va recorrer?');
+					return null;
+				} else if($('#consumo').val() == '') {
+					alert('Cuanta gasolina gasta su carro?');
+					return null;
+				} else {
+
+					let distancia = parseFloat($('#distancia').val());
+					let gas = parseFloat($('#gas').val());
+
+					if($('#regreso').is(':checked') == true) {
+						distancia = distancia * 2;
+					}
+
+					let consumo = 0;
+					if($('#unidad option:selected').val() == 1) {   // l/100km
+						consumo = parseFloat($('#consumo').val());
+					} else { // km/l
+						consumo = 100 / parseFloat($('#consumo').val());
+					}
+
+					let gasolinadist = (distancia / 100) * consumo;
+					let gasolina1km = consumo / 100;
+
+					let preciodist = gasolinadist * gas;
+					let precio1km = gasolina1km * gas;
+
+					$('#distanciatd').text(distancia + ' km');
+					$('#gasolinadist').text(gasolinadist.toFixed(2));
+					$('#gasolina1km').text(gasolina1km.toFixed(2));
+
+					if($('#gas').val() != '') {
+						$('#preciodist').text('$' + preciodist.toFixed(2));
+						$('#precio1km').text('$' + precio1km.toFixed(2));
+					} else {
+						$('#preciodist').text('');
+						$('#precio1km').text('');
+					}
+
+					$('#tabla').show();
+
+				}
+			});
+		});
+	</script>
+</body>
+</html>

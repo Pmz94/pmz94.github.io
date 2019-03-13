@@ -8,6 +8,7 @@
 }
 
 .navbar {
+	padding: 0.25rem 0.85rem;
 	box-shadow: 0 3px 15px -5px #555555;
 }
 
@@ -34,7 +35,7 @@ nav.bg-jq a.nav-link:hover {
 
 .navbar-white .navbar-toggler {
 	color: #fff;
-	border-color: #fff;
+	/*border-color: #fff;*/
 }
 
 @media (min-width: 1472px) {
