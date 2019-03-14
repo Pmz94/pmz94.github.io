@@ -237,23 +237,23 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			$('#millas').on('keyup', function() {
+			$('#millas').on('keyup change', function() {
 				let millas = parseFloat($(this).val());
 				let millaskm = millas * 1.60934;
 				$('#kilometros').val(millaskm.toFixed(2));
 			});
-			$('#kilometros').on('keyup', function() {
+			$('#kilometros').on('keyup change', function() {
 				let kilometros = parseFloat($(this).val());
 				let kmmillas = kilometros / 1.60934;
 				$('#millas').val(kmmillas.toFixed(2));
 			});
 
-			$('#galones').on('keyup', function() {
+			$('#galones').on('keyup change', function() {
 				let galones = parseFloat($(this).val());
 				let glitros = galones * 3.785412;
 				$('#litros').val(glitros.toFixed(2));
 			});
-			$('#litros').on('keyup', function() {
+			$('#litros').on('keyup change', function() {
 				let litros = parseFloat($(this).val());
 				let lgalones = litros / 3.785412;
 				$('#galones').val(lgalones.toFixed(2));
