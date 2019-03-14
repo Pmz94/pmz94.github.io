@@ -109,8 +109,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			var tbody = $('#tbody');
-			var paises = ['Francia', 'Alemania', 'Inglaterra', 'España', 'Bélgica', 'Italia', 'Portugal', 'Irlanda', 'Luxemburgo'];
+			let $tbody = $('#tbody');
+			let paises = ['Francia', 'Alemania', 'Inglaterra', 'España', 'Bélgica', 'Italia', 'Portugal', 'Irlanda', 'Luxemburgo'];
 
 			cargarDatos();
 
@@ -119,41 +119,41 @@
 			});
 
 			$(document).on('click', '#btnModalEditar', function() {
-				var i = $(this).data('item');
+				let i = $(this).data('item');
 				editar(i);
 			});
 
 			$(document).on('click', '#btnBorrar', function() {
-				var i = $(this).data('item');
+				let i = $(this).data('item');
 				borrar(i);
 			});
 
 			function cargarDatos() {
-				tbody.empty();
+				$tbody.empty();
 				if(paises.length > 0) {
 					$.each(paises, function(i, pais) {
-						cells = '';
+						let cells = '';
 						cells += '<tr>';
 						cells += '	<td>'+ (i + 1) + '</td>';
 						cells += '	<td>' + pais + '</td>';
 						cells += '	<td><button id="btnModalEditar" data-item="' + i + '" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalEditar">Editar</button></td>';
 						cells += '	<td><button id="btnBorrar" data-item="' + i + '" class="btn btn-danger btn-sm">Borrar</button></td>';
 						cells += '</tr>';
-						tbody.append(cells);
-						var contador = 1 + i;
-						var footer = (contador == 1) ? ' pais' : ' paises';
+						$tbody.append(cells);
+						let contador = 1 + i;
+						let footer = (contador == 1) ? ' pais' : ' paises';
 						$('#contador').text(contador + footer);
 					});
 				} else {
-					tbody.append('<tr><td colspan="4">No hay paises</td></tr>');
+					$tbody.append('<tr><td colspan="4">No hay paises</td></tr>');
 					$('#contador').text('');
 				}
 			}
 
 			function agregar() {
-				var elemento = $('#addInput');
+				let elemento = $('#addInput');
 				// Get the value
-				var pais = elemento.val();
+				let pais = elemento.val();
 				if(pais) {
 					// Add the new value
 					paises.push(pais.trim());
@@ -165,13 +165,13 @@
 			}
 
 			function editar(i) {
-				var elemento = $('#editInput');
+				let elemento = $('#editInput');
 				// Display value in the field
 				elemento.val(paises[i]);
 				// Display fields
 				$('#btnEditar').on('click', function() {
 					// Get value
-					var pais = elemento.val();
+					let pais = elemento.val();
 					if(pais) {
 						// Edit value
 						paises.splice(i, 1, pais.trim());

@@ -104,8 +104,8 @@
 						<strong>Lista con AJAX</strong>
 					</h4>
 					<p>
-						Uso de AJAX para desarrollar paginas interactivas o accesar a un servidor web.
-						<br> Lee un archivo JSON de datos aleatorios y los pega en la tabla de arriba.
+						Uso de peticiones AJAX para accesar a un servidor web sin actualizar la pagina.
+						<br> Se obtiene un archivo JSON de datos de personas y los pega en la tabla de arriba.
 					</p>
 					<p>
 						Creada usando
@@ -148,14 +148,22 @@
 			});
 
 			function cargarGente(cant) {
-				var url = 'https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=' + cant;
-				$.getJSON(url, function(data) {
+				$.ajax({
+					url: 'https://randomuser.me/api/',
+					method: 'GET',
+					data: {
+						nat: 'ca,ch,es,fr,gb,us',
+						results: cant
+					},
+					dataType: 'json'
+				}).done(function(data) {
+					$('#json').text(JSON.stringify(data, null, 4));
 					$('#tbody').empty();
 					$.each(data.results, function(i, person) {
-						var d = new Date(person.dob.date);
-						var mes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sept', 'Oct', 'Nov', 'Dic'];
-						var fecha_nacimiento = d.getDate() + '/' + mes[d.getMonth()] + '/' + d.getFullYear();
-						var row = '';
+						let d = new Date(person.dob.date);
+						let mes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sept', 'Oct', 'Nov', 'Dic'];
+						let fecha_nacimiento = d.getDate() + '/' + mes[d.getMonth()] + '/' + d.getFullYear();
+						let row = '';
 						row += '<tr>';
 						row += '	<td>' + (i + 1) + '</td>';
 						row += '	<td>' + person.name.first + ' ' + person.name.last + '</td>';
@@ -169,8 +177,10 @@
 						$('#tbody').append(row);
 					});
 					$('#tfoot').text(data.results.length + ' personas');
-					$('#json').text(JSON.stringify(data, null, 4));
 					$('#numGente').val(null);
+				}).fail(function(jqXHR) {
+					console.log(jqXHR);
+					alert('Hubo un problema al realizar la peticion');
 				});
 			}
 		});

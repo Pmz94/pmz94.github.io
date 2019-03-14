@@ -7,7 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Buscar CDNs</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.css">
 	<link rel="stylesheet" href="assets/jquerystyle.css">
 	<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
 </head>
@@ -16,9 +17,11 @@
 	<nav class="navbar navbar-white bg-jq navbar-expand-md">
 		<div class="container">
 			<a href="../index.html" class="navbar-brand">
-				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal" class="benny-logo">
+				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal"
+					class="benny-logo">
 			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars fa-lg"></i>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
@@ -74,97 +77,103 @@
 	<script src="assets/datatables.responsive.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			/*var responsiveHelper = undefined;
-			var breakpointDefinition = {
-				tablet: 1024,
-				phone: 480
-			};
-			$('#resultados').DataTable({
-				responsive: true,
-				ordering: false,
-				pagingType: 'full',
-				//autoWidth: false,
-				//filter: false, // Buscar...
-				//lengthChange: false, // renglones por pag.
-				lengthMenu: [[15, 30, 40], [15, 30, 40]],
-				ajax: {
-					url: 'https://api.cdnjs.com/libraries?fields=version,description,homepage',
-					dataSrc: 'results'
-				},
-				columns: [
-					{ data: null },
-					{ data: 'name' },
-					{ data: 'version' },
-					{
-						data: 'homepage',
-						render: function(data, type, row) {
-							return (data != null) ? '<a href = "' + data + '">' + data + '</a>' : 'Sin pagina web';
-						}
-					},
-					{ data: 'description' },
-					{
-						data: null,
-						render: function(data, type, row) {
-							return '<a href ="#" class = "btn btn-jq btn-sm"><i class = "fas fa-search"></i></a>';
-						}
-					}
-				],
-				preDrawCallback: function() {
-					// Initialize the responsive datatables helper once.
-					if(!responsiveHelper) {
-						responsiveHelper = new ResponsiveDatatablesHelper($('#resultados'), breakpointDefinition);
-					}
-				},
-				rowCallback: function(row) {
-					responsiveHelper.createExpandIcon(row);
-				},
-				drawCallback: function(settings) {
-					responsiveHelper.respond();
-				},
-				fnRowCallback: function(row, data, iDisplayIndex) {
-					var settings = (this.fnSettings) ? this.fnSettings() : this;
-					$('td:first', row).html(settings._iDisplayStart + iDisplayIndex + 1);
-					return row;
-				},
-				language: {
-					info: 'Pag. _PAGE_ de _PAGES_',
-					infoEmpty: 'No hay datos',
-					infoFiltered: '(filtrado de los _MAX_ renglones)',
-					lengthMenu: 'Mostrar _MENU_ registros',
-					loadingRecords: 'Cargando datos...',
-					processing: 'Procesando...',
-					search: 'Buscar:',
-					zeroRecords: 'No se encontro nada',
-					paginate: {
-						first: '<<',
-						last: '>>',
-						next: '>',
-						previous: '<'
-					},
-					emptyTable: 'Ningún dato disponible en la tabla',
-					infoPostFix: '',
-					infoThousands: ',',
-					url: '',
-					aria: {
-						sortAscending: ': Activar para ordenar la columna de manera ascendente',
-						sortDescending: ': Activar para ordenar la columna de manera descendente'
-					}
-				}
-			});*/
 			//https://api.cdnjs.com/libraries?search=jquery&fields=version,description,homepage,repository,autoupdate,author,assets&output=human
-			$('#buscar').on('keyup', function(e) {
-				if(e.keyCode == 13) {
-					if($(this).val() == '') {
-						alert('Busca algo!');
-						return false;
-					}
-					buscar;
-				}
-			});
+			$('#btnLoad').on('click', buscar2);
 
-			$('#btnLoad').on('click', buscar);
-
+			/*
 			function buscar() {
+				if($('#buscar').val() == '') {
+					alert('Busca algo!');
+					return false;
+				}
+				let responsiveHelper = undefined;
+				let breakpointDefinition = {
+					tablet: 1024,
+					phone: 480
+				};
+				let oTable = $('#resultados').DataTable({
+					responsive: true,
+					ordering: false,
+					pagingType: 'full',
+					//autoWidth: false,
+					//filter: false, // Buscar...
+					//lengthChange: false, // renglones por pag.
+					lengthMenu: [[15, 30, 40], [15, 30, 40]],
+					ajax: {
+						//url: 'https://api.cdnjs.com/libraries?fields=version,description,homepage',
+						url: 'https://api.cdnjs.com/libraries',
+						method: 'GET',
+						data: {
+							search: $('#buscar').val().trim(),
+							fields: 'version,description,homepage'
+						},
+						dataType: 'json',
+						dataSrc: 'results',
+					},
+					columns: [
+						{ data: null },
+						{ data: 'name' },
+						{ data: 'version' },
+						{
+							data: 'homepage',
+							render: function(data, type, row) {
+								return (data != null) ? '<a href = "' + data + '">' + data + '</a>' : 'Sin pagina web';
+							}
+						},
+						{ data: 'description' },
+						{
+							data: null,
+							render: function(data, type, row) {
+								return '<a href ="#" class = "btn btn-jq btn-sm"><i class = "fas fa-search"></i></a>';
+							}
+						}
+					],
+					preDrawCallback: function() {
+						// Initialize the responsive datatables helper once.
+						if (!responsiveHelper) {
+							responsiveHelper = new ResponsiveDatatablesHelper($('#resultados'), breakpointDefinition);
+						}
+					},
+					rowCallback: function(row) {
+						responsiveHelper.createExpandIcon(row);
+					},
+					drawCallback: function(settings) {
+						responsiveHelper.respond();
+					},
+					fnRowCallback: function(row, data, iDisplayIndex) {
+						var settings = (this.fnSettings) ? this.fnSettings() : this;
+						$('td:first', row).html(settings._iDisplayStart + iDisplayIndex + 1);
+						return row;
+					},
+					language: {
+						info: 'Pag. _PAGE_ de _PAGES_',
+						infoEmpty: 'No hay datos',
+						infoFiltered: '(filtrado de los _MAX_ renglones)',
+						lengthMenu: 'Mostrar _MENU_ registros',
+						loadingRecords: 'Cargando datos...',
+						processing: 'Procesando...',
+						search: 'Buscar:',
+						zeroRecords: 'No se encontro nada',
+						paginate: {
+							first: '<<',
+							last: '>>',
+							next: '>',
+							previous: '<'
+						},
+						emptyTable: 'Ningún dato disponible en la tabla',
+						infoPostFix: '',
+						infoThousands: ',',
+						url: '',
+						aria: {
+							sortAscending: ': Activar para ordenar la columna de manera ascendente',
+							sortDescending: ': Activar para ordenar la columna de manera descendente'
+						}
+					}
+				});
+			}
+			*/
+
+			function buscar2() {
 				if($('#buscar').val() == '') {
 					alert('Busca algo!');
 					return false;
@@ -182,8 +191,8 @@
 					data = data.results;
 					console.log(data);
 					$.each(data, function(i, cdn) {
-						var link = (cdn.homepage != null) ? '<a href = "' + cdn.homepage + '" target="_blank">' + cdn.homepage + '</a>' : 'Sin pagina web';
-						var row = '';
+						let link = (cdn.homepage) ? '<a href = "' + cdn.homepage + '" target="_blank">' + cdn.homepage + '</a>' : 'Sin pagina web';
+						let row = '';
 						row += '<tr>';
 						row += '	<td>' + cdn.name + '</td>';
 						row += '	<td>' + cdn.version + '</td>';
@@ -193,7 +202,6 @@
 						row += '</tr>';
 						$('#resultados tbody').append(row);
 					});
-					$('#buscar').val(null);
 				}).fail(function(error) {
 					console.log(error);
 					alert('Error');
