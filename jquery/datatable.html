@@ -9,15 +9,12 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.css">
 	<link rel="stylesheet" href="assets/jquerystyle.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
 </head>
 
 <style>
 	body {
 		background: #f5f5f5 url('https://www.transparenttextures.com/patterns/crissxcross.png');
-	}
-
-	#espaciotabla {
-		height: 500px;
 	}
 
 	.table.dataTable {
@@ -43,10 +40,12 @@
 	<nav class="navbar navbar-white bg-jq navbar-expand-md">
 		<div class="container">
 			<a href="../index.html" class="navbar-brand">
-				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal" class="benny-logo">
+				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal"
+					class="benny-logo">
 			</a>
 			<span class="navbar-text">Plugin de jQuery DataTables</span>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars fa-lg"></i>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
@@ -73,7 +72,8 @@
 			<div class="col">
 				<div id="espaciotabla">
 					<br>
-					<button class="btn btn-jq" data-toggle="modal" data-target="#userModal">Agregar</button>
+					<button id="refresh" class="btn btn-jq"></button>
+					<button class="btn btn-jq" data-toggle="modal" data-target="#userModal" style="display: none;">Agregar</button>
 					<table id="tabla" class="table table-bordered table-striped table-hover table-sm">
 						<thead>
 							<tr>
@@ -85,6 +85,7 @@
 								<th>FechaNac</th>
 								<th>Correo</th>
 								<th>Telefono</th>
+								<th>Info</th>
 							</tr>
 						</thead>
 					</table>
@@ -94,7 +95,8 @@
 		<br>
 	</div>
 
-	<div id="userModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+	<div id="userModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="userModalLabel"
+		aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -106,10 +108,12 @@
 				<div class="modal-body">
 					<form method="post" id="user_form" enctype="multipart/form-data">
 						<div class="form-group">
-							<input type="text" name="first_name" id="first_name" class="form-control" placeholder="Nombre">
+							<input type="text" name="first_name" id="first_name" class="form-control"
+								placeholder="Nombre">
 						</div>
 						<div class="form-group">
-							<input type="text" name="last_name" id="last_name" class="form-control" placeholder="Apellido">
+							<input type="text" name="last_name" id="last_name" class="form-control"
+								placeholder="Apellido">
 						</div>
 						<div class="form-group">
 							<input type="file" name="user_image" id="user_image">
@@ -134,87 +138,105 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap4.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			$('#tabla').DataTable({
-				buttons: ['csv'],
-				order: [],
-				pagingType: 'full',
-				lengthMenu: [[8, 16, 24], [8, 16, 24]],
-				columnDefs: [
-					{
-						targets: [0, 7],
-						orderable: false
+			let oTable = null;
+			let $refresh = $('#refresh');
+
+			$refresh.on('click', function() {
+				oTable = $('#tabla').DataTable({
+					destroy: true,
+					autoWidth: true,
+					scrollX: true,
+					order: [],
+					pagingType: 'full',
+					lengthMenu: [[8, 16, 24], [8, 16, 24]],
+					columnDefs: [
+						{
+							targets: [0, 7, 8],
+							orderable: false
+						}
+					],
+					ajax: {
+						url: 'https://randomuser.me/api/',
+						method: 'GET',
+						data: {
+							nat: 'ca,ch,es,fr,gb,us',
+							results: 80
+						},
+						dataSrc: 'results'
+					},
+					columns: [
+						{
+							data: 'picture.thumbnail',
+							render: function(data, type, row) {
+								return '<img src = "' + data + '">';
+							}
+						},
+						{
+							data: 'name',
+							render: function(data, type, row) {
+								return data.first + ' ' + data.last;
+							}
+						},
+						{
+							data: 'dob',
+							render: function(data, type, row) {
+								return data.age;
+							}
+						},
+						{
+							data: 'location',
+							render: function(data, type, row) {
+								return data.city + ', ' + data.state;
+							}
+						},
+						{ data: 'nat' },
+						{
+							data: 'dob',
+							render: function(data, type, row) {
+								return data.date;
+							}
+						},
+						{ data: 'email' },
+						{ data: 'cell' },
+						{
+							data: null,
+							render: function(data, type, row) {
+								return '<button class="btn btn-info btn-sm info"><i class="fas fa-info fa-sm"></i></button>';
+							}
+						}
+					],
+					language: {
+						emptyTable: 'Ningún dato disponible en la tabla',
+						info: 'Pag. _PAGE_ de _PAGES_',
+						infoEmpty: 'No hay datos',
+						infoFiltered: '(filtrado de los _MAX_ renglones)',
+						infoPostFix: '',
+						infoThousands: ',',
+						lengthMenu: 'Mostrar _MENU_ registros',
+						loadingRecords: 'Cargando datos...',
+						processing: 'Procesando...',
+						search: 'Buscar:',
+						url: '',
+						zeroRecords: 'No se encontro nada',
+						paginate: {
+							first: '<<',
+							last: '>>',
+							next: '>',
+							previous: '<'
+						},
+						aria: {
+							sortAscending: ': Activar para ordenar la columna de manera ascendente',
+							sortDescending: ': Activar para ordenar la columna de manera descendente'
+						}
 					}
-				],
-				ajax: {
-					url: 'https://randomuser.me/api/',
-					method: 'GET',
-					data: {
-						nat: 'ca,ch,es,fr,gb,us',
-						results: 80
-					},
-					dataSrc: 'results'
-				},
-				columns: [
-					{
-						data: 'picture.thumbnail',
-						render: function(data, type, row) {
-							return '<img src = "' + data + '">';
-						}
-					},
-					{
-						data: 'name',
-						render: function(data, type, row) {
-							return data.first + ' ' + data.last;
-						}
-					},
-					{
-						data: 'dob',
-						render: function(data, type, row) {
-							return data.age;
-						}
-					},
-					{
-						data: 'location',
-						render: function(data, type, row) {
-							return data.city + ', ' + data.state;
-						}
-					},
-					{ data: 'nat' },
-					{
-						data: 'dob',
-						render: function(data, type, row) {
-							return data.date;
-						}
-					},
-					{ data: 'email' },
-					{ data: 'cell' }
-				],
-				language: {
-					emptyTable: 'Ningún dato disponible en la tabla',
-					info: 'Pag. _PAGE_ de _PAGES_',
-					infoEmpty: 'No hay datos',
-					infoFiltered: '(filtrado de los _MAX_ renglones)',
-					infoPostFix: '',
-					infoThousands: ',',
-					lengthMenu: 'Mostrar _MENU_ registros',
-					loadingRecords: 'Cargando datos...',
-					processing: 'Procesando...',
-					search: 'Buscar:',
-					url: '',
-					zeroRecords: 'No se encontro nada',
-					paginate: {
-						first: '<<',
-						last: '>>',
-						next: '>',
-						previous: '<'
-					},
-					aria: {
-						sortAscending: ': Activar para ordenar la columna de manera ascendente',
-						sortDescending: ': Activar para ordenar la columna de manera descendente'
-					}
-				}
+				}).on('click', 'tbody tr .info', function() {
+					let data = oTable.row($(this).parents('tr')).data();
+					console.log(data);
+				});
+				$(this).text('Actualizar tabla');
 			});
 
+			$refresh.trigger('click');
 		});
 	</script>
 </body>

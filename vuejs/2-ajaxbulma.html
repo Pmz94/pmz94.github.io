@@ -89,8 +89,8 @@
 						<div class = "content notification is-vue">
 							<h4 class = "subtitle is-4">Lista con AJAX</h4>
 							<p>
-								Uso de AJAX para desarrollar paginas interactivas o accesar a un servidor web.
-								<br> Lee un archivo JSON de datos aleatorios y los pega en la tabla de arriba.
+								Uso de peticiones AJAX para accesar a un servidor web sin actualizar la pagina.
+								<br> Se obtiene un archivo JSON de datos de personas y los pega en la tabla de arriba.
 							</p>
 							<p>
 								Creada usando
@@ -129,10 +129,10 @@
 		</div>
 	</section>
 
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.js"></script>
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/es.js"></script>
-	<script type = "text/javascript">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+	<script type="text/javascript">
 		//20 personas aleatorias con todos los atributos
 		var urlUsers = "https://randomuser.me/api/?nat=ca,ch,es,fr,gb,us&results=20";
 		new Vue({

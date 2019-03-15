@@ -20,7 +20,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--main-color);
+	background: #252525;
 }
 
 body {

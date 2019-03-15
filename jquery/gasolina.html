@@ -69,22 +69,24 @@
 	<section class="container py-3">
 
 		<div id="millas-km" class="row justify-content-center text-center">
-			<div class="col-auto box">
-				<h5>Millas a Kilometros</h1>
-				<div class="row">
-					<div class="col">
-						<div class="input-group input-group-sm">
-							<input id="millas" type="number" class="form-control" placeholder="Millas" min="0">
-							<div class="input-group-append">
-								<span class="input-group-text">M</span>
+			<div class="col-auto">
+				<div class="box">
+					<h5>Millas a Kilometros</h1>
+					<div class="row">
+						<div class="col">
+							<div class="input-group input-group-sm">
+								<input id="millas" type="number" class="form-control" placeholder="Millas" min="0">
+								<div class="input-group-append">
+									<span class="input-group-text">M</span>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="input-group input-group-sm">
-							<input id="kilometros" type="number" class="form-control" placeholder="Kilometros" min="0">
-							<div class="input-group-append">
-								<span class="input-group-text">Km</span>
+						<div class="col">
+							<div class="input-group input-group-sm">
+								<input id="kilometros" type="number" class="form-control" placeholder="Kilometros" min="0">
+								<div class="input-group-append">
+									<span class="input-group-text">Km</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -93,22 +95,24 @@
 		</div>
 
 		<div id="galones-l" class="row justify-content-center text-center">
-			<div class="col-auto box">
-				<h5>Galones americanos a Litros</h1>
-				<div class="row">
-					<div class="col">
-						<div class="input-group input-group-sm">
-							<input id="galones" type="number" class="form-control" placeholder="Galones" min="0">
-							<div class="input-group-append">
-								<span class="input-group-text">G</span>
+			<div class="col-auto">
+				<div class="box">
+					<h5>Galones americanos a Litros</h1>
+					<div class="row">
+						<div class="col">
+							<div class="input-group input-group-sm">
+								<input id="galones" type="number" class="form-control" placeholder="Galones" min="0">
+								<div class="input-group-append">
+									<span class="input-group-text">G</span>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="input-group input-group-sm">
-							<input id="litros" type="number" class="form-control" placeholder="Litros" min="0">
-							<div class="input-group-append">
-								<span class="input-group-text">L</span>
+						<div class="col">
+							<div class="input-group input-group-sm">
+								<input id="litros" type="number" class="form-control" placeholder="Litros" min="0">
+								<div class="input-group-append">
+									<span class="input-group-text">L</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -128,7 +132,7 @@
 					<div class="modal-body">
 						<ul class="list-group">
 							<li class="list-group-item">Ve a la gasolinera, llena el tanque y luego anota el kilomeraje actual <i>(Kilometraje A)</i>.</li>
-							<li class="list-group-item">Conduce normalmente, espera hasta que el tanque este casi vacio y vuelve a llenar el tanque. (mejor si es en la misma gasolinera y la misma bomba que la ultima vez, capaz que las otras esten calibradas diferente)</li>
+							<li class="list-group-item">Conduce normalmente, espera hasta que el tanque este casi vacio y vuelve a llenar el tanque (Mejor si es en la misma gasolinera y la misma bomba que la ultima vez, capaz que las otras esten calibradas diferente).</li>
 							<li class="list-group-item">Fijate con cuantos litros se llena el tanque <i>(Litros del tanque)</i>.</li>
 							<li class="list-group-item">Anota el nuevo kilometraje <i>(Kilometraje B)</i>.</li>
 						</ul>
@@ -141,35 +145,37 @@
 		</div>
 
 		<div id="kml" class="row justify-content-center text-center">
-			<div class="col-auto box">
-				<h5>Km/l de un carro <div id="kml-info" class="badge badge-info badge-pill"><i class="fas fa-info-circle"></i></div></h5>
-				<label for="kma">Kilometraje A</label>
-				<div class="input-group input-group-sm">
-					<input id="kma" type="number" class="form-control">
-					<div class="input-group-append">
-						<span class="input-group-text">km</span>
+			<div class="col-auto">
+				<div class="box">
+					<h5>Km/l de un carro <div id="kml-info" class="badge badge-info badge-pill"><i class="fas fa-info-circle"></i></div></h5>
+					<label for="kma">Kilometraje A</label>
+					<div class="input-group input-group-sm">
+						<input id="kma" type="number" class="form-control">
+						<div class="input-group-append">
+							<span class="input-group-text">km</span>
+						</div>
 					</div>
-				</div>
-
-				<label for="kmb">Kilometraje B</label>
-				<div class="input-group input-group-sm">
-					<input id="kmb" type="number" class="form-control">
-					<div class="input-group-append">
-						<span class="input-group-text">km</span>
+					
+					<label for="kmb">Kilometraje B</label>
+					<div class="input-group input-group-sm">
+						<input id="kmb" type="number" class="form-control">
+						<div class="input-group-append">
+							<span class="input-group-text">km</span>
+						</div>
 					</div>
-				</div>
-
-				<label for="litros">Litros del tanque</label>
-				<div class="input-group input-group-sm">
-					<input id="litros-tanque" type="number" class="form-control">
-					<div class="input-group-append">
-						<span class="input-group-text">l</span>
+					
+					<label for="litros">Litros del tanque</label>
+					<div class="input-group input-group-sm">
+						<input id="litros-tanque" type="number" class="form-control">
+						<div class="input-group-append">
+							<span class="input-group-text">l</span>
+						</div>
 					</div>
+					
+					<button id="calc-kml" class="btn btn-success btn-sm">Calcular</button>
+					
+					<span id="kml-res" style="display: none;"></span>
 				</div>
-
-				<button id="calc-kml" class="btn btn-success btn-sm">Calcular</button>
-
-				<span id="kml-res" style="display: none;"></span>
 			</div>
 		</div>
 
