@@ -16,6 +16,10 @@
 		background: #dedede url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
 	}
 
+	button {
+		margin: 5px 0 0 0;
+	}
+
 	.box {
 		border-radius: 10px;
 		border: 1px solid #dedede;
@@ -67,6 +71,38 @@
 	</nav>
 
 	<section class="container py-3">
+
+		<div id="moneda" class="row justify-content-center text-center">
+			<div class="col-auto">
+				<div class="box">
+					<h5>Dolares a Pesos mexicanos</h1>
+					<div class="row">
+						<div class="col">
+							<div class="input-group input-group-sm">
+								<div class="input-group-prepend">
+									<span class="input-group-text">$</span>
+								</div>
+								<input id="dolares" type="number" class="form-control" placeholder="Dolares" min="0">
+								<div class="input-group-append">
+									<span class="input-group-text">USD</span>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="input-group input-group-sm">
+								<div class="input-group-prepend">
+									<span class="input-group-text">$</span>
+								</div>
+								<input id="pesos" type="number" class="form-control" placeholder="Pesos" min="0">
+								<div class="input-group-append">
+									<span class="input-group-text">MXN</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div id="millas-km" class="row justify-content-center text-center">
 			<div class="col-auto">
@@ -133,7 +169,7 @@
 						<ul class="list-group">
 							<li class="list-group-item">Ve a la gasolinera, llena el tanque y luego anota el kilomeraje actual <i>(Kilometraje A)</i>.</li>
 							<li class="list-group-item">Conduce normalmente, espera hasta que el tanque este casi vacio y vuelve a llenar el tanque (Mejor si es en la misma gasolinera y la misma bomba que la ultima vez, capaz que las otras esten calibradas diferente).</li>
-							<li class="list-group-item">Fijate con cuantos litros se llena el tanque <i>(Litros del tanque)</i>.</li>
+							<li class="list-group-item">Fijate con cuantos litros se llena el tanque y anotalo <i>(Litros del tanque)</i>.</li>
 							<li class="list-group-item">Anota el nuevo kilometraje <i>(Kilometraje B)</i>.</li>
 						</ul>
 					</div>
@@ -147,12 +183,12 @@
 		<div id="kml" class="row justify-content-center text-center">
 			<div class="col-auto">
 				<div class="box">
-					<h5>Km/l de un carro <div id="kml-info" class="badge badge-info badge-pill"><i class="fas fa-info-circle"></i></div></h5>
+					<h5>Km/L de un carro <div id="kml-info" class="badge badge-info badge-pill"><i class="fas fa-info-circle"></i></div></h5>
 					<label for="kma">Kilometraje A</label>
 					<div class="input-group input-group-sm">
 						<input id="kma" type="number" class="form-control">
 						<div class="input-group-append">
-							<span class="input-group-text">km</span>
+							<span class="input-group-text">Km</span>
 						</div>
 					</div>
 					
@@ -160,7 +196,7 @@
 					<div class="input-group input-group-sm">
 						<input id="kmb" type="number" class="form-control">
 						<div class="input-group-append">
-							<span class="input-group-text">km</span>
+							<span class="input-group-text">Km</span>
 						</div>
 					</div>
 					
@@ -168,7 +204,7 @@
 					<div class="input-group input-group-sm">
 						<input id="litros-tanque" type="number" class="form-control">
 						<div class="input-group-append">
-							<span class="input-group-text">l</span>
+							<span class="input-group-text">L</span>
 						</div>
 					</div>
 					
@@ -181,12 +217,12 @@
 
 		<div id="precio-gas-distancia" class="row justify-content-center text-center">
 			<div class="col-auto box">
-				<h5>Precio de gasolina para un viaje</h5>
+				<h5>Gasto de gasolina para un viaje</h5>
 				<label for="distancia">Distancia a recorrer</label>
 				<div class="input-group input-group-sm">
 					<input id="distancia" type="number" class="form-control">
 					<div class="input-group-append">
-						<span class="input-group-text">km</span>
+						<span class="input-group-text">Km</span>
 					</div>
 				</div>
 				<input id="regreso" type="checkbox"> Agregar camino de regreso<br>
@@ -196,8 +232,8 @@
 					<input id="rendimiento" type="number" class="form-control">
 					<div class="input-group-append">
 						<select id="unidad" class="input-group-text">
-							<option value="1">l/100km</option>
-							<option value="2">km/l</option>
+							<option value="1">L/100Km</option>
+							<option value="2">Km/L</option>
 						</select>
 					</div>
 				</div>
@@ -209,7 +245,7 @@
 					</div>
 					<input id="precio-gas" type="number" class="form-control">
 					<div class="input-group-append">
-						<span class="input-group-text">MXN/l</span>
+						<span class="input-group-text">MXN/L</span>
 					</div>
 				</div>
 
@@ -219,8 +255,8 @@
 					<tbody>
 						<tr>
 							<th></th>
-							<th>Consumo (l)</th>
-							<th>Precio</th>
+							<th>Consumo (L)</th>
+							<th>Precio (MXN)</th>
 						</tr>
 						<tr>
 							<td id="distanciatd"></td>
@@ -228,7 +264,7 @@
 							<td id="preciodist"></td>
 						</tr>
 						<tr>
-							<td>1 km</td>
+							<td>1 Km</td>
 							<td id="gasolina1km"></td>
 							<td id="precio1km"></td>
 						</tr>
@@ -243,26 +279,56 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
 	<script type="text/javascript">
 		$(function() {
+			let conversion = 'USD_MXN',
+				url = 'https://free.currencyconverterapi.com/api/v6/convert',
+				data = {
+					q: conversion,
+					compact: 'ultra',
+					apiKey: 'f3abfcace10f17849340'
+				},
+				params = $.param(data),
+				precio_dolar = 0;
+
+			$.getJSON(url + '?' + params, function(data) {
+				console.log(data[conversion]);
+				try {
+					precio_dolar = data[conversion];
+				} catch(e) {
+					console.log(e);
+				}
+			});
+
+			$('#dolares').on('keyup change', function() {
+				let dolares = parseFloat($(this).val());
+				let pesos = dolares * precio_dolar;
+				$('#pesos').val(pesos.toFixed(2));
+			});
+			$('#pesos').on('keyup change', function() {
+				let pesos = parseFloat($(this).val());
+				let dolares = pesos / precio_dolar;
+				$('#dolares').val(dolares.toFixed(2));
+			});
+
 			$('#millas').on('keyup change', function() {
 				let millas = parseFloat($(this).val());
-				let millaskm = millas * 1.60934;
-				$('#kilometros').val(millaskm.toFixed(2));
+				let kilometros = millas * 1.60934;
+				$('#kilometros').val(kilometros.toFixed(2));
 			});
 			$('#kilometros').on('keyup change', function() {
 				let kilometros = parseFloat($(this).val());
-				let kmmillas = kilometros / 1.60934;
-				$('#millas').val(kmmillas.toFixed(2));
+				let millas = kilometros / 1.60934;
+				$('#millas').val(millas.toFixed(2));
 			});
 
 			$('#galones').on('keyup change', function() {
 				let galones = parseFloat($(this).val());
-				let glitros = galones * 3.785412;
-				$('#litros').val(glitros.toFixed(2));
+				let litros = galones * 3.785412;
+				$('#litros').val(litros.toFixed(2));
 			});
 			$('#litros').on('keyup change', function() {
 				let litros = parseFloat($(this).val());
-				let lgalones = litros / 3.785412;
-				$('#galones').val(lgalones.toFixed(2));
+				let galones = litros / 3.785412;
+				$('#galones').val(galones.toFixed(2));
 			});
 
 			$('#kml-info').on('click', function() {
@@ -270,35 +336,35 @@
 			});
 
 			$('#calc-kml').on('click', function() {
-				let kma = parseFloat($('#kma').val());
-				let kmb = parseFloat($('#kmb').val());
-				let litros = parseFloat($('#litros-tanque').val());
-				let kml = (kmb - kma) / litros;
+				let kma = parseFloat($('#kma').val()),
+					kmb = parseFloat($('#kmb').val()),
+					litros = parseFloat($('#litros-tanque').val()),
+					kml = (kmb - kma) / litros;
 
 				$('#kml-res').text(kml.toFixed(2) + ' km/l').show();
 			});
 
 			$('#calc-precio-gas').on('click', function() {
 
-				let distancia = parseFloat($('#distancia').val());
-				let regreso_checked = $('#regreso').is(':checked');
-				let rendimiento = parseFloat($('#rendimiento').val());
-				let unidad = parseInt($('#unidad option:selected').val());
-				let precio_gas = parseFloat($('#precio-gas').val());
+				let distancia = parseFloat($('#distancia').val()),
+					regreso_checked = $('#regreso').is(':checked'),
+					rendimiento = parseFloat($('#rendimiento').val()),
+					unidad_rendimiento = parseInt($('#unidad option:selected').val()),
+					precio_gas = parseFloat($('#precio-gas').val());
 
-				if (!distancia) {
+				if(!distancia) {
 					alert('Cuanto va recorrer?');
 					return null;
-				} else if (!rendimiento) {
+				} else if(!rendimiento) {
 					alert('Cuanta gasolina gasta su carro?');
 					return null;
 				} else {
 
-					if (regreso_checked == true) {
+					if(regreso_checked) {
 						distancia = distancia * 2;
 					}
 
-					if (unidad == 2) { // km/l
+					if(unidad_rendimiento === 2) { // km/l
 						rendimiento = 100 / rendimiento;
 					}
 
@@ -308,16 +374,15 @@
 					let preciodist = gasolinadist * precio_gas;
 					let precio1km = gasolina1km * precio_gas;
 
-					$('#distanciatd').text(distancia + ' km');
+					$('#distanciatd').text(distancia + ' Km');
 					$('#gasolinadist').text(gasolinadist.toFixed(2));
 					$('#gasolina1km').text(gasolina1km.toFixed(2));
 
-					if (precio_gas) {
+					if(precio_gas) {
 						$('#preciodist').text('$' + preciodist.toFixed(2));
 						$('#precio1km').text('$' + precio1km.toFixed(2));
 					} else {
-						$('#preciodist').text('');
-						$('#precio1km').text('');
+						$('#preciodist, #precio1km').text('');
 					}
 
 					$('#tabla').show();
