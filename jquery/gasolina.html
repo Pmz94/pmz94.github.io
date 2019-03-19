@@ -72,17 +72,17 @@
 
 	<section class="container py-3">
 
-		<div id="moneda" class="row justify-content-center text-center">
+		<div id="moneda" class="row justify-content-center text-center" style="display: none;">
 			<div class="col-auto">
 				<div class="box">
-					<h5>Dolares a Pesos mexicanos</h1>
+					<h5>Dolares a Pesos mexicanos</h5>
 					<div class="row">
 						<div class="col">
 							<div class="input-group input-group-sm">
 								<div class="input-group-prepend">
 									<span class="input-group-text">$</span>
 								</div>
-								<input id="dolares" type="number" class="form-control" placeholder="Dolares" min="0">
+								<input id="moneda_de" type="number" class="form-control" placeholder="Dolares" min="0" disabled>
 								<div class="input-group-append">
 									<span class="input-group-text">USD</span>
 								</div>
@@ -93,7 +93,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text">$</span>
 								</div>
-								<input id="pesos" type="number" class="form-control" placeholder="Pesos" min="0">
+								<input id="moneda_a" type="number" class="form-control" placeholder="Pesos" min="0" disabled>
 								<div class="input-group-append">
 									<span class="input-group-text">MXN</span>
 								</div>
@@ -107,7 +107,7 @@
 		<div id="millas-km" class="row justify-content-center text-center">
 			<div class="col-auto">
 				<div class="box">
-					<h5>Millas a Kilometros</h1>
+					<h5>Millas a Kilometros</h5>
 					<div class="row">
 						<div class="col">
 							<div class="input-group input-group-sm">
@@ -133,7 +133,7 @@
 		<div id="galones-l" class="row justify-content-center text-center">
 			<div class="col-auto">
 				<div class="box">
-					<h5>Galones americanos a Litros</h1>
+					<h5>Galones americanos a Litros</h5>
 					<div class="row">
 						<div class="col">
 							<div class="input-group input-group-sm">
@@ -160,7 +160,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header bg-jq">
-						<h5 class="modal-title">Calcular km/l de un carro</h5>
+						<h5 class="modal-title">Calcular Km/L de un carro</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -183,7 +183,7 @@
 		<div id="kml" class="row justify-content-center text-center">
 			<div class="col-auto">
 				<div class="box">
-					<h5>Km/L de un carro <div id="kml-info" class="badge badge-info badge-pill"><i class="fas fa-info-circle"></i></div></h5>
+					<h5>Km/L de un carro <span id="kml-info" class="badge badge-info badge-pill"><i class="fas fa-info-circle"></i></span></h5>
 					<label for="kma">Kilometraje A</label>
 					<div class="input-group input-group-sm">
 						<input id="kma" type="number" class="form-control">
@@ -280,33 +280,35 @@
 	<script type="text/javascript">
 		$(function() {
 			let conversion = 'USD_MXN',
-				url = 'https://free.currencyconverterapi.com/api/v6/convert',
-				data = {
+				precio_moneda_base = 0;
+
+			$.ajax({
+				url: 'https://free.currencyconverterapi.com/api/v6/convert',
+				method: 'GET',
+				data: {
 					q: conversion,
 					compact: 'ultra',
 					apiKey: 'f3abfcace10f17849340'
-				},
-				params = $.param(data),
-				precio_dolar = 0;
-
-			$.getJSON(url + '?' + params, function(data) {
-				console.log(data[conversion]);
-				try {
-					precio_dolar = data[conversion];
-				} catch(e) {
-					console.log(e);
 				}
-			});
+			}).done(function(data) {
+				console.log(data[conversion]);
+				precio_moneda_base = data[conversion];
+				$('#moneda_de, #moneda_a').prop('disabled', false);
 
-			$('#dolares').on('keyup change', function() {
-				let dolares = parseFloat($(this).val());
-				let pesos = dolares * precio_dolar;
-				$('#pesos').val(pesos.toFixed(2));
-			});
-			$('#pesos').on('keyup change', function() {
-				let pesos = parseFloat($(this).val());
-				let dolares = pesos / precio_dolar;
-				$('#dolares').val(dolares.toFixed(2));
+				$('#moneda_de').on('keyup change', function() {
+					let moneda_de = parseFloat($(this).val());
+					let moneda_a = moneda_de * precio_moneda_base;
+					$('#moneda_a').val(moneda_a.toFixed(2));
+				});
+				$('#moneda_a').on('keyup change', function() {
+					let mondeda_de = parseFloat($(this).val());
+					let moneda_a = mondeda_de / precio_moneda_base;
+					$('#moneda_de').val(moneda_a.toFixed(2));
+				});
+
+				$('#moneda').show();
+			}).fail(function(jqXHR) {
+				console.log(JSON.stringify(jqXHR, null, 4));
 			});
 
 			$('#millas').on('keyup change', function() {
@@ -341,7 +343,7 @@
 					litros = parseFloat($('#litros-tanque').val()),
 					kml = (kmb - kma) / litros;
 
-				$('#kml-res').text(kml.toFixed(2) + ' km/l').show();
+				if(kml) $('#kml-res').text(kml.toFixed(2) + ' Km/L').show();
 			});
 
 			$('#calc-precio-gas').on('click', function() {
