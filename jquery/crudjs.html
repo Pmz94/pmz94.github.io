@@ -8,7 +8,7 @@
 	<title>paises CRUD</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/jquerystyle.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js"></script>
 </head>
 
 <style>
@@ -105,7 +105,7 @@
 		</div>
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
 	<script type="text/javascript">
 		$(function() {
@@ -115,42 +115,6 @@
 			cargarDatos();
 
 			$('#btnAgregar').click(function() {
-				agregar();
-			});
-
-			$(document).on('click', '#btnModalEditar', function() {
-				let i = $(this).data('item');
-				editar(i);
-			});
-
-			$(document).on('click', '#btnBorrar', function() {
-				let i = $(this).data('item');
-				borrar(i);
-			});
-
-			function cargarDatos() {
-				$tbody.empty();
-				if(paises.length > 0) {
-					$.each(paises, function(i, pais) {
-						let cells = '';
-						cells += '<tr>';
-						cells += '	<td>'+ (i + 1) + '</td>';
-						cells += '	<td>' + pais + '</td>';
-						cells += '	<td><button id="btnModalEditar" data-item="' + i + '" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalEditar">Editar</button></td>';
-						cells += '	<td><button id="btnBorrar" data-item="' + i + '" class="btn btn-danger btn-sm">Borrar</button></td>';
-						cells += '</tr>';
-						$tbody.append(cells);
-						let contador = 1 + i;
-						let footer = (contador == 1) ? ' pais' : ' paises';
-						$('#contador').text(contador + footer);
-					});
-				} else {
-					$tbody.append('<tr><td colspan="4">No hay paises</td></tr>');
-					$('#contador').text('');
-				}
-			}
-
-			function agregar() {
 				let elemento = $('#addInput');
 				// Get the value
 				let pais = elemento.val();
@@ -162,9 +126,10 @@
 					// Dislay the new list
 					cargarDatos();
 				}
-			}
+			});
 
-			function editar(i) {
+			$(document).on('click', '#btnModalEditar', function() {
+				let i = $(this).data('item');
 				let elemento = $('#editInput');
 				// Display value in the field
 				elemento.val(paises[i]);
@@ -181,98 +146,38 @@
 						$('#modalEditar').modal('hide');
 					}
 				});
-			}
+			});
 
-			function borrar(i) {
+			$(document).on('click', '#btnBorrar', function() {
+				let i = $(this).data('item');
 				//Delete the current row
 				paises.splice(i, 1);
 				// Display the new list
 				cargarDatos();
+			});
+
+			function cargarDatos() {
+				$tbody.empty();
+				if(paises.length > 0) {
+					$.each(paises, function(i, pais) {
+						let contador = 1 + i;
+						$tbody.append(`
+							<tr>
+								<td>${contador}</td>
+								<td>${pais}</td>
+								<td><button id="btnModalEditar" data-item="${i}" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalEditar">Editar</button></td>
+								<td><button id="btnBorrar" data-item="${i}" class="btn btn-danger btn-sm">Borrar</button></td>
+							</tr>
+						`);
+						let footer = (contador === 1) ? ' pais' : ' paises';
+						$('#contador').text(contador + footer);
+					});
+				} else {
+					$tbody.append('<tr><td colspan="4">No hay paises</td></tr>');
+					$('#contador').text('');
+				}
 			}
-
 		});
-
-		// var app = new function() {
-		// 	this.elemento = document.getElementById('paises');
-		// 	this.paises = ['Francia', 'Alemania', 'Inglaterra', 'España', 'Belgica', 'Italia', 'Portugal', 'Irlanda', 'Luxemburgo'];
-		//
-		// 	this.Count = function(data) {
-		// 		var elemento = document.getElementById('contador');
-		// 		var name = 'country';
-		// 		if(data) {
-		// 			if(data > 1) {
-		// 				name = 'paises';
-		// 			}
-		// 			elemento.innerHTML = data + ' ' + name;
-		// 		} else {
-		// 			elemento.innerHTML = 'No ' + name;
-		// 		}
-		// 	};
-		//
-		// 	this.FetchAll = function() {
-		// 		var data = '';
-		// 		if(this.paises.length > 0) {
-		// 			for(i = 0; i < this.paises.length; i++) {
-		// 				data += '<tr>';
-		// 				data += '<td>' + this.paises[i] + '</td>';
-		// 				data += '<td><button class="btn btn-info" onclick="app.Edit(' + i + ')" data-toggle="modal" data-target="#modalEditar">Edit</button></td>';
-		// 				data += '<td><button class="btn btn-danger" onclick="app.Delete(' + i + ')" >Delete</button></td>';
-		// 				data += '</tr>';
-		// 			}
-		// 		}
-		// 		this.Count(this.paises.length);
-		// 		return this.elemento.innerHTML = data;
-		// 	};
-		//
-		// 	this.Add = function() {
-		// 		elemento = document.getElementById('add-name');
-		// 		// Get the value
-		// 		var country = elemento.value;
-		// 		if(country) {
-		// 			// Add the new value
-		// 			this.paises.push(country.trim());
-		// 			// Reset input value
-		// 			elemento.value = '';
-		// 			// Dislay the new list
-		// 			this.FetchAll();
-		// 		}
-		// 	};
-		//
-		// 	this.Edit = function(item) {
-		// 		var elemento = document.getElementById('edit-name');
-		// 		// Display value in the field
-		// 		elemento.value = this.paises[item];
-		// 		// Display fields
-		// 		document.getElementById('spoiler').style.display = 'block';
-		// 		self = this;
-		// 		document.getElementById('saveEdit').onsubmit = function() {
-		// 			// Get value
-		// 			var country = elemento.value;
-		// 			if(country) {
-		// 				// Edit value
-		// 				self.paises.splice(item, 1, country.trim());
-		// 				// Display the new list
-		// 				self.FetchAll();
-		// 				// Hide fields
-		// 				CloseInput();
-		// 			}
-		// 		}
-		// 	};
-		//
-		// 	this.Delete = function(item) {
-		// 		// Delete the current row
-		// 		this.paises.splice(item, 1);
-		// 		// Display the new list
-		// 		this.FetchAll();
-		// 	};
-		//
-		// };
-		//
-		// app.FetchAll();
-		//
-		// function CloseInput() {
-		// 	document.getElementById('modalEditar').style.display = 'none';
-		// }
 	</script>
 </body>
 

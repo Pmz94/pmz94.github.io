@@ -1,7 +1,7 @@
-var trabajos = [
+let trabajos = [
 	{
 		'titulo': 'Sistema de plagios',
-		'descripcion': 'Funcion para checar copy/paste de tareas que suban los alumnos al portal de la escuela. CS Web.',
+		'descripcion': 'Funcion para checar copy/paste de tareas que suban los alumnos al portal de la escuela. CSWeb.',
 		'tiempo': '2019-1',
 		'icono1': 'copypaste.png',
 		'icono2': 'plagiarism.png',
@@ -11,7 +11,7 @@ var trabajos = [
 	},
 	{
 		'titulo': 'Catalogos y reportes',
-		'descripcion': 'Uno que otro catalogo y reporte de varias cosas. CS Web.',
+		'descripcion': 'Uno que otro catalogo y reporte de varias cosas. CSWeb.',
 		'tiempo': '2018-2',
 		'icono1': 'catalog.png',
 		'icono2': 'report.png',
@@ -21,7 +21,7 @@ var trabajos = [
 	},
 	{
 		'titulo': 'Sistema de inventario',
-		'descripcion': 'Control de productos que manejen las escuelas. CS Web.',
+		'descripcion': 'Control de productos que manejen las escuelas. CSWeb.',
 		'tiempo': '2018-V',
 		'icono1': 'cajas.png',
 		'icono2': 'checklist.png',
@@ -31,7 +31,7 @@ var trabajos = [
 	},
 	{
 		'titulo': 'Sistema de cobranza',
-		'descripcion': 'Opcion de pago en linea integrando el API de PayPal al portal de alumnos. CS Web.',
+		'descripcion': 'Opcion de pago en linea integrando el API de PayPal al portal de alumnos. CSWeb.',
 		'tiempo': '2018-1',
 		'icono1': 'pplogo.png',
 		'icono2': 'dollarsign.png',
