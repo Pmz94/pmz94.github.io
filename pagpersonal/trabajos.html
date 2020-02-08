@@ -10,9 +10,9 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/navbar/bennyfavicon.png">
 	<link rel="shortcut icon" href="assets/img/navbar/bennyfavicon.png">
 	<title>Trabajos Realizados por Pedro Muñoz</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
 </head>
 
@@ -61,7 +61,7 @@
 	</section>
 
 	<footer class="footer hero is-dark">
-		<label class="subtitle has-text-centered">&copy;2019 Pedro Muñoz</label>
+		<label class="subtitle has-text-centered">&copy; Pedro Muñoz</label>
 	</footer>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
@@ -69,36 +69,36 @@
 	<script src="assets/js/trabajos.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			$.each(trabajos, function(i, trabajo) {
-				data = '';
-				data += '<div class="columns ' + trabajo.class + '">';
-				data += '	<div class="column is-2">';
-				data += '		<img src="assets/img/trabajos/' + trabajo.icono1 + '" alt="' + trabajo.altico1 + '" class="icont">';
-				data += '	</div>';
-				data += '	<div class="column is-8">';
-				data += '		<h3 class="title is-4">' + trabajo.titulo + '</h3>';
-				data += '		<h3 class="subtitle">' + trabajo.descripcion + '<br>(' + trabajo.tiempo + ')' + '</h3>';
-				data += '	</div>';
-				data += '	<div class="column is-2">';
-				data += '		<img src="assets/img/trabajos/' + trabajo.icono2 + '" alt="' + trabajo.altico2 + '" class="icont">';
-				data += '	</div>';
-				data += '</div>';
+			$.each(trabajos, (i, trabajo) => {
+				let clase = (i % 2) ? 'a' : 'b';
+				let data = `
+					<div class="columns ${clase}">
+						<div class="column is-2">
+							<img src="assets/img/trabajos/${trabajo.icono1}" alt="${trabajo.altico1}" class="icont">
+						</div>
+						<div class="column is-8">
+							<h3 class="title is-4">${trabajo.titulo}</h3>
+							<h3 class="subtitle">${trabajo.descripcion}<br>(${trabajo.tiempo})</h3>
+						</div>
+						<div class="column is-2">
+							<img src="assets/img/trabajos/${trabajo.icono2}" alt="${trabajo.altico2}" class="icont">
+						</div>
+					</div>
+				`;
 				$('#trabajos').append(data);
 			});
 
-			let trabajosa = $('div.columns.a');
-			trabajosa.addClass('animated fadeInLeft').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			let $trabajosa = $('div.columns.a');
+			$trabajosa.addClass('animated fadeInLeft').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeInLeft');
 			});
 
-			let trabajosb = $('div.columns.b');
-			trabajosb.addClass('animated fadeInRight').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
+			let $trabajosb = $('div.columns.b');
+			$trabajosb.addClass('animated fadeInRight').on('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function() {
 				$(this).removeClass('animated fadeInRight');
 			});
 
-			$('#trabajos').find('img').attr('draggable', false).bind('contextmenu', function() {
-				return false;
-			});
+			$('#trabajos').find('img').attr('draggable', false).bind('contextmenu', () => false);
 		});
 	</script>
 </body>

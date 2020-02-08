@@ -1,5 +1,14 @@
 let trabajos = [
 	{
+		'titulo': 'Aplicacion movil',
+		'descripcion': 'Version movil del sistema de educacion en linea. CSWeb.',
+		'tiempo': '2019-V -',
+		'icono1': 'cellphone.png',
+		'icono2': 'cog.png',
+		'altico1': '*celular*',
+		'altico2': '*engrane*',
+	},
+	{
 		'titulo': 'Sistema de plagios',
 		'descripcion': 'Funcion para checar copy/paste de tareas que suban los alumnos al portal de la escuela. CSWeb.',
 		'tiempo': '2019-1',
@@ -7,7 +16,6 @@ let trabajos = [
 		'icono2': 'plagiarism.png',
 		'altico1': '*Copy/Paste*',
 		'altico2': '*Plagio*',
-		'class': 'a'
 	},
 	{
 		'titulo': 'Catalogos y reportes',
@@ -17,7 +25,6 @@ let trabajos = [
 		'icono2': 'report.png',
 		'altico1': '*Catalogo*',
 		'altico2': '*Reporte*',
-		'class': 'b'
 	},
 	{
 		'titulo': 'Sistema de inventario',
@@ -27,7 +34,6 @@ let trabajos = [
 		'icono2': 'checklist.png',
 		'altico1': '*Cajas*',
 		'altico2': '*Checklist*',
-		'class': 'a'
 	},
 	{
 		'titulo': 'Sistema de cobranza',
@@ -37,7 +43,6 @@ let trabajos = [
 		'icono2': 'dollarsign.png',
 		'altico1': '*PayPal*',
 		'altico2': '*Dollar $ign*',
-		'class': 'b'
 	},
 	{
 		'titulo': 'Impartición de asesorías de Probabilidad y Estadística',
@@ -47,7 +52,6 @@ let trabajos = [
 		'icono2': 'distribucionnormal.png',
 		'altico1': '*Dados*',
 		'altico2': '*Distribucion Normal*',
-		'class': 'a'
 	},
 	{
 		'titulo': 'Accidentes de tránsito en México de 1997 a 2015',
@@ -57,7 +61,6 @@ let trabajos = [
 		'icono2': 'analisis.png',
 		'altico1': '*Choque*',
 		'altico2': '*Analisis*',
-		'class': 'b'
 	},
 	{
 		'titulo': 'Página web personal',
@@ -67,7 +70,6 @@ let trabajos = [
 		'icono2': 'llaveshtml.png',
 		'altico1': '*Sitio Web*',
 		'altico2': '*LLaves de HTML*',
-		'class': 'a'
 	},
 	{
 		'titulo': 'Capacidad hedónica como mecanismo protector contra el estrés en alumnos universitarios',
@@ -77,7 +79,6 @@ let trabajos = [
 		'icono2': 'tarea.png',
 		'altico1': '*Persona estresada*',
 		'altico2': '*Tarea*',
-		'class': 'b'
 	},
 	{
 		'titulo': 'Capacidad de revaloración cognitiva en la protección contra el estrés y los síntomas psiquiátricos: posibles mecanismos biológicos',
@@ -87,7 +88,6 @@ let trabajos = [
 		'icono2': 'cuchillo.png',
 		'altico1': '*Cerebro*',
 		'altico2': '*Cuchillo*',
-		'class': 'a'
 	},
 	{
 		'titulo': 'Implementación de Plan Estratégico Informático a Cocina Económica “Sabor a Mi”',
@@ -97,7 +97,6 @@ let trabajos = [
 		'icono2': 'estrategia.png',
 		'altico1': '*Lista*',
 		'altico2': '*Estrategia*',
-		'class': 'b'
 	},
 	{
 		'titulo': 'Desarrollo de sistema de control ganadero “MooPlot”',
@@ -107,7 +106,6 @@ let trabajos = [
 		'icono2': 'granja.png',
 		'altico1': '*MooPlot*',
 		'altico2': '*Granja*',
-		'class': 'a'
 	},
 	{
 		'titulo': 'Proyecto "Manos a la Obra"',
@@ -117,7 +115,6 @@ let trabajos = [
 		'icono2': 'calcetin.png',
 		'altico1': '*Manos a la Obra*',
 		'altico2': '*Calcetin*',
-		'class': 'b'
 	},
 	{
 		'titulo': 'Plataforma de Mini Juegos',
@@ -127,6 +124,5 @@ let trabajos = [
 		'icono2': 'mina.png',
 		'altico1': '*Cartas*',
 		'altico2': '*Mina*',
-		'class': 'a'
 	}
 ];
