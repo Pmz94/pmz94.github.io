@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Calcular distancia de pantalla</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/jquerystyle.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+</head>
+
+<style>
+	body {
+		background: #dedede url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+	}
+
+	button {
+		margin: 5px 0 0 0;
+	}
+
+	.box {
+		border-radius: 10px;
+		border: 1px solid #dedede;
+		padding: 10px;
+		box-shadow: 0 0 20px 0;
+		margin: 0 5px 10px 5px;
+	}
+
+	.form-control:focus {
+		border-color: #dedede;
+		box-shadow: 0 0 0 0;
+	}
+</style>
+
+<body>
+	<nav class="navbar navbar-white bg-jq navbar-expand-md">
+		<div class="container">
+			<a href="../index.html" class="navbar-brand">
+				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal" class="benny-logo">
+			</a>
+			<span class="navbar-text">Calcular consumo de gasolina</span>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars fa-sm"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="gasolina.html" class="nav-link">Gasolina</a>
+					</li>
+					<li class="nav-item">
+						<a href="viewdistance.html" class="nav-link">Distancia</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<section class="container py-3">
+		<div id="distancia-pantalla" class="row justify-content-center text-center">
+			<div class="col-auto box">
+				<h5>Distancia de una pantalla segun su tamaño y resolucion</h5>
+
+				<div class="input-group input-group-sm">
+					<input id="tamanio" type="number" class="form-control" placeholder="Tamaño">
+					<div class="input-group-append">
+						<span class="input-group-text">"</span>
+					</div>
+					<input id="px-largo" type="number" class="form-control" placeholder="Largo" aria-label="Largo">
+					<div class="input-group-append">
+						<span class="input-group-text">px</span>
+					</div>
+					<input id="px-alto" type="number" class="form-control" placeholder="Alto" aria-label="Alto">
+					<div class="input-group-append">
+						<span class="input-group-text">px</span>
+					</div>
+				</div>
+
+				<button id="calc-distancia" class="btn btn-success btn-sm">Calcular</button>
+
+				<div id="results" class="row" style="display: none;">
+					<div class="col">
+						<p>
+							<strong>Tamaño</strong>: <span id="result_size"></span>"<br>
+							<strong>Resolucion</strong>: <span id="result_res"></span><br>
+							<strong>Largo de pantalla</strong>: <span id="result_wsize"></span><br>
+							<strong>Altura de pantalla</strong>: <span id="result_hsize"></span><br>
+							<strong>Relacion de aspecto</strong>: <span id="result_ratio"></span><br>
+							<strong>Pixel pitch</strong>: <span id="result_dot_pitch"></span><br>
+							<strong>Densidad de pixeles</strong>: <span id="result_ppi"></span>
+						</p>
+					</div>
+					<div class="col">
+						<table id="tabla" class="table table-bordered table-sm">
+							<tbody>
+								<tr>
+									<th></th>
+									<th>Min</th>
+									<th>Max</th>
+									<th>Optima</th>
+								</tr>
+								<tr>
+									<td>M</td>
+									<td id="result_min_dist_m"></td>
+									<td id="result_max_dist_m"></td>
+									<td id="result_eyes_limit_m"></td>
+								</tr>
+								<tr>
+									<td>Cm</td>
+									<td id="result_min_dist_cm"></td>
+									<td id="result_max_dist_cm"></td>
+									<td id="result_eyes_limit_cm"></td>
+								</tr>
+								<tr>
+									<td>Ft</td>
+									<td id="result_min_dist_ft"></td>
+									<td id="result_max_dist_ft"></td>
+									<td id="result_eyes_limit_ft"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		let inToCm = t => 2.54 * t;
+		let inToMt = t => 0.0254 * t;
+		let inToFt = t => t / 12;
+
+		function reduceRatio(t, e) {
+			let n, i, o;
+			return n = function(t, e) {
+				return (0 === e) ? t : n(e, t % e)
+			}, Number.isInteger(t) && Number.isInteger(e) ? t === e ? '1:1' : (+e > +t && (i = t, t = e, e = i), o = n(+t, +e), 'undefined' == typeof i ? t / o + ':' + e / o : e / o + ':' + t / o) : '?:?';
+		}
+
+		function getWidth(t, e) {
+			let n = Math.pow(Math.pow(t, 2) / (1 + Math.pow(1 / e, 2)), .5);
+			return {
+				'in': n.toFixed(1),
+				cm: inToCm(n).toFixed(1)
+			};
+		}
+
+		function getHeight(t, e) {
+			let n = Math.pow(Math.pow(t, 2) / (1 + Math.pow(e, 2)), .5);
+			return {
+				'in': n.toFixed(1),
+				cm: inToCm(n).toFixed(1)
+			};
+		}
+
+		function getAspectRatio(t, e) {
+			let n = (t / e).toFixed(2),
+				i = reduceRatio(t, e);
+			return [n, i];
+		}
+
+		function getDotPitch(t, e) {
+			let n = t / e;
+			return {
+				'in': n.toFixed(3),
+				mm: (10 * inToCm(n)).toFixed(3)
+			};
+		}
+
+		function getPPI(t, e, n) {
+			return (Math.sqrt(Math.pow(e, 2) + Math.pow(n, 2)) / t).toFixed(1);
+		}
+
+		function viewingDistance(t) {
+			return {
+				min: {
+					ft: inToFt(t / 1.4).toFixed(1),
+					m: inToMt(t / 1.4).toFixed(2),
+					cm: inToCm(t / 1.4).toFixed(1)
+				},
+				max: {
+					ft: inToFt(t / .52).toFixed(1),
+					m: inToMt(t / .52).toFixed(2),
+					cm: inToCm(t / 0.52).toFixed(1)
+				}
+			};
+		}
+
+		function eyesLimit(t, e) {
+			let n = Math.PI / 180,
+				i = 1,
+				o = Math.tan(1 / 60 / i / 2) * n,
+				r = Math.max(t, e) / (2 * o);
+			return {
+				ft: inToFt(r).toFixed(1),
+				m: inToMt(r).toFixed(2),
+				cm: inToCm(r).toFixed(1)
+			};
+		}
+
+		function updateData() {
+			let t = parseInt(document.getElementById('tamanio').value),
+				e = parseInt(document.getElementById('px-largo').value),
+				n = parseInt(document.getElementById('px-alto').value);
+
+			e || n || (e = screen.width, n = screen.height, document.getElementById('px-largo').value = e, document.getElementById('px-alto').value = n);
+
+			let i = getAspectRatio(e, n),
+				o = getPPI(t, e, n),
+				r = getWidth(t, i[0]),
+				m = getHeight(t, i[0]),
+				u = getDotPitch(r['in'], e),
+				d = getDotPitch(m['in'], n),
+				a = viewingDistance(r['in']),
+				c = eyesLimit(u['in'], d['in']);
+
+			document.getElementById('result_size').innerHTML = t;
+			document.getElementById('result_res').innerHTML = e + 'x' + n;
+			document.getElementById('result_ratio').innerHTML = i[0] + ':1 (' + i[1] + ')';
+			document.getElementById('result_wsize').innerHTML = r['in'] + '" (' + r.cm + 'cm)';
+			document.getElementById('result_hsize').innerHTML = m['in'] + '" (' + m.cm + 'cm)';
+			document.getElementById('result_dot_pitch').innerHTML = u['in'] + '" (' + u.mm + 'mm)';
+			document.getElementById('result_ppi').innerHTML = o + 'ppi';
+
+			document.getElementById('result_min_dist_m').innerHTML = a.min.m;
+			document.getElementById('result_max_dist_m').innerHTML = a.max.m;
+			document.getElementById('result_eyes_limit_m').innerHTML = c.m;
+
+			document.getElementById('result_min_dist_cm').innerHTML = a.min.cm;
+			document.getElementById('result_max_dist_cm').innerHTML = a.max.cm;
+			document.getElementById('result_eyes_limit_cm').innerHTML = c.cm;
+
+			document.getElementById('result_min_dist_ft').innerHTML = a.min.ft;
+			document.getElementById('result_max_dist_ft').innerHTML = a.max.ft;
+			document.getElementById('result_eyes_limit_ft').innerHTML = c.ft;
+
+			document.getElementById('results').style.display = 'block';
+		}
+
+		$(function() {
+			$('#calc-distancia').on('click', function() {
+				if(!$('#tamanio').val() && !$('#px-largo').val() && !$('#px-alto').val()) {
+					$('#tamanio').val(24);
+					$('#px-largo').val(1920);
+					$('#px-alto').val(1080);
+				}
+				updateData();
+			});
+		});
+	</script>
+</body>
+
+</html>
