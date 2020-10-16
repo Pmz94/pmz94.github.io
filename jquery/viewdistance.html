@@ -79,14 +79,14 @@
 
 				<button id="calc-distancia" class="btn btn-success btn-sm">Calcular</button>
 
-				<div id="results" class="row" style="display: none;">
+				<div id="results" class="row align-items-center" style="display: none;">
 					<div class="col">
 						<p>
 							<strong>Tamaño</strong>: <span id="result_size"></span>"<br>
 							<strong>Resolucion</strong>: <span id="result_res"></span><br>
+							<strong>Relacion de aspecto</strong>: <span id="result_ratio"></span><br>
 							<strong>Largo de pantalla</strong>: <span id="result_wsize"></span><br>
 							<strong>Altura de pantalla</strong>: <span id="result_hsize"></span><br>
-							<strong>Relacion de aspecto</strong>: <span id="result_ratio"></span><br>
 							<strong>Pixel pitch</strong>: <span id="result_dot_pitch"></span><br>
 							<strong>Densidad de pixeles</strong>: <span id="result_ppi"></span>
 						</p>
@@ -124,6 +124,19 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="tablas" class="row justify-content-center text-center">
+			<div class="col-auto">
+				<div class="box">
+					<h5>Densidad de pixeles y distancias</h5>
+					<div class="row">
+						<div class="col">
+							<table id="ppi-dist" class="table table-bordered table-striped table-hover table-sm"></table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
@@ -140,32 +153,32 @@
 			}, Number.isInteger(t) && Number.isInteger(e) ? t === e ? '1:1' : (+e > +t && (i = t, t = e, e = i), o = n(+t, +e), 'undefined' == typeof i ? t / o + ':' + e / o : e / o + ':' + t / o) : '?:?';
 		}
 
+		function getAspectRatio(t, e) {
+			let n = (t / e).toFixed(2);
+			let i = reduceRatio(t, e);
+			return [n, i];
+		}
+
 		function getWidth(t, e) {
-			let n = Math.pow(Math.pow(t, 2) / (1 + Math.pow(1 / e, 2)), .5);
+			let n = Math.pow(Math.pow(t, 2) / (1 + Math.pow(1 / e, 2)), 0.5);
 			return {
-				'in': n.toFixed(1),
+				in: n.toFixed(1),
 				cm: inToCm(n).toFixed(1)
 			};
 		}
 
 		function getHeight(t, e) {
-			let n = Math.pow(Math.pow(t, 2) / (1 + Math.pow(e, 2)), .5);
+			let n = Math.pow(Math.pow(t, 2) / (1 + Math.pow(e, 2)), 0.5);
 			return {
-				'in': n.toFixed(1),
+				in: n.toFixed(1),
 				cm: inToCm(n).toFixed(1)
 			};
-		}
-
-		function getAspectRatio(t, e) {
-			let n = (t / e).toFixed(2),
-				i = reduceRatio(t, e);
-			return [n, i];
 		}
 
 		function getDotPitch(t, e) {
 			let n = t / e;
 			return {
-				'in': n.toFixed(3),
+				in: n.toFixed(3),
 				mm: (10 * inToCm(n)).toFixed(3)
 			};
 		}
@@ -182,8 +195,8 @@
 					cm: inToCm(t / 1.4).toFixed(1)
 				},
 				max: {
-					ft: inToFt(t / .52).toFixed(1),
-					m: inToMt(t / .52).toFixed(2),
+					ft: inToFt(t / 0.52).toFixed(1),
+					m: inToMt(t / 0.52).toFixed(2),
 					cm: inToCm(t / 0.52).toFixed(1)
 				}
 			};
@@ -201,54 +214,165 @@
 			};
 		}
 
-		function updateData() {
-			let t = parseInt(document.getElementById('tamanio').value),
-				e = parseInt(document.getElementById('px-largo').value),
-				n = parseInt(document.getElementById('px-alto').value);
-
-			e || n || (e = screen.width, n = screen.height, document.getElementById('px-largo').value = e, document.getElementById('px-alto').value = n);
-
+		function updateData(t, e, n) {
 			let i = getAspectRatio(e, n),
 				o = getPPI(t, e, n),
 				r = getWidth(t, i[0]),
 				m = getHeight(t, i[0]),
-				u = getDotPitch(r['in'], e),
-				d = getDotPitch(m['in'], n),
-				a = viewingDistance(r['in']),
-				c = eyesLimit(u['in'], d['in']);
+				u = getDotPitch(r.in, e),
+				d = getDotPitch(m.in, n),
+				a = viewingDistance(r.in),
+				c = eyesLimit(u.in, d.in);
 
-			document.getElementById('result_size').innerHTML = t;
-			document.getElementById('result_res').innerHTML = e + 'x' + n;
-			document.getElementById('result_ratio').innerHTML = i[0] + ':1 (' + i[1] + ')';
-			document.getElementById('result_wsize').innerHTML = r['in'] + '" (' + r.cm + 'cm)';
-			document.getElementById('result_hsize').innerHTML = m['in'] + '" (' + m.cm + 'cm)';
-			document.getElementById('result_dot_pitch').innerHTML = u['in'] + '" (' + u.mm + 'mm)';
-			document.getElementById('result_ppi').innerHTML = o + 'ppi';
-
-			document.getElementById('result_min_dist_m').innerHTML = a.min.m;
-			document.getElementById('result_max_dist_m').innerHTML = a.max.m;
-			document.getElementById('result_eyes_limit_m').innerHTML = c.m;
-
-			document.getElementById('result_min_dist_cm').innerHTML = a.min.cm;
-			document.getElementById('result_max_dist_cm').innerHTML = a.max.cm;
-			document.getElementById('result_eyes_limit_cm').innerHTML = c.cm;
-
-			document.getElementById('result_min_dist_ft').innerHTML = a.min.ft;
-			document.getElementById('result_max_dist_ft').innerHTML = a.max.ft;
-			document.getElementById('result_eyes_limit_ft').innerHTML = c.ft;
-
-			document.getElementById('results').style.display = 'block';
+			return {
+				size: t,
+				res: e + 'x' + n,
+				ratio: i[0] + ':1 (' + i[1] + ')',
+				wsize: {
+					in: r.in,
+					cm: r.cm
+				},
+				hsize: {
+					in: m.in,
+					cm: m.cm
+				},
+				pixel_pitch: {
+					in: u.in,
+					mm: u.mm
+				},
+				ppi: o,
+				min_dist: {
+					m: a.min.m,
+					cm: a.min.cm,
+					ft: a.min.ft
+				},
+				max_dist: {
+					m: a.max.m,
+					cm: a.max.cm,
+					ft: a.max.ft
+				},
+				eyes_limit: {
+					m: c.m,
+					cm: c.cm,
+					ft: c.ft
+				}
+			};
 		}
+
+		let res_tamanios = {
+			tamanios: [
+				15,
+				21.5,
+				24,
+				27,
+				28,
+				30,
+				32,
+				34
+			],
+			resoluciones: [
+				{
+					nombre: '768p',
+					w: 1366,
+					h: 768
+				},
+				{
+					nombre: 'FullHD',
+					w: 1920,
+					h: 1080
+				},
+				{
+					nombre: 'UWFHD',
+					w: 2560,
+					h: 1080
+				},
+				{
+					nombre: '1440p',
+					w: 2560,
+					h: 1440
+				},
+				{
+					nombre: '4K',
+					w: 3840,
+					h: 2160
+				},
+				{
+					nombre: '5K2K',
+					w: 5120,
+					h: 2160
+				},
+			],
+		};
 
 		$(function() {
 			$('#calc-distancia').on('click', function() {
-				if(!$('#tamanio').val() && !$('#px-largo').val() && !$('#px-alto').val()) {
-					$('#tamanio').val(24);
-					$('#px-largo').val(1920);
-					$('#px-alto').val(1080);
+				let tamanio = $('#tamanio').val();
+				let px_largo = $('#px-largo').val();
+				let px_alto = $('#px-alto').val();
+
+				if(!tamanio || !px_largo || !px_alto) {
+					tamanio = 24;
+					px_largo = 1920;
+					px_alto = 1080;
+
+					$('#tamanio').val(tamanio);
+					$('#px-largo').val(px_largo);
+					$('#px-alto').val(px_alto);
 				}
-				updateData();
+
+				let result = updateData(tamanio, px_largo, px_alto);
+
+				document.getElementById('result_size').innerHTML = result.size;
+				document.getElementById('result_res').innerHTML = result.res;
+				document.getElementById('result_ratio').innerHTML = result.ratio;
+				document.getElementById('result_wsize').innerHTML = `${result.wsize.in}" (${result.wsize.cm}cm)`;
+				document.getElementById('result_hsize').innerHTML = `${result.hsize.in}" (${result.hsize.cm}cm)`;
+				document.getElementById('result_dot_pitch').innerHTML = `${result.pixel_pitch.in}" (${result.pixel_pitch.mm}mm)`;
+				document.getElementById('result_ppi').innerHTML = result.ppi + 'ppi';
+
+				document.getElementById('result_min_dist_m').innerHTML = result.min_dist.m;
+				document.getElementById('result_max_dist_m').innerHTML = result.max_dist.m;
+				document.getElementById('result_eyes_limit_m').innerHTML = result.eyes_limit.m;
+
+				document.getElementById('result_min_dist_cm').innerHTML = result.min_dist.cm;
+				document.getElementById('result_max_dist_cm').innerHTML = result.max_dist.cm;
+				document.getElementById('result_eyes_limit_cm').innerHTML = result.eyes_limit.cm;
+
+				document.getElementById('result_min_dist_ft').innerHTML = result.min_dist.ft;
+				document.getElementById('result_max_dist_ft').innerHTML = result.max_dist.ft;
+				document.getElementById('result_eyes_limit_ft').innerHTML = result.eyes_limit.ft;
+
+				$('#results').show();
 			});
+
+			let header = '';
+			let header2 = '';
+			let header3 = '';
+			let renglones = '';
+
+			$.each(res_tamanios.tamanios, (i, tamanio_pantalla) => {
+				header = `<th>Res</th>`;
+				header2 = `<th>px</th>`;
+				header3 = `<th>pulg</th>`;
+				let renglon = `<th>${tamanio_pantalla}</th>`;
+
+				$.each(res_tamanios.resoluciones, (i, resolucion) => {
+					let result = updateData(tamanio_pantalla, resolucion.w, resolucion.h);
+
+					header += `<th colspan="2">${resolucion.nombre}</th>`;
+					header2 += `<td colspan="2">${resolucion.w}x${resolucion.h}</td>`;
+					header3 += `<th>ppi</th><th>dist(cm)</th>`;
+					renglon += `<td>${result.ppi}</td><td>${result.eyes_limit.cm}</td>`;
+				});
+
+				renglones += `<tr>${renglon}</tr>`;
+			});
+
+			let tabla = `
+				<thead><tr>${header}</tr><tr>${header2}</tr><tr>${header3}</tr></thead>
+				<tbody>${renglones}</tbody>
+			`;
+			$('#ppi-dist').append(tabla);
 		});
 	</script>
 </body>
