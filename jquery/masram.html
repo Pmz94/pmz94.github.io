@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Descargar mas memoria RAM</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/jquerystyle.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+</head>
+
+<style>
+	body {
+		background: #dedede url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+	}
+
+	.box {
+		border-radius: 10px;
+		border: 1px solid #dedede;
+		padding: 10px;
+		box-shadow: 0 0 20px 0;
+		margin: 0 5px 10px 5px;
+	}
+
+	#myProgress {
+		width: 100%;
+		background-color: grey;
+	}
+
+	#myBar {
+		width: 0;
+		height: 30px;
+		background-color: #4caf50;
+		text-align: center; /* To center it horizontally (if you want) */
+		line-height: 30px; /* To center it vertically */
+		color: white;
+	}
+
+	#download, #ver {
+		margin: 10px 10px 0;
+	}
+</style>
+
+<body>
+	<nav class="navbar navbar-white bg-jq navbar-expand-md">
+		<div class="container">
+			<a href="../index.html" class="navbar-brand">
+				<img src="../pagpersonal/assets/img/navbar/benny.png" alt="Benny" title="Volver a la pagina principal" class="benny-logo">
+			</a>
+			<span class="navbar-text">Calcular consumo de gasolina</span>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars fa-sm"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="gasolina.html" class="nav-link">Gasolina</a>
+					</li>
+					<li class="nav-item">
+						<a href="viewdistance.html" class="nav-link">Distancia</a>
+					</li>
+					<li class="nav-item">
+						<a href="masram.html" class="nav-link">Mas RAM</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<section class="container py-3">
+
+		<div class="row justify-content-center text-center">
+			<div class="col-auto">
+				<div class="box">
+					<h5>Descargar 64GB de RAM</h5>
+					<div id="myProgress">
+						<div id="myBar"></div>
+					</div>
+					<button id="download" class="btn btn-jq">Descargar</button>
+					<button id="ver" class="btn btn-success" style="display: none" disabled>Instalar RAM</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			let i = 0;
+
+			$('#download').on('click', function() {
+				$(this).hide();
+				if(i === 0) {
+					i = 1;
+					let $bar = $('#myBar');
+					let width = 0;
+					let id = setInterval(() => {
+						if(width >= 100) {
+							clearInterval(id);
+							i = 0;
+							$('#ver').prop('disabled', false).show();
+						} else {
+							width++;
+							$bar.css('width', `${width}%`);
+							$bar.text(`${width}%`);
+						}
+					}, 20);
+				}
+			});
+
+			$('#ver').on('click', function() {
+				window.location.href = 'https://youtu.be/dQw4w9WgXcQ';
+			});
+		});
+	</script>
+</body>
+
+</html>
