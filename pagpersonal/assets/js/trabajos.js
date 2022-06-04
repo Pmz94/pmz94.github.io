@@ -1,6 +1,6 @@
 let trabajos = [
 	{
-		'titulo': 'Aplicacion movil',
+		'titulo': 'Aplicacion movil de AYA10',
 		'descripcion': 'Version movil del sistema de educacion en linea. CSWeb.',
 		'tiempo': '2019-V -',
 		'icono1': 'cellphone.png',
@@ -37,7 +37,7 @@ let trabajos = [
 	},
 	{
 		'titulo': 'Sistema de cobranza',
-		'descripcion': 'Opcion de pago en linea integrando el API de PayPal al portal de alumnos. CSWeb.',
+		'descripcion': 'Integracion de PayPal como opcion de pago al portal de alumnos. CSWeb.',
 		'tiempo': '2018-1',
 		'icono1': 'pplogo.png',
 		'icono2': 'dollarsign.png',
