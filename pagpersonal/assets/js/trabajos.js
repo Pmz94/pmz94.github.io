@@ -2,7 +2,7 @@ let trabajos = [
 	{
 		'titulo': 'Aplicacion movil de AYA10',
 		'descripcion': 'Version movil del sistema de educacion en linea. CSWeb.',
-		'tiempo': '2019-V -',
+		'tiempo': '2019-V - 2023-1',
 		'icono1': 'cellphone.png',
 		'icono2': 'cog.png',
 		'altico1': '*celular*',
